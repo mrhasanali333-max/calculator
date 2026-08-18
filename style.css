@@ -5,15 +5,14 @@
 }
 
 body {
-   min-height: 100vh;
+ min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: #172033;
 
-    background: linear-gradient(
-        135deg,
-        #dff1ff,
-        #eef8ff,
-        #cfe9ff
+    background: linear-gradient(135deg, #dbeeff, #f5faff);
+
+    display: flex;
+    flex-direction: column;
     );
 
     display: flex;
