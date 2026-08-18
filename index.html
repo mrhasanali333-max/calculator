@@ -3,40 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Calculator</title>
+
+    <title>Fast Calculator | Free Online Calculator</title>
+    <meta name="description" content="Fast Calculator - Simple, fast and accurate online calculator by Hasan Ali.">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">DEL</button>
-            <button onclick="addToDisplay('%')">%</button>
-            <button onclick="addToDisplay('/')">÷</button>
-
-            <button onclick="addToDisplay('7')">7</button>
-            <button onclick="addToDisplay('8')">8</button>
-            <button onclick="addToDisplay('9')">9</button>
-            <button onclick="addToDisplay('*')">×</button>
-
-            <button onclick="addToDisplay('4')">4</button>
-            <button onclick="addToDisplay('5')">5</button>
-            <button onclick="addToDisplay('6')">6</button>
-            <button onclick="addToDisplay('-')">−</button>
-
-            <button onclick="addToDisplay('1')">1</button>
-            <button onclick="addToDisplay('2')">2</button>
-            <button onclick="addToDisplay('3')">3</button>
-            <button onclick="addToDisplay('+')">+</button>
-
-            <button onclick="addToDisplay('0')" class="zero">0</button>
-            <button onclick="addToDisplay('.')">.</button>
-            <button onclick="calculate()">=</button>
+    <header class="site-header">
+        <div class="brand">
+            <div class="logo">FC</div>
+            <div>
+                <h1>Fast Calculator</h1>
+                <p>Simple, Fast &amp; Accurate</p>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main class="main-content">
+
+        <section class="calculator-section">
+
+            <div class="calculator">
+                <input type="text" id="display" readonly aria-label="Calculator display">
+
+                <div class="buttons">
+                    <button onclick="clearDisplay()" class="function">C</button>
+                    <button onclick="deleteLast()" class="function">DEL</button>
+                    <button onclick="addToDisplay('%')" class="function">%</button>
+                    <button onclick="addToDisplay('/')" class="operator">÷</button>
+
+                    <button onclick="addToDisplay('7')">7</button>
+                    <button onclick="addToDisplay('8')">8</button>
+                    <button onclick="addToDisplay('9')">9</button>
+                    <button onclick="addToDisplay('*')" class="operator">×</button>
+
+                    <button onclick="addToDisplay('4')">4</button>
+                    <button onclick="addToDisplay('5')">5</button>
+                    <button onclick="addToDisplay('6')">6</button>
+                    <button onclick="addToDisplay('-')" class="operator">−</button>
+
+                    <button onclick="addToDisplay('1')">1</button>
+                    <button onclick="addToDisplay('2')">2</button>
+                    <button onclick="addToDisplay('3')">3</button>
+                    <button onclick="addToDisplay('+')" class="operator">+</button>
+
+                    <button onclick="addToDisplay('0')" class="zero">0</button>
+                    <button onclick="addToDisplay('.')">.</button>
+                    <button onclick="calculate()" class="equals">=</button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <h2>Fast Calculator</h2>
+        <p>Owned &amp; Managed by <strong>Hasan Ali</strong></p>
+        <p>216A Watford Road, Chiswell Green, St Albans, AL2 3EA, UK</p>
+        <p class="copyright">&copy; 2026 Fast Calculator. All Rights Reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 
