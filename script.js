@@ -1,71 +1,35 @@
-// ========================================
-// Calculator-1.com Calculator
-// ========================================
-
 let expression = "";
 
-const display = document.getElementById("display");
-
-
-// ========================================
-// SHOW DISPLAY
-// ========================================
+function getDisplay() {
+    return document.getElementById("display");
+}
 
 function updateDisplay() {
+    const display = getDisplay();
 
     if (display) {
         display.value = expression || "0";
     }
-
 }
-
-
-// ========================================
-// ADD NUMBER / OPERATOR
-// ========================================
 
 function addToDisplay(value) {
-
     expression += value;
-
     updateDisplay();
-
 }
-
-
-// ========================================
-// CLEAR
-// ========================================
 
 function clearDisplay() {
-
     expression = "";
-
     updateDisplay();
-
 }
-
-
-// ========================================
-// DELETE LAST
-// ========================================
 
 function deleteLast() {
-
     expression = expression.slice(0, -1);
-
     updateDisplay();
-
 }
-
-
-// ========================================
-// CALCULATE
-// ========================================
 
 function calculate() {
 
-    if (expression === "") {
+    if (!expression) {
         return;
     }
 
@@ -73,20 +37,14 @@ function calculate() {
 
         let calculation = expression;
 
-        // Percentage
         calculation = calculation.replace(
             /(\d+(?:\.\d+)?)%/g,
             "($1/100)"
         );
 
-
-        // Only allow calculator characters
         if (!/^[0-9+\-*/().%\s]+$/.test(calculation)) {
-
             throw new Error("Invalid calculation");
-
         }
-
 
         const result = Function(
             '"use strict"; return (' +
@@ -94,103 +52,61 @@ function calculate() {
             ')'
         )();
 
-
         if (!Number.isFinite(result)) {
-
             throw new Error("Invalid result");
-
         }
-
 
         expression = String(result);
 
         updateDisplay();
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         expression = "";
 
+        const display = getDisplay();
+
         if (display) {
-
             display.value = "Error";
-
         }
-
     }
-
 }
 
+document.addEventListener("keydown", function(event) {
 
-// ========================================
-// KEYBOARD SUPPORT
-// ========================================
+    const key = event.key;
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+    if (/^[0-9]$/.test(key)) {
 
-        const key = event.key;
+        addToDisplay(key);
 
+    } else if (
+        ["+", "-", "*", "/", ".", "%", "(", ")"].includes(key)
+    ) {
 
-        // Numbers
-        if (/^[0-9]$/.test(key)) {
+        addToDisplay(key);
 
-            addToDisplay(key);
+    } else if (
+        key === "Enter" ||
+        key === "="
+    ) {
 
-        }
+        event.preventDefault();
+        calculate();
 
+    } else if (key === "Backspace") {
 
-        // Operators
-        else if (
-            ["+", "-", "*", "/", ".", "%", "(", ")"]
-            .includes(key)
-        ) {
+        deleteLast();
 
-            addToDisplay(key);
+    } else if (key === "Escape") {
 
-        }
-
-
-        // Enter
-        else if (
-            key === "Enter" ||
-            key === "="
-        ) {
-
-            event.preventDefault();
-
-            calculate();
-
-        }
-
-
-        // Backspace
-        else if (
-            key === "Backspace"
-        ) {
-
-            deleteLast();
-
-        }
-
-
-        // Escape
-        else if (
-            key === "Escape"
-        ) {
-
-            clearDisplay();
-
-        }
+        clearDisplay();
 
     }
-);
+
+});
 
 
-// ========================================
-// START
-// ========================================
-
-updateDisplay();
+document.addEventListener("DOMContentLoaded", function() {
+    updateDisplay();
+});
