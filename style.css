@@ -7,7 +7,7 @@
 body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background:  linear-gradient(135deg, #eaf4ff, #f8fbff);
+    background:  linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
     
     color: #172033;
     display: flex;
