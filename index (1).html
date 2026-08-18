@@ -3,136 +3,1071 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Calculator-1.com | Free Online Calculators</title>
-  <meta name="description" content="Free online, scientific, tip, percentage, root and length calculators.">
+
+  <meta
+    name="description"
+    content="Free online calculators including online, scientific, simple, tip, percentage, root calculator and length converter."
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<!-- ================= HEADER ================= -->
+
 <header class="site-header">
-  <div class="header-inner">
-    <div>
-      <div class="logo">Calculator-1.com</div>
-      <div class="tagline">quick, easy and handy calculator online</div>
+
+  <div class="header-container">
+
+    <div class="brand">
+
+      <a href="#home">
+        Calculator-1<span>.com</span>
+      </a>
+
+      <p>
+        quick, easy and handy calculator online
+      </p>
+
     </div>
-    <div class="favorite">★ Add to Favorites</div>
+
+    <button
+      class="favorite-btn"
+      onclick="addFavorite()"
+    >
+      ★ Add to Favorites
+    </button>
+
   </div>
+
 </header>
 
-<nav class="nav">
-  <button class="nav-toggle" aria-label="Open menu">☰ Menu</button>
-  <div class="nav-links">
-    <a href="#online" class="active">Online Calculator</a>
-    <a href="#scientific">Scientific Calculator</a>
-    <a href="#simple">Simple Calculator</a>
-    <a href="#tip">Tip Calculator</a>
-    <a href="#percentage">Percentage Calculator</a>
-    <a href="#root">Root Calculator</a>
-    <a href="#length">Length Converter</a>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="navigation">
+
+  <div class="navigation-container">
+
+    <button
+      class="mobile-menu"
+      onclick="toggleMenu()"
+    >
+      ☰ Menu
+    </button>
+
+    <div
+      class="navigation-links"
+      id="navigationLinks"
+    >
+
+      <a href="#home">Home</a>
+
+      <a href="#online">Online Calculator</a>
+
+      <a href="#scientific">
+        Scientific Calculator
+      </a>
+
+      <a href="#tip">
+        Tip Calculator
+      </a>
+
+      <a href="#percentage">
+        Percentage Calculator
+      </a>
+
+      <a href="#root">
+        Root Calculator
+      </a>
+
+      <a href="#length">
+        Length Converter
+      </a>
+
+    </div>
+
   </div>
+
 </nav>
 
-<main>
+
+<!-- ================= MAIN ================= -->
+
+<main id="home">
+
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
-  <h1>Online Calculator</h1>
-  <p class="subtitle">Free, fast and easy calculators & converters</p>
-  <div class="calculator-card">
-    <div class="calc-brand">★ Add to Favorites <span>Calculator-1.com</span></div>
-    <input id="display" class="display" value="0" readonly aria-label="Calculator display">
-    <div class="keypad" id="keypad">
-      <button data-action="clear">AC</button><button data-action="back">⌫</button>
-      <button data-value="(">(</button><button data-value=")">)</button>
-      <button data-value="%">%</button><button data-action="divide">÷</button>
-      <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button data-value="*">×</button>
-      <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button data-value="-">−</button>
-      <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button data-value="+">+</button>
-      <button data-value="0" class="zero">0</button><button data-value=".">.</button><button data-action="equals" class="equals">=</button>
+
+  <div class="hero-content">
+
+    <span class="hero-label">
+      FREE ONLINE TOOLS
+    </span>
+
+    <h1>
+      Calculators made
+      <span>simple.</span>
+    </h1>
+
+    <p>
+      Fast, accurate and easy-to-use calculators
+      for everyday needs.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CALCULATOR BUTTONS ================= -->
+
+<section class="calculator-section">
+
+  <h2>
+    Choose Your Calculator
+  </h2>
+
+  <p class="section-description">
+    Select a calculator to get started
+  </p>
+
+
+  <div class="calculator-grid">
+
+
+    <!-- ONLINE -->
+
+    <button
+      class="calculator-card blue"
+      onclick="openCalculator('online')"
+    >
+
+      <div class="calculator-icon">
+        🧮
+      </div>
+
+      <h3>
+        Online Calculator
+      </h3>
+
+      <p>
+        Basic calculations
+      </p>
+
+    </button>
+
+
+
+    <!-- SCIENTIFIC -->
+
+    <button
+      class="calculator-card purple"
+      onclick="openCalculator('scientific')"
+    >
+
+      <div class="calculator-icon">
+        🔬
+      </div>
+
+      <h3>
+        Scientific Calculator
+      </h3>
+
+      <p>
+        Advanced mathematics
+      </p>
+
+    </button>
+
+
+
+    <!-- SIMPLE -->
+
+    <button
+      class="calculator-card green"
+      onclick="openCalculator('simple')"
+    >
+
+      <div class="calculator-icon">
+        ➕
+      </div>
+
+      <h3>
+        Simple Calculator
+      </h3>
+
+      <p>
+        Quick arithmetic
+      </p>
+
+    </button>
+
+
+
+    <!-- TIP -->
+
+    <button
+      class="calculator-card orange"
+      onclick="openCalculator('tip')"
+    >
+
+      <div class="calculator-icon">
+        💰
+      </div>
+
+      <h3>
+        Tip Calculator
+      </h3>
+
+      <p>
+        Tip & total bill
+      </p>
+
+    </button>
+
+
+
+    <!-- PERCENTAGE -->
+
+    <button
+      class="calculator-card teal"
+      onclick="openCalculator('percentage')"
+    >
+
+      <div class="calculator-icon">
+        ％
+      </div>
+
+      <h3>
+        Percentage Calculator
+      </h3>
+
+      <p>
+        Percent & change
+      </p>
+
+    </button>
+
+
+
+    <!-- ROOT -->
+
+    <button
+      class="calculator-card pink"
+      onclick="openCalculator('root')"
+    >
+
+      <div class="calculator-icon">
+        √
+      </div>
+
+      <h3>
+        Root Calculator
+      </h3>
+
+      <p>
+        Square & nth root
+      </p>
+
+    </button>
+
+
+
+    <!-- LENGTH -->
+
+    <button
+      class="calculator-card cyan"
+      onclick="openCalculator('length')"
+    >
+
+      <div class="calculator-icon">
+        📏
+      </div>
+
+      <h3>
+        Length Converter
+      </h3>
+
+      <p>
+        Convert measurements
+      </p>
+
+    </button>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ONLINE CALCULATOR -->
+<!-- ================================================= -->
+
+<section
+  id="online"
+  class="calculator-tool active"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      🧮
     </div>
+
+    <div>
+
+      <h2>
+        Online Calculator
+      </h2>
+
+      <p>
+        Basic calculator for everyday calculations
+      </p>
+
+    </div>
+
   </div>
+
+
+  <div class="calculator-box">
+
+    <div
+      id="display"
+      class="calculator-display"
+    >
+      0
+    </div>
+
+
+    <div class="calculator-buttons">
+
+
+      <button
+        class="function"
+        onclick="clearCalculator()"
+      >
+        AC
+      </button>
+
+
+      <button
+        class="function"
+        onclick="deleteNumber()"
+      >
+        ⌫
+      </button>
+
+
+      <button
+        class="function"
+        onclick="addNumber('%')"
+      >
+        %
+      </button>
+
+
+      <button
+        class="operator"
+        onclick="addNumber('/')"
+      >
+        ÷
+      </button>
+
+
+      <button onclick="addNumber('7')">
+        7
+      </button>
+
+      <button onclick="addNumber('8')">
+        8
+      </button>
+
+      <button onclick="addNumber('9')">
+        9
+      </button>
+
+      <button
+        class="operator"
+        onclick="addNumber('*')"
+      >
+        ×
+      </button>
+
+
+      <button onclick="addNumber('4')">
+        4
+      </button>
+
+      <button onclick="addNumber('5')">
+        5
+      </button>
+
+      <button onclick="addNumber('6')">
+        6
+      </button>
+
+      <button
+        class="operator"
+        onclick="addNumber('-')"
+      >
+        −
+      </button>
+
+
+      <button onclick="addNumber('1')">
+        1
+      </button>
+
+      <button onclick="addNumber('2')">
+        2
+      </button>
+
+      <button onclick="addNumber('3')">
+        3
+      </button>
+
+      <button
+        class="operator"
+        onclick="addNumber('+')"
+      >
+        +
+      </button>
+
+
+      <button
+        class="zero"
+        onclick="addNumber('0')"
+      >
+        0
+      </button>
+
+      <button onclick="addNumber('.')">
+        .
+      </button>
+
+      <button
+        class="equals"
+        onclick="calculate()"
+      >
+        =
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section class="tools">
-  <h2>All Calculators & Converters</h2>
-  <div class="tool-grid">
-    <a href="#online">🧮 <b>Online Calculator</b><small>Basic arithmetic calculations.</small></a>
-    <a href="#scientific">🔬 <b>Scientific Calculator</b><small>Trigonometry, log, powers and roots.</small></a>
-    <a href="#simple">➕ <b>Simple Calculator</b><small>Add, subtract, multiply and divide.</small></a>
-    <a href="#tip">💰 <b>Tip Calculator</b><small>Calculate tip and total bill.</small></a>
-    <a href="#percentage">％ <b>Percentage Calculator</b><small>Percentage, increase and decrease.</small></a>
-    <a href="#root">√ <b>Root Calculator</b><small>Square, cube and nth roots.</small></a>
-    <a href="#length">📏 <b>Length Converter</b><small>mm, cm, m, km, inch, feet and miles.</small></a>
+
+
+<!-- ================================================= -->
+<!-- SCIENTIFIC CALCULATOR -->
+<!-- ================================================= -->
+
+<section
+  id="scientific"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      🔬
+    </div>
+
+    <div>
+
+      <h2>
+        Scientific Calculator
+      </h2>
+
+      <p>
+        Advanced mathematical calculations
+      </p>
+
+    </div>
+
   </div>
+
+
+  <div class="scientific-box">
+
+    <input
+      id="scientificDisplay"
+      value="0"
+      readonly
+    >
+
+
+    <div class="scientific-buttons">
+
+      <button onclick="scientific('sin')">
+        sin
+      </button>
+
+      <button onclick="scientific('cos')">
+        cos
+      </button>
+
+      <button onclick="scientific('tan')">
+        tan
+      </button>
+
+      <button onclick="scientific('sqrt')">
+        √
+      </button>
+
+
+      <button onclick="scientific('log')">
+        log
+      </button>
+
+      <button onclick="scientific('ln')">
+        ln
+      </button>
+
+      <button onclick="scientific('square')">
+        x²
+      </button>
+
+      <button onclick="scientific('cube')">
+        x³
+      </button>
+
+
+      <button onclick="scientific('pi')">
+        π
+      </button>
+
+      <button onclick="scientific('clear')">
+        AC
+      </button>
+
+      <button onclick="scientific('back')">
+        ⌫
+      </button>
+
+      <button onclick="scientific('equal')">
+        =
+      </button>
+
+
+      <button onclick="scientificInput('7')">
+        7
+      </button>
+
+      <button onclick="scientificInput('8')">
+        8
+      </button>
+
+      <button onclick="scientificInput('9')">
+        9
+      </button>
+
+      <button onclick="scientificInput('+')">
+        +
+      </button>
+
+
+      <button onclick="scientificInput('4')">
+        4
+      </button>
+
+      <button onclick="scientificInput('5')">
+        5
+      </button>
+
+      <button onclick="scientificInput('6')">
+        6
+      </button>
+
+      <button onclick="scientificInput('-')">
+        −
+      </button>
+
+
+      <button onclick="scientificInput('1')">
+        1
+      </button>
+
+      <button onclick="scientificInput('2')">
+        2
+      </button>
+
+      <button onclick="scientificInput('3')">
+        3
+      </button>
+
+      <button onclick="scientificInput('*')">
+        ×
+      </button>
+
+
+      <button onclick="scientificInput('0')">
+        0
+      </button>
+
+      <button onclick="scientificInput('.')">
+        .
+      </button>
+
+      <button onclick="scientificInput('/')">
+        ÷
+      </button>
+
+      <button onclick="scientific('equal')">
+        =
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="scientific" class="panel">
-  <h2>Scientific Calculator</h2>
-  <input id="sciDisplay" class="wide-input" value="0" readonly>
-  <div class="sci-grid">
-    <button onclick="sci('sin')">sin</button><button onclick="sci('cos')">cos</button><button onclick="sci('tan')">tan</button>
-    <button onclick="sci('log')">log</button><button onclick="sci('ln')">ln</button><button onclick="sci('sqrt')">√</button>
-    <button onclick="sci('square')">x²</button><button onclick="sci('cube')">x³</button><button onclick="sci('pi')">π</button>
-    <button onclick="sci('clear')">AC</button><button onclick="sci('back')">⌫</button><button onclick="sci('equals')">=</button>
-    <button onclick="sciVal('7')">7</button><button onclick="sciVal('8')">8</button><button onclick="sciVal('9')">9</button>
-    <button onclick="sciVal('4')">4</button><button onclick="sciVal('5')">5</button><button onclick="sciVal('6')">6</button>
-    <button onclick="sciVal('1')">1</button><button onclick="sciVal('2')">2</button><button onclick="sciVal('3')">3</button>
-    <button onclick="sciVal('0')">0</button><button onclick="sciVal('.')">.</button><button onclick="sciVal('+')">+</button>
+
+
+<!-- ================================================= -->
+<!-- SIMPLE CALCULATOR -->
+<!-- ================================================= -->
+
+<section
+  id="simple"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      ➕
+    </div>
+
+    <div>
+
+      <h2>
+        Simple Calculator
+      </h2>
+
+      <p>
+        Addition, subtraction, multiplication and division
+      </p>
+
+    </div>
+
   </div>
+
+
+  <div class="form-box">
+
+    <input
+      id="simpleFirst"
+      type="number"
+      placeholder="First number"
+    >
+
+
+    <select id="simpleOperator">
+
+      <option value="+">
+        +
+      </option>
+
+      <option value="-">
+        −
+      </option>
+
+      <option value="*">
+        ×
+      </option>
+
+      <option value="/">
+        ÷
+      </option>
+
+    </select>
+
+
+    <input
+      id="simpleSecond"
+      type="number"
+      placeholder="Second number"
+    >
+
+
+    <button onclick="simpleCalculate()">
+      Calculate
+    </button>
+
+
+    <div
+      id="simpleResult"
+      class="result"
+    >
+      Result: —
+    </div>
+
+  </div>
+
 </section>
 
-<section id="simple" class="panel">
-  <h2>Simple Calculator</h2>
-  <div class="form-grid">
-    <input id="simpleA" type="number" placeholder="First number">
-    <select id="simpleOp"><option value="+">+</option><option value="-">−</option><option value="*">×</option><option value="/">÷</option></select>
-    <input id="simpleB" type="number" placeholder="Second number">
+
+
+<!-- ================================================= -->
+<!-- TIP CALCULATOR -->
+<!-- ================================================= -->
+
+<section
+  id="tip"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      💰
+    </div>
+
+    <div>
+
+      <h2>
+        Tip Calculator
+      </h2>
+
+      <p>
+        Calculate tip, total bill and amount per person
+      </p>
+
+    </div>
+
   </div>
-  <button class="primary" onclick="simpleCalc()">Calculate</button>
-  <div id="simpleResult" class="result">Result: —</div>
+
+
+  <div class="form-box">
+
+    <input
+      id="billAmount"
+      type="number"
+      placeholder="Bill amount"
+    >
+
+
+    <input
+      id="tipPercentage"
+      type="number"
+      value="15"
+      placeholder="Tip percentage"
+    >
+
+
+    <input
+      id="numberPeople"
+      type="number"
+      value="1"
+      min="1"
+      placeholder="Number of people"
+    >
+
+
+    <button onclick="calculateTip()">
+      Calculate Tip
+    </button>
+
+
+    <div
+      id="tipResult"
+      class="result"
+    >
+      Tip: — | Total: — | Per Person: —
+    </div>
+
+  </div>
+
 </section>
 
-<section id="tip" class="panel">
-  <h2>Tip Calculator</h2>
-  <div class="form-grid">
-    <input id="bill" type="number" min="0" placeholder="Bill amount">
-    <input id="tipPercent" type="number" min="0" value="15" placeholder="Tip %">
-    <input id="people" type="number" min="1" value="1" placeholder="People">
+
+
+<!-- ================================================= -->
+<!-- PERCENTAGE -->
+<!-- ================================================= -->
+
+<section
+  id="percentage"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      ％
+    </div>
+
+    <div>
+
+      <h2>
+        Percentage Calculator
+      </h2>
+
+      <p>
+        Calculate percentage of any number
+      </p>
+
+    </div>
+
   </div>
-  <button class="primary" onclick="tipCalc()">Calculate Tip</button>
-  <div id="tipResult" class="result">Tip: — | Total: — | Per person: —</div>
+
+
+  <div class="form-box">
+
+    <input
+      id="percentageNumber"
+      type="number"
+      placeholder="Number"
+    >
+
+
+    <input
+      id="percentageValue"
+      type="number"
+      placeholder="Percentage"
+    >
+
+
+    <button onclick="calculatePercentage()">
+      Calculate Percentage
+    </button>
+
+
+    <div
+      id="percentageResult"
+      class="result"
+    >
+      Result: —
+    </div>
+
+  </div>
+
 </section>
 
-<section id="percentage" class="panel">
-  <h2>Percentage Calculator</h2>
-  <div class="form-grid">
-    <input id="pctA" type="number" placeholder="Number">
-    <input id="pctB" type="number" placeholder="Percentage">
+
+
+<!-- ================================================= -->
+<!-- ROOT -->
+<!-- ================================================= -->
+
+<section
+  id="root"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      √
+    </div>
+
+    <div>
+
+      <h2>
+        Root Calculator
+      </h2>
+
+      <p>
+        Calculate square root, cube root and nth root
+      </p>
+
+    </div>
+
   </div>
-  <button class="primary" onclick="percentCalc()">Calculate</button>
-  <div id="pctResult" class="result">Result: —</div>
+
+
+  <div class="form-box">
+
+    <input
+      id="rootNumber"
+      type="number"
+      placeholder="Number"
+    >
+
+
+    <input
+      id="rootDegree"
+      type="number"
+      value="2"
+      min="1"
+      placeholder="Root degree"
+    >
+
+
+    <button onclick="calculateRoot()">
+      Calculate Root
+    </button>
+
+
+    <div
+      id="rootResult"
+      class="result"
+    >
+      Result: —
+    </div>
+
+  </div>
+
 </section>
 
-<section id="root" class="panel">
-  <h2>Root Calculator</h2>
-  <div class="form-grid">
-    <input id="rootNumber" type="number" placeholder="Number">
-    <input id="rootDegree" type="number" min="1" value="2" placeholder="Root degree">
+
+
+<!-- ================================================= -->
+<!-- LENGTH CONVERTER -->
+<!-- ================================================= -->
+
+<section
+  id="length"
+  class="calculator-tool"
+>
+
+  <div class="tool-header">
+
+    <div class="tool-icon">
+      📏
+    </div>
+
+    <div>
+
+      <h2>
+        Length Converter
+      </h2>
+
+      <p>
+        Convert between different length units
+      </p>
+
+    </div>
+
   </div>
-  <button class="primary" onclick="rootCalc()">Calculate Root</button>
-  <div id="rootResult" class="result">Result: —</div>
+
+
+  <div class="form-box">
+
+    <input
+      id="lengthValue"
+      type="number"
+      placeholder="Enter value"
+    >
+
+
+    <select id="lengthFrom">
+
+      <option value="mm">
+        Millimeter
+      </option>
+
+      <option value="cm">
+        Centimeter
+      </option>
+
+      <option value="m">
+        Meter
+      </option>
+
+      <option value="km">
+        Kilometer
+      </option>
+
+      <option value="in">
+        Inch
+      </option>
+
+      <option value="ft">
+        Feet
+      </option>
+
+      <option value="yd">
+        Yard
+      </option>
+
+      <option value="mi">
+        Mile
+      </option>
+
+    </select>
+
+
+    <select id="lengthTo">
+
+      <option value="mm">
+        Millimeter
+      </option>
+
+      <option value="cm">
+        Centimeter
+      </option>
+
+      <option value="m">
+        Meter
+      </option>
+
+      <option value="km">
+        Kilometer
+      </option>
+
+      <option value="in">
+        Inch
+      </option>
+
+      <option value="ft">
+        Feet
+      </option>
+
+      <option value="yd">
+        Yard
+      </option>
+
+      <option value="mi">
+        Mile
+      </option>
+
+    </select>
+
+
+    <button onclick="convertLength()">
+      Convert
+    </button>
+
+
+    <div
+      id="lengthResult"
+      class="result"
+    >
+      Result: —
+    </div>
+
+  </div>
+
 </section>
 
-<section id="length" class="panel">
-  <h2>Length Converter</h2>
-  <div class="form-grid">
-    <input id="lengthValue" type="number" placeholder="Value">
-    <select id="fromUnit"><option value="mm">Millimeter</option><option value="cm">Centimeter</option><option value="m">Meter</option><option value="km">Kilometer</option><option value="in">Inch</option><option value="ft">Feet</option><option value="yd">Yard</option><option value="mi">Mile</option></select>
-    <select id="toUnit"><option value="mm">Millimeter</option><option value="cm">Centimeter</option><option value="m">Meter</option><option value="km">Kilometer</option><option value="in">Inch</option><option value="ft">Feet</option><option value="yd">Yard</option><option value="mi">Mile</option></select>
-  </div>
-  <button class="primary" onclick="lengthCalc()">Convert</button>
-  <div id="lengthResult" class="result">Result: —</div>
-</section>
+
 </main>
 
-<footer>© 2026 Calculator-1.com — Free Online Calculators</footer>
+
+
+<footer>
+
+  © 2026 Calculator-1.com
+  — Free Online Calculators
+
+</footer>
+
+
 <script src="script.js"></script>
+
 </body>
 </html>
