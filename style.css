@@ -24,8 +24,11 @@ body {
 .site-header {
     width: 100%;
     padding: 28px 20px;
-   background: linear-gradient(135deg, #dbeeff, #f5faff);
-    color: white;
+background:
+    radial-gradient(circle at 20% 20%, #bfdbfe, transparent 35%),
+    radial-gradient(circle at 80% 80%, #bae6fd, transparent 35%),
+    #eff6ff;   
+
     box-shadow: 0 4px 20px rgba(0, 70, 150, 0.15);
 }
 
