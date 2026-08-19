@@ -1,106 +1,49 @@
-let expression = "";
+// =========================
+// KEYBOARD SUPPORT
+// Prevent duplicate listeners
+// =========================
 
-function getDisplay() {
-    return document.getElementById("display");
-}
+if (!window.fastCalculatorKeyboardLoaded) {
 
-function updateDisplay() {
-    const display = getDisplay();
+    window.fastCalculatorKeyboardLoaded = true;
 
-    if (display) {
-        display.value = expression || "0";
-    }
-}
+    document.addEventListener("keydown", function(event) {
 
-function addToDisplay(value) {
-    expression += value;
-    updateDisplay();
-}
+        const key = event.key;
 
-function clearDisplay() {
-    expression = "";
-    updateDisplay();
-}
-
-function deleteLast() {
-    expression = expression.slice(0, -1);
-    updateDisplay();
-}
-
-function calculate() {
-    if (!expression) return;
-
-    try {
-        let calculation = expression;
-
-        calculation = calculation.replace(
-            /(\d+(?:\.\d+)?)%/g,
-            "($1/100)"
-        );
-
-        if (!/^[0-9+\-*/().%\s]+$/.test(calculation)) {
-            throw new Error("Invalid calculation");
+        // Numbers
+        if (/^[0-9]$/.test(key)) {
+            event.preventDefault();
+            addToDisplay(key);
+            return;
         }
 
-        const result = Function(
-            '"use strict"; return (' + calculation + ')'
-        )();
-
-        if (!Number.isFinite(result)) {
-            throw new Error("Invalid result");
+        // Operators
+        if (["+", "-", "*", "/", ".", "%", "(", ")"].includes(key)) {
+            event.preventDefault();
+            addToDisplay(key);
+            return;
         }
 
-        expression = String(result);
-        updateDisplay();
-
-    } catch (error) {
-        expression = "";
-
-        const display = getDisplay();
-
-        if (display) {
-            display.value = "Error";
+        // Enter / =
+        if (key === "Enter" || key === "=") {
+            event.preventDefault();
+            calculate();
+            return;
         }
-    }
+
+        // Backspace
+        if (key === "Backspace") {
+            event.preventDefault();
+            deleteLast();
+            return;
+        }
+
+        // Escape
+        if (key === "Escape") {
+            event.preventDefault();
+            clearDisplay();
+        }
+
+    });
 }
-
-
-/* =========================
-   KEYBOARD SUPPORT
-========================= */
-
-document.addEventListener("keydown", function(event) {
-
-    const key = event.key;
-
-    if (/^[0-9]$/.test(key)) {
-        addToDisplay(key);
-
-    } else if (
-        ["+", "-", "*", "/", ".", "%", "(", ")"].includes(key)
-    ) {
-        addToDisplay(key);
-
-    } else if (
-        key === "Enter" ||
-        key === "="
-    ) {
-        event.preventDefault();
-        calculate();
-
-    } else if (key === "Backspace") {
-        deleteLast();
-
-    } else if (key === "Escape") {
-        clearDisplay();
-    }
-});
-
-
-/* =========================
-   START CALCULATOR
-========================= */
-
-document.addEventListener("DOMContentLoaded", function() {
-    updateDisplay();
-});
