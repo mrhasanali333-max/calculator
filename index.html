@@ -67,27 +67,30 @@
          AUTH BUTTONS
     ====================================== -->
 
-    <div class="auth-buttons">
+  <div class="auth-buttons">
 
-        <!-- GOOGLE SIGN IN -->
+    <!-- Your visible Sign In button -->
+    <button
+        type="button"
+        id="signInBtn"
+        class="login-btn">
+        Sign In
+    </button>
 
-        <div
-            id="google-signin-button">
-        </div>
+    <button
+        type="button"
+        id="signUpBtn"
+        class="signup-btn">
+        Sign Up
+    </button>
 
+</div>
 
-        <!-- SIGN UP -->
-
-        <button
-            type="button"
-            id="signUpBtn"
-            class="signup-btn">
-
-            Sign Up
-
-        </button>
-
-    </div>
+<!-- Hidden Google button -->
+<div
+    id="google-signin-button"
+    style="display:none;">
+</div>
 
 </header>
 
