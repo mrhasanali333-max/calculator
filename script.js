@@ -296,34 +296,36 @@ signUpBtn.addEventListener("click", function() {
     );
 
 });
-// ============================================
+// =====================================================
 // GOOGLE SIGN IN
-// ============================================
+// =====================================================
 
 const GOOGLE_CLIENT_ID =
     "726205497784-riu677s1uur4tuqa25dherc9ncnklvou.apps.googleusercontent.com";
 
 
-// ============================================
+// =====================================================
 // GOOGLE LOGIN CALLBACK
-// ============================================
+// =====================================================
 
 function handleGoogleLogin(response) {
 
-    console.log("Google Login Successful");
+    console.log("Google login callback received");
 
-    const credential = response.credential;
-
-    const user = parseGoogleJwt(credential);
-
-    if (!user) {
-        console.error("Unable to read Google user.");
+    if (!response || !response.credential) {
+        console.error("Google credential missing");
         return;
     }
 
-    console.log("Google User:", user);
+    const user = parseGoogleJwt(response.credential);
 
-    // Save user
+    if (!user) {
+        console.error("Could not read Google account data");
+        return;
+    }
+
+    console.log("Logged in user:", user);
+
     localStorage.setItem(
         "googleUser",
         JSON.stringify({
@@ -334,21 +336,21 @@ function handleGoogleLogin(response) {
         })
     );
 
-    showGoogleUser(user);
+    updateGoogleUserUI(user);
 }
 
 
-// ============================================
-// READ GOOGLE USER DATA
-// ============================================
+// =====================================================
+// DECODE GOOGLE USER
+// =====================================================
 
 function parseGoogleJwt(token) {
 
     try {
 
-        const base64Url = token.split(".")[1];
+        const payload = token.split(".")[1];
 
-        const base64 = base64Url
+        const base64 = payload
             .replace(/-/g, "+")
             .replace(/_/g, "/");
 
@@ -356,9 +358,11 @@ function parseGoogleJwt(token) {
             atob(base64)
                 .split("")
                 .map(function (char) {
+
                     return "%" +
                         ("00" + char.charCodeAt(0).toString(16))
-                            .slice(-2);
+                        .slice(-2);
+
                 })
                 .join("")
         );
@@ -368,7 +372,7 @@ function parseGoogleJwt(token) {
     } catch (error) {
 
         console.error(
-            "Google JWT Error:",
+            "Google token decode error:",
             error
         );
 
@@ -377,100 +381,46 @@ function parseGoogleJwt(token) {
 }
 
 
-// ============================================
+// =====================================================
 // SHOW USER
-// ============================================
+// =====================================================
 
-function showGoogleUser(user) {
+function updateGoogleUserUI(user) {
 
-    const loginButton =
-        document.getElementById(
-            "google-signin-button"
-        );
+    const signInBtn =
+        document.getElementById("signInBtn");
 
-    const userInfo =
-        document.getElementById(
-            "google-user-info"
-        );
-
-    const userName =
-        document.getElementById(
-            "google-user-name"
-        );
-
-    const userEmail =
-        document.getElementById(
-            "google-user-email"
-        );
-
-    const userPicture =
-        document.getElementById(
-            "google-user-picture"
-        );
-
-
-    if (loginButton) {
-        loginButton.style.display = "none";
+    if (!signInBtn) {
+        return;
     }
 
+    signInBtn.textContent =
+        user.name || "Signed In";
 
-    if (userInfo) {
+    signInBtn.classList.add("google-logged-in");
 
-        userInfo.style.display = "flex";
-
-        userInfo.style.alignItems = "center";
-
-        userInfo.style.gap = "10px";
-    }
-
-
-    if (userName) {
-        userName.textContent =
-            user.name || "Google User";
-    }
-
-
-    if (userEmail) {
-        userEmail.textContent =
-            user.email || "";
-    }
-
-
-    if (userPicture) {
-        userPicture.src =
-            user.picture || "";
-    }
 }
 
 
-// ============================================
-// LOGOUT
-// ============================================
+// =====================================================
+// GOOGLE LOGOUT
+// =====================================================
 
 function googleLogout() {
 
     localStorage.removeItem("googleUser");
 
-    const loginButton =
-        document.getElementById(
-            "google-signin-button"
+    const signInBtn =
+        document.getElementById("signInBtn");
+
+    if (signInBtn) {
+
+        signInBtn.textContent = "Sign In";
+
+        signInBtn.classList.remove(
+            "google-logged-in"
         );
-
-    const userInfo =
-        document.getElementById(
-            "google-user-info"
-        );
-
-
-    if (userInfo) {
-        userInfo.style.display = "none";
     }
-
-
-    if (loginButton) {
-        loginButton.style.display = "block";
-    }
-
 
     if (
         window.google &&
@@ -481,16 +431,14 @@ function googleLogout() {
         google.accounts.id.disableAutoSelect();
 
     }
-
-    console.log("Google Logout");
 }
 
 
-// ============================================
+// =====================================================
 // INITIALIZE GOOGLE
-// ============================================
+// =====================================================
 
-function initializeGoogleLogin() {
+function initializeGoogle() {
 
     if (
         !window.google ||
@@ -499,26 +447,26 @@ function initializeGoogleLogin() {
     ) {
 
         console.error(
-            "Google Identity Services not loaded."
+            "Google Identity Services is not loaded."
         );
 
-        return;
+        return false;
     }
 
 
-    const button =
+    const googleButton =
         document.getElementById(
             "google-signin-button"
         );
 
 
-    if (!button) {
+    if (!googleButton) {
 
         console.error(
-            "google-signin-button not found."
+            "Hidden Google button not found."
         );
 
-        return;
+        return false;
     }
 
 
@@ -530,14 +478,15 @@ function initializeGoogleLogin() {
 
         auto_select: false,
 
-        use_fedcm_for_prompt: true
+        cancel_on_tap_outside: false
 
     });
 
 
+    // Render Google's official button
     google.accounts.id.renderButton(
 
-        button,
+        googleButton,
 
         {
             type: "standard",
@@ -545,50 +494,96 @@ function initializeGoogleLogin() {
             size: "large",
             text: "signin_with",
             shape: "rectangular",
-            logo_alignment: "left",
-            width: 300
+            width: 250
         }
 
     );
+
+
+    console.log("Google initialized");
+
+    return true;
 }
 
 
-// ============================================
+// =====================================================
+// CLICK YOUR OWN SIGN IN BUTTON
+// =====================================================
+
+function startGoogleLogin() {
+
+    console.log("Sign In button clicked");
+
+
+    if (
+        !window.google ||
+        !google.accounts ||
+        !google.accounts.id
+    ) {
+
+        alert(
+            "Google Sign In is not loaded. Please refresh the page and try again."
+        );
+
+        return;
+    }
+
+
+    // Direct Google One Tap / account chooser
+    google.accounts.id.prompt(
+        function (notification) {
+
+            console.log(
+                "Google prompt:",
+                notification
+            );
+
+        }
+    );
+
+}
+
+
+// =====================================================
 // PAGE LOAD
-// ============================================
+// =====================================================
 
 window.addEventListener(
     "load",
     function () {
 
+        // Wait for Google's library
         const timer =
-            setInterval(function () {
+            setInterval(
+                function () {
 
-                if (
-                    window.google &&
-                    google.accounts &&
-                    google.accounts.id
-                ) {
+                    if (
+                        window.google &&
+                        google.accounts &&
+                        google.accounts.id
+                    ) {
 
-                    clearInterval(timer);
+                        clearInterval(timer);
 
-                    initializeGoogleLogin();
+                        initializeGoogle();
 
-                    checkExistingGoogleUser();
+                        loadSavedGoogleUser();
 
-                }
+                    }
 
-            }, 100);
+                },
+                100
+            );
 
     }
 );
 
 
-// ============================================
-// CHECK EXISTING USER
-// ============================================
+// =====================================================
+// EXISTING USER
+// =====================================================
 
-function checkExistingGoogleUser() {
+function loadSavedGoogleUser() {
 
     const savedUser =
         localStorage.getItem("googleUser");
@@ -604,19 +599,21 @@ function checkExistingGoogleUser() {
         const user =
             JSON.parse(savedUser);
 
-        showGoogleUser(user);
+        updateGoogleUserUI(user);
 
     } catch (error) {
 
-        localStorage.removeItem("googleUser");
+        localStorage.removeItem(
+            "googleUser"
+        );
 
     }
 }
 
 
-// ============================================
-// LOGOUT BUTTON
-// ============================================
+// =====================================================
+// CONNECT YOUR SIGN IN BUTTON
+// =====================================================
 
 document.addEventListener(
     "click",
@@ -624,11 +621,10 @@ document.addEventListener(
 
         if (
             event.target &&
-            event.target.id ===
-                "google-logout-button"
+            event.target.id === "signInBtn"
         ) {
 
-            googleLogout();
+            startGoogleLogin();
 
         }
 
