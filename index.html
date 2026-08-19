@@ -1,46 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fast Calculator | Free Online Calculator</title>
-    <meta name="description" content="Fast Calculator - Simple, fast and accurate online calculator.">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
+    <title>
+        Fast Calculator | Free Online Calculator
+    </title>
+
+    <meta name="description"
+          content="Fast Calculator - Simple, fast and accurate online calculator.">
+
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+
+    <!-- =========================================
+         GOOGLE IDENTITY SERVICES
+    ========================================== -->
+
+    <script
+        src="https://accounts.google.com/gsi/client"
+        async
+        defer>
+    </script>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
 
 <header class="site-header">
 
     <div class="brand">
-        <div class="logo">FC</div>
+
+        <div class="logo">
+            FC
+        </div>
 
         <div>
-            <h1>Fast Calculator</h1>
-            <p>Simple, Fast &amp; Accurate</p>
+
+            <h1>
+                Fast Calculator
+            </h1>
+
+            <p>
+                Simple, Fast &amp; Accurate
+            </p>
+
         </div>
+
     </div>
 
+
+    <!-- =====================================
+         AUTH BUTTONS
+    ====================================== -->
+
     <div class="auth-buttons">
-        <button type="button" id="signInBtn" class="login-btn">
-            Sign In
+
+        <!-- GOOGLE SIGN IN -->
+
+        <div
+            id="google-signin-button">
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <button
+            type="button"
+            id="signUpBtn"
+            class="signup-btn">
+
+            Sign Up
+
         </button>
 
-        <button type="button" id="signUpBtn" class="signup-btn">
-            Sign Up
-        </button>
     </div>
 
 </header>
 
 
+
+<!-- =========================================
+     GOOGLE USER INFORMATION
+========================================== -->
+
+<div
+    id="google-user-info"
+    style="
+        display:none;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        margin:15px auto;
+    ">
+
+
+    <img
+        id="google-user-picture"
+        src=""
+        alt="Google Profile"
+        width="45"
+        height="45"
+        style="
+            border-radius:50%;
+            object-fit:cover;
+        ">
+
+
+    <div>
+
+        <strong
+            id="google-user-name">
+        </strong>
+
+        <br>
+
+        <span
+            id="google-user-email">
+        </span>
+
+    </div>
+
+
+    <button
+        type="button"
+        id="google-logout-button">
+
+        Sign Out
+
+    </button>
+
+</div>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================== -->
+
 <main class="main-content">
+
 
     <section class="calculator-section">
 
+
         <div class="calculator">
+
+
+            <!-- DISPLAY -->
 
             <input
                 id="display"
@@ -50,31 +170,196 @@
                 aria-label="Calculator display"
             >
 
+
+
+            <!-- CALCULATOR BUTTONS -->
+
             <div class="buttons">
 
-                <button type="button" data-action="clear" class="function">C</button>
-                <button type="button" data-action="delete" class="function">DEL</button>
-                <button type="button" data-value="%" class="function">%</button>
-                <button type="button" data-value="/" class="operator">÷</button>
 
-                <button type="button" data-value="7">7</button>
-                <button type="button" data-value="8">8</button>
-                <button type="button" data-value="9">9</button>
-                <button type="button" data-value="*" class="operator">×</button>
+                <button
+                    type="button"
+                    data-action="clear"
+                    class="function">
 
-                <button type="button" data-value="4">4</button>
-                <button type="button" data-value="5">5</button>
-                <button type="button" data-value="6">6</button>
-                <button type="button" data-value="-" class="operator">−</button>
+                    C
 
-                <button type="button" data-value="1">1</button>
-                <button type="button" data-value="2">2</button>
-                <button type="button" data-value="3">3</button>
-                <button type="button" data-value="+" class="operator">+</button>
+                </button>
 
-                <button type="button" data-value="0" class="zero">0</button>
-                <button type="button" data-value=".">.</button>
-                <button type="button" data-action="calculate" class="equals">=</button>
+
+                <button
+                    type="button"
+                    data-action="delete"
+                    class="function">
+
+                    DEL
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="%"
+                    class="function">
+
+                    %
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="/"
+                    class="operator">
+
+                    ÷
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    data-value="7">
+
+                    7
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="8">
+
+                    8
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="9">
+
+                    9
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="*"
+                    class="operator">
+
+                    ×
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    data-value="4">
+
+                    4
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="5">
+
+                    5
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="6">
+
+                    6
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="-"
+                    class="operator">
+
+                    −
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    data-value="1">
+
+                    1
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="2">
+
+                    2
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="3">
+
+                    3
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value="+"
+                    class="operator">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    data-value="0"
+                    class="zero">
+
+                    0
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-value=".">
+
+                    .
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-action="calculate"
+                    class="equals">
+
+                    =
+
+                </button>
+
 
             </div>
 
@@ -85,30 +370,66 @@
 </main>
 
 
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
 <footer class="site-footer">
-    <h2>Fast Calculator</h2>
+
+
+    <h2>
+        Fast Calculator
+    </h2>
+
 
     <p>
-        Owned &amp; Managed by <strong>Hasan Ali</strong>
+        Owned &amp; Managed by
+        <strong>Hasan Ali</strong>
     </p>
+
 
     <p>
         216A Watford Road, Chiswell Green,
         St Albans, AL2 3EA, UK
     </p>
 
+
     <p class="copyright">
-        &copy; 2026 Fast Calculator. All Rights Reserved.
+
+        &copy; 2026 Fast Calculator.
+        All Rights Reserved.
+
     </p>
+
+
 </footer>
 
 
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-<!-- ONLY ONE SCRIPT FILE -->
-<script src="script.js?v=20"></script>
+<!-- =========================================
+     FIREBASE
+========================================== -->
+
+<script
+    src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js">
+</script>
+
+
+<script
+    src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js">
+</script>
+
+
+
+<!-- =========================================
+     YOUR JAVASCRIPT
+     ONLY ONE SCRIPT FILE
+========================================== -->
+
+<script src="script.js?v=21"></script>
+
 
 </body>
+
 </html>
