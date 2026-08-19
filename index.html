@@ -8,13 +8,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>
-        Fast Calculator | Free Online Calculator
-    </title>
+    <title>Fast Calculator | Free Online Calculator</title>
 
     <meta name="description"
           content="Fast Calculator - Simple, fast and accurate online calculator.">
-
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -22,6 +19,7 @@
 
     <!-- =========================================
          GOOGLE IDENTITY SERVICES
+         ONLY ONE TIME
     ========================================== -->
 
     <script
@@ -67,35 +65,28 @@
          AUTH BUTTONS
     ====================================== -->
 
-<div class="auth-buttons">
+    <div class="auth-buttons">
 
-    <button
-        type="button"
-        id="signInBtn"
-        class="login-btn">
-        Sign In
-    </button>
+        <button
+            type="button"
+            id="signInBtn"
+            class="login-btn">
 
-    <button
-        type="button"
-        id="signUpBtn"
-        class="signup-btn">
-        Sign Up
-    </button>
+            Sign In
 
-</div>
+        </button>
 
-<!-- Google Identity Services -->
-<script
-    src="https://accounts.google.com/gsi/client"
-    async
-    defer>
-</script>
-<!-- Hidden Google button -->
-<div
-    id="google-signin-button"
-    style="display:none;">
-</div>
+
+        <button
+            type="button"
+            id="signUpBtn"
+            class="signup-btn">
+
+            Sign Up
+
+        </button>
+
+    </div>
 
 </header>
 
@@ -115,7 +106,6 @@
         margin:15px auto;
     ">
 
-
     <img
         id="google-user-picture"
         src=""
@@ -130,15 +120,11 @@
 
     <div>
 
-        <strong
-            id="google-user-name">
-        </strong>
+        <strong id="google-user-name"></strong>
 
         <br>
 
-        <span
-            id="google-user-email">
-        </span>
+        <span id="google-user-email"></span>
 
     </div>
 
@@ -177,7 +163,6 @@
                 readonly
                 aria-label="Calculator display"
             >
-
 
 
             <!-- CALCULATOR BUTTONS -->
@@ -368,7 +353,6 @@
 
                 </button>
 
-
             </div>
 
         </div>
@@ -384,7 +368,6 @@
 ========================================== -->
 
 <footer class="site-footer">
-
 
     <h2>
         Fast Calculator
@@ -410,13 +393,13 @@
 
     </p>
 
-
 </footer>
 
 
 
 <!-- =========================================
      FIREBASE
+     ONLY ONE TIME
 ========================================== -->
 
 <script
@@ -432,10 +415,10 @@
 
 <!-- =========================================
      YOUR JAVASCRIPT
-     ONLY ONE SCRIPT FILE
+     ONLY ONE TIME
 ========================================== -->
 
-<script src="script.js?v=21"></script>
+<script src="script.js?v=22"></script>
 
 
 </body>
