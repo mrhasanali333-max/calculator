@@ -36,3 +36,60 @@ document.onkeydown = function(event) {
         clearDisplay();
     }
 };
+document.onkeydown = null;
+
+document.onkeydown = function (event) {
+
+    const key = event.key;
+
+    if (key >= "0" && key <= "9") {
+        addToDisplay(key);
+        return;
+    }
+
+    if (key === "+") {
+        addToDisplay("+");
+        return;
+    }
+
+    if (key === "-") {
+        addToDisplay("-");
+        return;
+    }
+
+    if (key === "*") {
+        addToDisplay("*");
+        return;
+    }
+
+    if (key === "/") {
+        addToDisplay("/");
+        return;
+    }
+
+    if (key === ".") {
+        addToDisplay(".");
+        return;
+    }
+
+    if (key === "%") {
+        addToDisplay("%");
+        return;
+    }
+
+    if (key === "Enter" || key === "=") {
+        event.preventDefault();
+        calculate();
+        return;
+    }
+
+    if (key === "Backspace") {
+        event.preventDefault();
+        deleteLast();
+        return;
+    }
+
+    if (key === "Escape") {
+        clearDisplay();
+    }
+};
