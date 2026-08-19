@@ -296,149 +296,77 @@ signUpBtn.addEventListener("click", function() {
     );
 
 });
-// =====================================================
+// ==========================================
 // GOOGLE SIGN IN
-// =====================================================
+// ==========================================
 
 const GOOGLE_CLIENT_ID =
     "726205497784-riu677s1uur4tuqa25dherc9ncnklvou.apps.googleusercontent.com";
 
 
-// =====================================================
+// ==========================================
 // GOOGLE LOGIN CALLBACK
-// =====================================================
+// ==========================================
 
 function handleGoogleLogin(response) {
 
-    console.log("Google login callback received");
+    console.log("Google login successful");
 
     if (!response || !response.credential) {
+
         console.error("Google credential missing");
+
         return;
     }
-
-    const user = parseGoogleJwt(response.credential);
-
-    if (!user) {
-        console.error("Could not read Google account data");
-        return;
-    }
-
-    console.log("Logged in user:", user);
-
-    localStorage.setItem(
-        "googleUser",
-        JSON.stringify({
-            name: user.name || "",
-            email: user.email || "",
-            picture: user.picture || "",
-            sub: user.sub || ""
-        })
-    );
-
-    updateGoogleUserUI(user);
-}
-
-
-// =====================================================
-// DECODE GOOGLE USER
-// =====================================================
-
-function parseGoogleJwt(token) {
 
     try {
 
-        const payload = token.split(".")[1];
+        const payload =
+            response.credential.split(".")[1];
 
-        const base64 = payload
-            .replace(/-/g, "+")
-            .replace(/_/g, "/");
+        const decoded =
+            JSON.parse(
+                atob(
+                    payload
+                        .replace(/-/g, "+")
+                        .replace(/_/g, "/")
+                )
+            );
 
-        const jsonPayload = decodeURIComponent(
-            atob(base64)
-                .split("")
-                .map(function (char) {
+        console.log("Google user:", decoded);
 
-                    return "%" +
-                        ("00" + char.charCodeAt(0).toString(16))
-                        .slice(-2);
-
-                })
-                .join("")
+        // Save user
+        localStorage.setItem(
+            "googleUser",
+            JSON.stringify(decoded)
         );
 
-        return JSON.parse(jsonPayload);
+        // Change button text
+        const signInBtn =
+            document.getElementById("signInBtn");
+
+        if (signInBtn) {
+
+            signInBtn.textContent =
+                decoded.name || "Signed In";
+        }
 
     } catch (error) {
 
         console.error(
-            "Google token decode error:",
+            "Google login error:",
             error
         );
 
-        return null;
     }
 }
 
 
-// =====================================================
-// SHOW USER
-// =====================================================
-
-function updateGoogleUserUI(user) {
-
-    const signInBtn =
-        document.getElementById("signInBtn");
-
-    if (!signInBtn) {
-        return;
-    }
-
-    signInBtn.textContent =
-        user.name || "Signed In";
-
-    signInBtn.classList.add("google-logged-in");
-
-}
-
-
-// =====================================================
-// GOOGLE LOGOUT
-// =====================================================
-
-function googleLogout() {
-
-    localStorage.removeItem("googleUser");
-
-    const signInBtn =
-        document.getElementById("signInBtn");
-
-    if (signInBtn) {
-
-        signInBtn.textContent = "Sign In";
-
-        signInBtn.classList.remove(
-            "google-logged-in"
-        );
-    }
-
-    if (
-        window.google &&
-        google.accounts &&
-        google.accounts.id
-    ) {
-
-        google.accounts.id.disableAutoSelect();
-
-    }
-}
-
-
-// =====================================================
+// ==========================================
 // INITIALIZE GOOGLE
-// =====================================================
+// ==========================================
 
-function initializeGoogle() {
+function initGoogleSignIn() {
 
     if (
         !window.google ||
@@ -447,26 +375,10 @@ function initializeGoogle() {
     ) {
 
         console.error(
-            "Google Identity Services is not loaded."
+            "Google Identity Services not loaded"
         );
 
-        return false;
-    }
-
-
-    const googleButton =
-        document.getElementById(
-            "google-signin-button"
-        );
-
-
-    if (!googleButton) {
-
-        console.error(
-            "Hidden Google button not found."
-        );
-
-        return false;
+        return;
     }
 
 
@@ -478,142 +390,17 @@ function initializeGoogle() {
 
         auto_select: false,
 
-        cancel_on_tap_outside: false
+        cancel_on_tap_outside: true
 
     });
 
-
-    // Render Google's official button
-    google.accounts.id.renderButton(
-
-        googleButton,
-
-        {
-            type: "standard",
-            theme: "outline",
-            size: "large",
-            text: "signin_with",
-            shape: "rectangular",
-            width: 250
-        }
-
-    );
-
-
-    console.log("Google initialized");
-
-    return true;
+    console.log("Google Sign In initialized");
 }
 
 
-// =====================================================
-// CLICK YOUR OWN SIGN IN BUTTON
-// =====================================================
-
-function startGoogleLogin() {
-
-    console.log("Sign In button clicked");
-
-
-    if (
-        !window.google ||
-        !google.accounts ||
-        !google.accounts.id
-    ) {
-
-        alert(
-            "Google Sign In is not loaded. Please refresh the page and try again."
-        );
-
-        return;
-    }
-
-
-    // Direct Google One Tap / account chooser
-    google.accounts.id.prompt(
-        function (notification) {
-
-            console.log(
-                "Google prompt:",
-                notification
-            );
-
-        }
-    );
-
-}
-
-
-// =====================================================
-// PAGE LOAD
-// =====================================================
-
-window.addEventListener(
-    "load",
-    function () {
-
-        // Wait for Google's library
-        const timer =
-            setInterval(
-                function () {
-
-                    if (
-                        window.google &&
-                        google.accounts &&
-                        google.accounts.id
-                    ) {
-
-                        clearInterval(timer);
-
-                        initializeGoogle();
-
-                        loadSavedGoogleUser();
-
-                    }
-
-                },
-                100
-            );
-
-    }
-);
-
-
-// =====================================================
-// EXISTING USER
-// =====================================================
-
-function loadSavedGoogleUser() {
-
-    const savedUser =
-        localStorage.getItem("googleUser");
-
-
-    if (!savedUser) {
-        return;
-    }
-
-
-    try {
-
-        const user =
-            JSON.parse(savedUser);
-
-        updateGoogleUserUI(user);
-
-    } catch (error) {
-
-        localStorage.removeItem(
-            "googleUser"
-        );
-
-    }
-}
-
-
-// =====================================================
-// CONNECT YOUR SIGN IN BUTTON
-// =====================================================
+// ==========================================
+// SIGN IN BUTTON
+// ==========================================
 
 document.addEventListener(
     "click",
@@ -624,9 +411,58 @@ document.addEventListener(
             event.target.id === "signInBtn"
         ) {
 
-            startGoogleLogin();
+            console.log(
+                "Sign In button clicked"
+            );
+
+
+            if (
+                !window.google ||
+                !google.accounts ||
+                !google.accounts.id
+            ) {
+
+                alert(
+                    "Google Sign In is loading. Please refresh the page and try again."
+                );
+
+                return;
+            }
+
+
+            google.accounts.id.prompt(
+                function (notification) {
+
+                    console.log(
+                        "Google notification:",
+                        notification
+                    );
+
+                }
+            );
 
         }
+
+    }
+);
+
+
+// ==========================================
+// LOAD GOOGLE
+// ==========================================
+
+window.addEventListener(
+    "load",
+    function () {
+
+        setTimeout(
+            function () {
+
+                initGoogleSignIn();
+
+            },
+            1000
+        );
 
     }
 );
