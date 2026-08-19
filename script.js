@@ -36,60 +36,40 @@ document.onkeydown = function(event) {
         clearDisplay();
     }
 };
-document.onkeydown = null;
+document.addEventListener("keydown", function (e) {
 
-document.onkeydown = function (event) {
+    // Prevent browser from handling the key twice
+    if (e.repeat) return;
 
-    const key = event.key;
+    const key = e.key;
 
-    if (key >= "0" && key <= "9") {
+    if (/^[0-9]$/.test(key)) {
+        e.preventDefault();
         addToDisplay(key);
         return;
     }
 
-    if (key === "+") {
-        addToDisplay("+");
+    if (["+", "-", "*", "/", ".", "%"].includes(key)) {
+        e.preventDefault();
+        addToDisplay(key);
         return;
     }
 
-    if (key === "-") {
-        addToDisplay("-");
-        return;
-    }
-
-    if (key === "*") {
-        addToDisplay("*");
-        return;
-    }
-
-    if (key === "/") {
-        addToDisplay("/");
-        return;
-    }
-
-    if (key === ".") {
-        addToDisplay(".");
-        return;
-    }
-
-    if (key === "%") {
-        addToDisplay("%");
-        return;
-    }
-
-    if (key === "Enter" || key === "=") {
-        event.preventDefault();
+    if (key === "Enter") {
+        e.preventDefault();
         calculate();
         return;
     }
 
     if (key === "Backspace") {
-        event.preventDefault();
+        e.preventDefault();
         deleteLast();
         return;
     }
 
     if (key === "Escape") {
+        e.preventDefault();
         clearDisplay();
     }
-};
+
+});
