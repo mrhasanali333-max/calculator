@@ -3,47 +3,36 @@
 // Prevent duplicate listeners
 // =========================
 
-if (!window.fastCalculatorKeyboardLoaded) {
+document.onkeydown = function(event) {
 
-    window.fastCalculatorKeyboardLoaded = true;
+    const key = event.key;
 
-    document.addEventListener("keydown", function(event) {
+    if (/^[0-9]$/.test(key)) {
+        event.preventDefault();
+        addToDisplay(key);
+        return;
+    }
 
-        const key = event.key;
+    if (["+", "-", "*", "/", ".", "%", "(", ")"].includes(key)) {
+        event.preventDefault();
+        addToDisplay(key);
+        return;
+    }
 
-        // Numbers
-        if (/^[0-9]$/.test(key)) {
-            event.preventDefault();
-            addToDisplay(key);
-            return;
-        }
+    if (key === "Enter" || key === "=") {
+        event.preventDefault();
+        calculate();
+        return;
+    }
 
-        // Operators
-        if (["+", "-", "*", "/", ".", "%", "(", ")"].includes(key)) {
-            event.preventDefault();
-            addToDisplay(key);
-            return;
-        }
+    if (key === "Backspace") {
+        event.preventDefault();
+        deleteLast();
+        return;
+    }
 
-        // Enter / =
-        if (key === "Enter" || key === "=") {
-            event.preventDefault();
-            calculate();
-            return;
-        }
-
-        // Backspace
-        if (key === "Backspace") {
-            event.preventDefault();
-            deleteLast();
-            return;
-        }
-
-        // Escape
-        if (key === "Escape") {
-            event.preventDefault();
-            clearDisplay();
-        }
-
-    });
-}
+    if (key === "Escape") {
+        event.preventDefault();
+        clearDisplay();
+    }
+};
