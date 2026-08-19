@@ -296,3 +296,341 @@ signUpBtn.addEventListener("click", function() {
     );
 
 });
+// ============================================
+// GOOGLE SIGN IN
+// ============================================
+
+const GOOGLE_CLIENT_ID =
+    "726205497784-riu677s1uur4tuqa25dherc9ncnklvou.apps.googleusercontent.com";
+
+
+// ============================================
+// GOOGLE LOGIN CALLBACK
+// ============================================
+
+function handleGoogleLogin(response) {
+
+    console.log("Google Login Successful");
+
+    const credential = response.credential;
+
+    const user = parseGoogleJwt(credential);
+
+    if (!user) {
+        console.error("Unable to read Google user.");
+        return;
+    }
+
+    console.log("Google User:", user);
+
+    // Save user
+    localStorage.setItem(
+        "googleUser",
+        JSON.stringify({
+            name: user.name || "",
+            email: user.email || "",
+            picture: user.picture || "",
+            sub: user.sub || ""
+        })
+    );
+
+    showGoogleUser(user);
+}
+
+
+// ============================================
+// READ GOOGLE USER DATA
+// ============================================
+
+function parseGoogleJwt(token) {
+
+    try {
+
+        const base64Url = token.split(".")[1];
+
+        const base64 = base64Url
+            .replace(/-/g, "+")
+            .replace(/_/g, "/");
+
+        const jsonPayload = decodeURIComponent(
+            atob(base64)
+                .split("")
+                .map(function (char) {
+                    return "%" +
+                        ("00" + char.charCodeAt(0).toString(16))
+                            .slice(-2);
+                })
+                .join("")
+        );
+
+        return JSON.parse(jsonPayload);
+
+    } catch (error) {
+
+        console.error(
+            "Google JWT Error:",
+            error
+        );
+
+        return null;
+    }
+}
+
+
+// ============================================
+// SHOW USER
+// ============================================
+
+function showGoogleUser(user) {
+
+    const loginButton =
+        document.getElementById(
+            "google-signin-button"
+        );
+
+    const userInfo =
+        document.getElementById(
+            "google-user-info"
+        );
+
+    const userName =
+        document.getElementById(
+            "google-user-name"
+        );
+
+    const userEmail =
+        document.getElementById(
+            "google-user-email"
+        );
+
+    const userPicture =
+        document.getElementById(
+            "google-user-picture"
+        );
+
+
+    if (loginButton) {
+        loginButton.style.display = "none";
+    }
+
+
+    if (userInfo) {
+
+        userInfo.style.display = "flex";
+
+        userInfo.style.alignItems = "center";
+
+        userInfo.style.gap = "10px";
+    }
+
+
+    if (userName) {
+        userName.textContent =
+            user.name || "Google User";
+    }
+
+
+    if (userEmail) {
+        userEmail.textContent =
+            user.email || "";
+    }
+
+
+    if (userPicture) {
+        userPicture.src =
+            user.picture || "";
+    }
+}
+
+
+// ============================================
+// LOGOUT
+// ============================================
+
+function googleLogout() {
+
+    localStorage.removeItem("googleUser");
+
+    const loginButton =
+        document.getElementById(
+            "google-signin-button"
+        );
+
+    const userInfo =
+        document.getElementById(
+            "google-user-info"
+        );
+
+
+    if (userInfo) {
+        userInfo.style.display = "none";
+    }
+
+
+    if (loginButton) {
+        loginButton.style.display = "block";
+    }
+
+
+    if (
+        window.google &&
+        google.accounts &&
+        google.accounts.id
+    ) {
+
+        google.accounts.id.disableAutoSelect();
+
+    }
+
+    console.log("Google Logout");
+}
+
+
+// ============================================
+// INITIALIZE GOOGLE
+// ============================================
+
+function initializeGoogleLogin() {
+
+    if (
+        !window.google ||
+        !google.accounts ||
+        !google.accounts.id
+    ) {
+
+        console.error(
+            "Google Identity Services not loaded."
+        );
+
+        return;
+    }
+
+
+    const button =
+        document.getElementById(
+            "google-signin-button"
+        );
+
+
+    if (!button) {
+
+        console.error(
+            "google-signin-button not found."
+        );
+
+        return;
+    }
+
+
+    google.accounts.id.initialize({
+
+        client_id: GOOGLE_CLIENT_ID,
+
+        callback: handleGoogleLogin,
+
+        auto_select: false,
+
+        use_fedcm_for_prompt: true
+
+    });
+
+
+    google.accounts.id.renderButton(
+
+        button,
+
+        {
+            type: "standard",
+            theme: "outline",
+            size: "large",
+            text: "signin_with",
+            shape: "rectangular",
+            logo_alignment: "left",
+            width: 300
+        }
+
+    );
+}
+
+
+// ============================================
+// PAGE LOAD
+// ============================================
+
+window.addEventListener(
+    "load",
+    function () {
+
+        const timer =
+            setInterval(function () {
+
+                if (
+                    window.google &&
+                    google.accounts &&
+                    google.accounts.id
+                ) {
+
+                    clearInterval(timer);
+
+                    initializeGoogleLogin();
+
+                    checkExistingGoogleUser();
+
+                }
+
+            }, 100);
+
+    }
+);
+
+
+// ============================================
+// CHECK EXISTING USER
+// ============================================
+
+function checkExistingGoogleUser() {
+
+    const savedUser =
+        localStorage.getItem("googleUser");
+
+
+    if (!savedUser) {
+        return;
+    }
+
+
+    try {
+
+        const user =
+            JSON.parse(savedUser);
+
+        showGoogleUser(user);
+
+    } catch (error) {
+
+        localStorage.removeItem("googleUser");
+
+    }
+}
+
+
+// ============================================
+// LOGOUT BUTTON
+// ============================================
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target &&
+            event.target.id ===
+                "google-logout-button"
+        ) {
+
+            googleLogout();
+
+        }
+
+    }
+);
