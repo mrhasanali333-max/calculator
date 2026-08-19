@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Fast Calculator | Free Online Calculator</title>
-
-    <meta name="description"
-          content="Fast Calculator - Simple, fast and accurate online calculator.">
+    <meta name="description" content="Fast Calculator - Simple, fast and accurate online calculator.">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,32 +15,22 @@
 <header class="site-header">
 
     <div class="brand">
-
         <div class="logo">FC</div>
 
         <div>
             <h1>Fast Calculator</h1>
             <p>Simple, Fast &amp; Accurate</p>
         </div>
-
     </div>
 
     <div class="auth-buttons">
-
-        <button
-            type="button"
-            class="login-btn"
-            id="loginButton">
+        <button type="button" id="signInBtn" class="login-btn">
             Sign In
         </button>
 
-        <button
-            type="button"
-            class="signup-btn"
-            id="signupButton">
+        <button type="button" id="signUpBtn" class="signup-btn">
             Sign Up
         </button>
-
     </div>
 
 </header>
@@ -55,99 +43,38 @@
         <div class="calculator">
 
             <input
-                type="text"
                 id="display"
+                type="text"
                 value="0"
                 readonly
-                aria-label="Calculator display">
-
+                aria-label="Calculator display"
+            >
 
             <div class="buttons">
 
-                <button
-                    type="button"
-                    class="function"
-                    data-action="clear">
-                    C
-                </button>
-
-                <button
-                    type="button"
-                    class="function"
-                    data-action="delete">
-                    DEL
-                </button>
-
-                <button
-                    type="button"
-                    class="function"
-                    data-value="%">
-                    %
-                </button>
-
-                <button
-                    type="button"
-                    class="operator"
-                    data-value="/">
-                    ÷
-                </button>
-
+                <button type="button" data-action="clear" class="function">C</button>
+                <button type="button" data-action="delete" class="function">DEL</button>
+                <button type="button" data-value="%" class="function">%</button>
+                <button type="button" data-value="/" class="operator">÷</button>
 
                 <button type="button" data-value="7">7</button>
                 <button type="button" data-value="8">8</button>
                 <button type="button" data-value="9">9</button>
-
-                <button
-                    type="button"
-                    class="operator"
-                    data-value="*">
-                    ×
-                </button>
-
+                <button type="button" data-value="*" class="operator">×</button>
 
                 <button type="button" data-value="4">4</button>
                 <button type="button" data-value="5">5</button>
                 <button type="button" data-value="6">6</button>
-
-                <button
-                    type="button"
-                    class="operator"
-                    data-value="-">
-                    −
-                </button>
-
+                <button type="button" data-value="-" class="operator">−</button>
 
                 <button type="button" data-value="1">1</button>
                 <button type="button" data-value="2">2</button>
                 <button type="button" data-value="3">3</button>
+                <button type="button" data-value="+" class="operator">+</button>
 
-                <button
-                    type="button"
-                    class="operator"
-                    data-value="+">
-                    +
-                </button>
-
-
-                <button
-                    type="button"
-                    class="zero"
-                    data-value="0">
-                    0
-                </button>
-
-                <button
-                    type="button"
-                    data-value=".">
-                    .
-                </button>
-
-                <button
-                    type="button"
-                    class="equals"
-                    data-action="calculate">
-                    =
-                </button>
+                <button type="button" data-value="0" class="zero">0</button>
+                <button type="button" data-value=".">.</button>
+                <button type="button" data-action="calculate" class="equals">=</button>
 
             </div>
 
@@ -159,12 +86,10 @@
 
 
 <footer class="site-footer">
-
     <h2>Fast Calculator</h2>
 
     <p>
-        Owned &amp; Managed by
-        <strong>Hasan Ali</strong>
+        Owned &amp; Managed by <strong>Hasan Ali</strong>
     </p>
 
     <p>
@@ -173,140 +98,17 @@
     </p>
 
     <p class="copyright">
-        &copy; 2026 Fast Calculator.
-        All Rights Reserved.
+        &copy; 2026 Fast Calculator. All Rights Reserved.
     </p>
-
 </footer>
-
-
-<!-- ==============================
-     AUTH MODAL
-============================== -->
-
-<div
-    id="authModal"
-    class="auth-modal"
-    style="display:none;">
-
-    <div class="auth-box">
-
-        <button
-            type="button"
-            class="close-auth"
-            id="closeAuth">
-            ×
-        </button>
-
-
-        <!-- LOGIN -->
-
-        <div id="loginForm">
-
-            <h2>Welcome Back</h2>
-
-            <p>Sign in to Fast Calculator</p>
-
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="Email Address"
-                autocomplete="email">
-
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password"
-                autocomplete="current-password">
-
-            <button
-                type="button"
-                class="auth-submit"
-                id="loginSubmit">
-                Sign In
-            </button>
-
-            <button
-                type="button"
-                class="forgot-password"
-                id="forgotPassword">
-                Forgot Password?
-            </button>
-
-            <p class="switch-text">
-                Don't have an account?
-                <button
-                    type="button"
-                    id="showSignup">
-                    Sign Up
-                </button>
-            </p>
-
-        </div>
-
-
-        <!-- SIGN UP -->
-
-        <div
-            id="signupForm"
-            style="display:none;">
-
-            <h2>Create Account</h2>
-
-            <p>Join Fast Calculator</p>
-
-            <input
-                type="text"
-                id="signupName"
-                placeholder="Full Name"
-                autocomplete="name">
-
-            <input
-                type="email"
-                id="signupEmail"
-                placeholder="Email Address"
-                autocomplete="email">
-
-            <input
-                type="password"
-                id="signupPassword"
-                placeholder="Password"
-                autocomplete="new-password">
-
-            <button
-                type="button"
-                class="auth-submit"
-                id="signupSubmit">
-                Create Account
-            </button>
-
-            <p class="switch-text">
-                Already have an account?
-                <button
-                    type="button"
-                    id="showLogin">
-                    Sign In
-                </button>
-            </p>
-
-        </div>
-
-
-        <div id="authMessage"></div>
-
-    </div>
-
-</div>
 
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-
-<!-- ONLY ONE JavaScript file -->
-<script src="script.js?v=10"></script>
+<!-- ONLY ONE SCRIPT FILE -->
+<script src="script.js?v=20"></script>
 
 </body>
 </html>
