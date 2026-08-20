@@ -1,129 +1,146 @@
-<!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Fast Calculator - Free Online Calculators & Tools</title>
+    <meta name="description" content="Fast Calculator offers free, fast and easy-to-use online calculators for math, finance, health, dates, time and unit conversions.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fastcalculator.website/">
 
-    <title>Fast Calculator | Free Online Calculator</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fast Calculator - Free Online Calculators & Tools">
+    <meta property="og:description" content="Free online calculators for everyday math, finance, health, dates, time and conversions.">
+    <meta property="og:url" content="https://fastcalculator.website/">
 
-    <meta name="description"
-          content="Fast Calculator - Simple, fast and accurate online calculator.">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-
-    <!-- =========================================
-         GOOGLE IDENTITY SERVICES
-         ONLY ONE TIME
-    ========================================== -->
-
-    
-
 </head>
-
 
 <body>
 
-
-<!-- =========================================
-     HEADER
-========================================== -->
-
 <header class="site-header">
+    <div class="nav-wrap">
+        <a class="brand" href="/" aria-label="Fast Calculator Home">
+            <div class="logo">FC</div>
+            <div>
+                <h1>Fast Calculator</h1>
+                <p>Simple, Fast &amp; Accurate</p>
+            </div>
+        </a>
 
-    <div class="brand">
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#calculators">Calculators</a>
+            <a href="#categories">Categories</a>
+            <a href="#articles">Articles</a>
+            <a href="#about">About</a>
+        </nav>
 
-        <div class="logo">
-            FC
+        <div class="auth-buttons">
+            <button type="button" id="signInBtn" class="login-btn">Sign In</button>
+            <button type="button" id="signUpBtn" class="signup-btn">Sign Up</button>
         </div>
-
-        <div>
-
-            <h1>
-                Fast Calculator
-            </h1>
-
-            <p>
-                Simple, Fast &amp; Accurate
-            </p>
-
-        </div>
-
     </div>
-
-
-    <!-- =====================================
-         AUTH BUTTONS
-    ====================================== -->
-
-    <div class="auth-buttons">
-
-        <button
-            type="button"
-            id="signInBtn"
-            class="login-btn">
-
-            Sign In
-
-        </button>
-
-
-        <button
-            type="button"
-            id="signUpBtn"
-            class="signup-btn">
-
-            Sign Up
-
-        </button>
-
-    </div>
-
 </header>
 
+<section class="hero">
+    <div class="hero-content">
+        <span class="eyebrow">FREE ONLINE TOOLS</span>
+        <h2>Fast, Simple &amp; Accurate Calculators</h2>
+        <p>Calculate percentages, age, BMI, loans, dates and more with easy-to-use online tools.</p>
 
-
-<!-- =========================================
-     GOOGLE USER INFORMATION
-========================================== -->
-
-
-        <strong id="google-user-name"></strong>
-
-        <br>
-
-        <span id="google-user-email"></span>
-
+        <div class="calculator-search">
+            <label for="calculatorSearch" class="sr-only">Search calculators</label>
+            <input id="calculatorSearch" type="search" placeholder="Search calculators..." autocomplete="off">
+            <button type="button" id="searchCalculatorBtn">Search</button>
+        </div>
     </div>
-
-
-    <button
-        type="button"
-        id="google-logout-button">
-
-        Sign Out
-
-    </button>
-
-</div>
-
-
-
-<!-- =========================================
-     MAIN CONTENT
-========================================== -->
+</section>
 
 <main class="main-content">
 
+    <section id="calculators" class="content-section featured-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">POPULAR TOOLS</span>
+                <h2>Popular Calculators</h2>
+                <p>Useful calculators for everyday calculations.</p>
+            </div>
+        </div>
 
-    <section class="calculator-section">
+        <div class="calculator-grid" id="calculatorGrid">
+            <a class="tool-card" href="#main-calculator" data-name="basic calculator standard calculator">
+                <span class="tool-icon">＋</span>
+                <h3>Basic Calculator</h3>
+                <p>Perform quick everyday calculations.</p>
+                <span class="tool-link">Open Calculator →</span>
+            </a>
 
+            <a class="tool-card" href="#main-calculator" data-name="percentage calculator percent">
+                <span class="tool-icon">%</span>
+                <h3>Percentage Calculator</h3>
+                <p>Calculate percentages quickly and easily.</p>
+                <span class="tool-link">Open Calculator →</span>
+            </a>
 
+            <a class="tool-card" href="#main-calculator" data-name="age calculator birthday">
+                <span class="tool-icon">🎂</span>
+                <h3>Age Calculator</h3>
+                <p>Calculate age from a date of birth.</p>
+                <span class="tool-link">Coming Soon →</span>
+            </a>
+
+            <a class="tool-card" href="#main-calculator" data-name="bmi calculator health">
+                <span class="tool-icon">⚖</span>
+                <h3>BMI Calculator</h3>
+                <p>Calculate body mass index easily.</p>
+                <span class="tool-link">Coming Soon →</span>
+            </a>
+
+            <a class="tool-card" href="#main-calculator" data-name="loan calculator finance emi">
+                <span class="tool-icon">💰</span>
+                <h3>Loan Calculator</h3>
+                <p>Estimate loan payments and interest.</p>
+                <span class="tool-link">Coming Soon →</span>
+            </a>
+
+            <a class="tool-card" href="#main-calculator" data-name="date calculator days dates">
+                <span class="tool-icon">📅</span>
+                <h3>Date Calculator</h3>
+                <p>Work with dates and time periods.</p>
+                <span class="tool-link">Coming Soon →</span>
+            </a>
+        </div>
+
+        <p id="noResults" class="no-results" hidden>No calculators found. Try another search.</p>
+    </section>
+
+    <section id="categories" class="content-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">EXPLORE</span>
+                <h2>Calculator Categories</h2>
+                <p>More tools will be added to every category.</p>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            <a href="#calculators" class="category-card"><strong>Math</strong><span>Percentages, fractions, averages and more.</span></a>
+            <a href="#calculators" class="category-card"><strong>Finance</strong><span>Loans, EMI, interest, savings and money tools.</span></a>
+            <a href="#calculators" class="category-card"><strong>Health</strong><span>BMI, BMR, calories and health-related tools.</span></a>
+            <a href="#calculators" class="category-card"><strong>Date &amp; Time</strong><span>Age, date difference, countdowns and time.</span></a>
+            <a href="#calculators" class="category-card"><strong>Converters</strong><span>Length, weight, temperature, area and more.</span></a>
+        </div>
+    </section>
+
+    <section id="main-calculator" class="content-section calculator-area">
+        <div class="section-heading centered">
+            <span class="section-kicker">FAST CALCULATOR</span>
+            <h2>Online Calculator</h2>
+            <p>Use your keyboard or click the buttons below.</p>
+        </div>
+
+        <section class="calculator-section">
         <div class="calculator">
 
 
@@ -327,73 +344,168 @@
                 </button>
 
             </div>
+        </section>
+    </section>
 
+    <section id="articles" class="content-section">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">CALCULATOR GUIDES</span>
+                <h2>Helpful Articles</h2>
+                <p>Simple guides explaining common calculations.</p>
+            </div>
         </div>
 
+        <div class="article-grid">
+            <article class="article-card">
+                <span class="article-label">Math Guide</span>
+                <h3>How to Calculate a Percentage</h3>
+                <p>Learn the basic percentage formula with simple examples.</p>
+                <a href="#calculators">Read Guide →</a>
+            </article>
+            <article class="article-card">
+                <span class="article-label">Finance Guide</span>
+                <h3>How Loan Calculators Work</h3>
+                <p>Understand monthly payments, interest and loan terms.</p>
+                <a href="#calculators">Read Guide →</a>
+            </article>
+            <article class="article-card">
+                <span class="article-label">Health Guide</span>
+                <h3>What Is BMI?</h3>
+                <p>Understand BMI and how a BMI calculator produces its result.</p>
+                <a href="#calculators">Read Guide →</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="about" class="content-section info-section">
+        <div>
+            <span class="section-kicker">ABOUT FAST CALCULATOR</span>
+            <h2>Useful tools without the complexity</h2>
+            <p>Fast Calculator is being developed as a collection of simple online tools designed to make everyday calculations quick and convenient.</p>
+        </div>
+        <div class="why-list">
+            <div><strong>✓ Free to use</strong><span>Easy access to useful calculation tools.</span></div>
+            <div><strong>✓ Simple interface</strong><span>Clean and mobile-friendly experience.</span></div>
+            <div><strong>✓ More tools coming</strong><span>New calculators and guides can be added over time.</span></div>
+        </div>
+    </section>
+
+    <section class="content-section faq-section">
+        <div class="section-heading centered">
+            <span class="section-kicker">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <details>
+            <summary>Is Fast Calculator free?</summary>
+            <p>Yes. The calculators on Fast Calculator are designed to be free and easy to use.</p>
+        </details>
+        <details>
+            <summary>Can I use the calculator on my phone?</summary>
+            <p>Yes. The website layout is responsive and designed for desktop and mobile screens.</p>
+        </details>
+        <details>
+            <summary>Will more calculators be added?</summary>
+            <p>Yes. The platform can be expanded with math, finance, health, date, time and conversion calculators.</p>
+        </details>
     </section>
 
 </main>
 
-
-
-<!-- =========================================
-     FOOTER
-========================================== -->
-
 <footer class="site-footer">
-
-    <h2>
-        Fast Calculator
-    </h2>
-
-
-    <p>
-        Owned &amp; Managed by
-        <strong>Hasan Ali</strong>
-    </p>
-
-
-    <p>
-        216A Watford Road, Chiswell Green,
-        St Albans, AL2 3EA, UK
-    </p>
-
-
-    <p class="copyright">
-
-        &copy; 2026 Fast Calculator.
-        All Rights Reserved.
-
-    </p>
-
+    <h2>Fast Calculator</h2>
+    <p>Free online calculators and useful calculation tools.</p>
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#articles">Articles</a>
+        <a href="#categories">Calculators</a>
+        <a href="#about">Privacy Policy</a>
+        <a href="#about">Terms</a>
+        <a href="#about">Disclaimer</a>
+        <a href="#about">Contact</a>
+    </div>
+    <p class="copyright">&copy; 2026 Fast Calculator. All Rights Reserved.</p>
 </footer>
 
+<!-- AUTH MODAL -->
+<div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-box">
+        <button type="button" class="close-auth" id="closeAuth" aria-label="Close">×</button>
+        <h2>Welcome to Fast Calculator</h2>
+        <p>Use Google to sign in securely.</p>
+        <button type="button" class="auth-submit" id="googleSignInModal">Continue with Google</button>
+        <p id="authMessage"></p>
+    </div>
+</div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="script.js?v=23"></script>
 
-<!-- =========================================
-     FIREBASE
-     ONLY ONE TIME
-========================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const search = document.getElementById("calculatorSearch");
+    const grid = document.getElementById("calculatorGrid");
+    const noResults = document.getElementById("noResults");
+    const cards = Array.from(grid.querySelectorAll(".tool-card"));
 
-<script
-    src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js">
+    function filterCalculators() {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+
+        cards.forEach(card => {
+            const match = !query || card.dataset.name.includes(query) || card.textContent.toLowerCase().includes(query);
+            card.hidden = !match;
+            if (match) visible++;
+        });
+
+        noResults.hidden = visible !== 0;
+    }
+
+    search.addEventListener("input", filterCalculators);
+    document.getElementById("searchCalculatorBtn").addEventListener("click", filterCalculators);
+
+    search.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") filterCalculators();
+    });
+
+    const modal = document.getElementById("authModal");
+    const close = document.getElementById("closeAuth");
+    const signIn = document.getElementById("signInBtn");
+    const googleModal = document.getElementById("googleSignInModal");
+
+    signIn.addEventListener("click", function () {
+        if (typeof firebase !== "undefined" && firebase.auth) {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            provider.setCustomParameters({ prompt: "select_account" });
+            firebase.auth().signInWithPopup(provider).catch(err => {
+                document.getElementById("authMessage").textContent = err.message;
+            });
+        } else {
+            modal.style.display = "flex";
+            modal.setAttribute("aria-hidden", "false");
+        }
+    });
+
+    document.getElementById("signUpBtn").addEventListener("click", function () {
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+    });
+
+    googleModal.addEventListener("click", function () {
+        signIn.click();
+    });
+
+    close.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+    });
+
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) close.click();
+    });
+});
 </script>
-
-
-<script
-    src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js">
-</script>
-
-
-
-<!-- =========================================
-     YOUR JAVASCRIPT
-     ONLY ONE TIME
-========================================== -->
-
-<script src="script.js?v=22"></script>
-
 
 </body>
-
 </html>
