@@ -4,508 +4,489 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fast Calculator - Free Online Calculators & Tools</title>
-    <meta name="description" content="Fast Calculator offers free, fast and easy-to-use online calculators for math, finance, health, dates, time and unit conversions.">
+    <title>Fast Calculator - Free Online Calculators</title>
+    <meta name="description" content="Fast Calculator offers free online calculators including percentage, age, BMI, loan, interest, discount, tip, date and unit conversion calculators.">
+    <meta name="keywords" content="calculator, online calculator, percentage calculator, age calculator, BMI calculator, loan calculator, EMI calculator, discount calculator, unit converter">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fastcalculator.website/">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Fast Calculator - Free Online Calculators & Tools">
-    <meta property="og:description" content="Free online calculators for everyday math, finance, health, dates, time and conversions.">
+    <meta property="og:title" content="Fast Calculator - Free Online Calculators">
+    <meta property="og:description" content="Fast, simple and free online calculators.">
     <meta property="og:url" content="https://fastcalculator.website/">
+    <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 </head>
 
 <body>
 
 <header class="site-header">
-    <div class="nav-wrap">
-        <a class="brand" href="/" aria-label="Fast Calculator Home">
-            <div class="logo">FC</div>
-            <div>
-                <h1>Fast Calculator</h1>
-                <p>Simple, Fast &amp; Accurate</p>
-            </div>
+    <div class="container nav-wrap">
+        <a class="logo" href="#top" aria-label="Fast Calculator home">
+            <span class="logo-mark">FC</span>
+            <span>Fast Calculator</span>
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
             <a href="#calculators">Calculators</a>
-            <a href="#categories">Categories</a>
+            <a href="#popular">Popular</a>
             <a href="#articles">Articles</a>
             <a href="#about">About</a>
         </nav>
 
-        <div class="auth-buttons">
-            <button type="button" id="signInBtn" class="login-btn">Sign In</button>
-            <button type="button" id="signUpBtn" class="signup-btn">Sign Up</button>
+        <div class="auth-actions">
+            <button id="signInBtn" class="btn btn-outline" type="button">Sign In</button>
+            <button id="signUpBtn" class="btn btn-primary" type="button">Sign Up</button>
         </div>
     </div>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <span class="eyebrow">FREE ONLINE TOOLS</span>
-        <h2>Fast, Simple &amp; Accurate Calculators</h2>
-        <p>Calculate percentages, age, BMI, loans, dates and more with easy-to-use online tools.</p>
+<main id="top">
 
-        <div class="calculator-search">
-            <label for="calculatorSearch" class="sr-only">Search calculators</label>
-            <input id="calculatorSearch" type="search" placeholder="Search calculators..." autocomplete="off">
-            <button type="button" id="searchCalculatorBtn">Search</button>
-        </div>
-    </div>
-</section>
-
-<main class="main-content">
-
-    <section id="calculators" class="content-section featured-section">
-        <div class="section-heading">
+    <section class="hero">
+        <div class="container hero-grid">
             <div>
-                <span class="section-kicker">POPULAR TOOLS</span>
-                <h2>Popular Calculators</h2>
-                <p>Useful calculators for everyday calculations.</p>
+                <span class="eyebrow">FREE • FAST • SIMPLE</span>
+                <h1>Smart calculators for everyday life.</h1>
+                <p class="hero-text">
+                    Calculate percentages, age, BMI, loans, interest, discounts,
+                    tips, dates and unit conversions — quickly and accurately.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#calculators" class="btn btn-primary btn-large">Explore Calculators</a>
+                    <a href="#main-calculator" class="btn btn-light btn-large">Open Calculator</a>
+                </div>
+
+                <div class="hero-points">
+                    <span>✓ Free to use</span>
+                    <span>✓ Mobile friendly</span>
+                    <span>✓ No registration required</span>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-card-top">
+                    <span>Quick Calculator</span>
+                    <span class="status-dot">● Online</span>
+                </div>
+
+                <input id="display" class="main-display" type="text"
+                       value="0" readonly aria-label="Calculator display">
+
+                <div class="buttons">
+                    <button type="button" data-action="clear" class="key key-danger">C</button>
+                    <button type="button" data-value="(" class="key">(</button>
+                    <button type="button" data-value=")" class="key">)</button>
+                    <button type="button" data-action="delete" class="key">DEL</button>
+
+                    <button type="button" data-value="7" class="key">7</button>
+                    <button type="button" data-value="8" class="key">8</button>
+                    <button type="button" data-value="9" class="key">9</button>
+                    <button type="button" data-value="/" class="key key-operator">÷</button>
+
+                    <button type="button" data-value="4" class="key">4</button>
+                    <button type="button" data-value="5" class="key">5</button>
+                    <button type="button" data-value="6" class="key">6</button>
+                    <button type="button" data-value="*" class="key key-operator">×</button>
+
+                    <button type="button" data-value="1" class="key">1</button>
+                    <button type="button" data-value="2" class="key">2</button>
+                    <button type="button" data-value="3" class="key">3</button>
+                    <button type="button" data-value="-" class="key key-operator">−</button>
+
+                    <button type="button" data-value="0" class="key key-zero">0</button>
+                    <button type="button" data-value="." class="key">.</button>
+                    <button type="button" data-value="+" class="key key-operator">+</button>
+                    <button type="button" data-action="calculate" class="key key-equals">=</button>
+                </div>
             </div>
         </div>
-
-        <div class="calculator-grid" id="calculatorGrid">
-            <a class="tool-card" href="#main-calculator" data-name="basic calculator standard calculator">
-                <span class="tool-icon">＋</span>
-                <h3>Basic Calculator</h3>
-                <p>Perform quick everyday calculations.</p>
-                <span class="tool-link">Open Calculator →</span>
-            </a>
-
-            <a class="tool-card" href="#main-calculator" data-name="percentage calculator percent">
-                <span class="tool-icon">%</span>
-                <h3>Percentage Calculator</h3>
-                <p>Calculate percentages quickly and easily.</p>
-                <span class="tool-link">Open Calculator →</span>
-            </a>
-
-            <a class="tool-card" href="#main-calculator" data-name="age calculator birthday">
-                <span class="tool-icon">🎂</span>
-                <h3>Age Calculator</h3>
-                <p>Calculate age from a date of birth.</p>
-                <span class="tool-link">Coming Soon →</span>
-            </a>
-
-            <a class="tool-card" href="#main-calculator" data-name="bmi calculator health">
-                <span class="tool-icon">⚖</span>
-                <h3>BMI Calculator</h3>
-                <p>Calculate body mass index easily.</p>
-                <span class="tool-link">Coming Soon →</span>
-            </a>
-
-            <a class="tool-card" href="#main-calculator" data-name="loan calculator finance emi">
-                <span class="tool-icon">💰</span>
-                <h3>Loan Calculator</h3>
-                <p>Estimate loan payments and interest.</p>
-                <span class="tool-link">Coming Soon →</span>
-            </a>
-
-            <a class="tool-card" href="#main-calculator" data-name="date calculator days dates">
-                <span class="tool-icon">📅</span>
-                <h3>Date Calculator</h3>
-                <p>Work with dates and time periods.</p>
-                <span class="tool-link">Coming Soon →</span>
-            </a>
-        </div>
-
-        <p id="noResults" class="no-results" hidden>No calculators found. Try another search.</p>
     </section>
 
-    <section id="categories" class="content-section">
-        <div class="section-heading">
-            <div>
-                <span class="section-kicker">EXPLORE</span>
-                <h2>Calculator Categories</h2>
-                <p>More tools will be added to every category.</p>
+    <section id="calculators" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">CALCULATOR DIRECTORY</span>
+                    <h2>All calculators</h2>
+                    <p>Choose a calculator or search for exactly what you need.</p>
+                </div>
+
+                <div class="search-box">
+                    <input id="calculatorSearch" type="search"
+                           placeholder="Search calculators..."
+                           aria-label="Search calculators">
+                    <button id="searchCalculatorBtn" type="button">Search</button>
+                </div>
+            </div>
+
+            <div id="calculatorGrid" class="tool-grid">
+
+                <a class="tool-card" href="#percentage-calculator"
+                   data-name="percentage calculator percent">
+                    <span class="tool-icon">%</span>
+                    <strong>Percentage Calculator</strong>
+                    <span>Calculate percentages quickly.</span>
+                </a>
+
+                <a class="tool-card" href="#age-calculator"
+                   data-name="age calculator birthday">
+                    <span class="tool-icon">AGE</span>
+                    <strong>Age Calculator</strong>
+                    <span>Find exact age from date of birth.</span>
+                </a>
+
+                <a class="tool-card" href="#bmi-calculator"
+                   data-name="bmi calculator health">
+                    <span class="tool-icon">BMI</span>
+                    <strong>BMI Calculator</strong>
+                    <span>Calculate BMI from height and weight.</span>
+                </a>
+
+                <a class="tool-card" href="#loan-calculator"
+                   data-name="loan calculator finance emi">
+                    <span class="tool-icon">EMI</span>
+                    <strong>Loan / EMI Calculator</strong>
+                    <span>Estimate monthly loan payments.</span>
+                </a>
+
+                <a class="tool-card" href="#date-calculator"
+                   data-name="date calculator date difference days">
+                    <span class="tool-icon">DATE</span>
+                    <strong>Date Calculator</strong>
+                    <span>Calculate the difference between dates.</span>
+                </a>
+
+                <a class="tool-card" href="#discount-calculator"
+                   data-name="discount calculator sale price">
+                    <span class="tool-icon">%</span>
+                    <strong>Discount Calculator</strong>
+                    <span>Find savings and final price.</span>
+                </a>
+
+                <a class="tool-card" href="#compound-interest-calculator"
+                   data-name="compound interest calculator investment">
+                    <span class="tool-icon">CI</span>
+                    <strong>Compound Interest</strong>
+                    <span>Calculate compound growth.</span>
+                </a>
+
+                <a class="tool-card" href="#length-calculator"
+                   data-name="length converter unit conversion">
+                    <span class="tool-icon">↔</span>
+                    <strong>Length Converter</strong>
+                    <span>Convert common length units.</span>
+                </a>
+
+                <a class="tool-card" href="#weight-calculator"
+                   data-name="weight converter mass conversion">
+                    <span class="tool-icon">KG</span>
+                    <strong>Weight Converter</strong>
+                    <span>Convert weight and mass units.</span>
+                </a>
+
+                <a class="tool-card" href="#temperature-calculator"
+                   data-name="temperature converter celsius fahrenheit kelvin">
+                    <span class="tool-icon">°</span>
+                    <strong>Temperature Converter</strong>
+                    <span>Convert Celsius, Fahrenheit and Kelvin.</span>
+                </a>
+
+                <a class="tool-card" href="#tip-calculator"
+                   data-name="tip calculator gratuity">
+                    <span class="tool-icon">$</span>
+                    <strong>Tip Calculator</strong>
+                    <span>Calculate tip and total bill.</span>
+                </a>
+
+                <a class="tool-card" href="#profit-calculator"
+                   data-name="profit margin calculator business">
+                    <span class="tool-icon">↗</span>
+                    <strong>Profit Margin</strong>
+                    <span>Calculate profit and margin.</span>
+                </a>
+
+                <a class="tool-card" href="#average-calculator"
+                   data-name="average calculator mean">
+                    <span class="tool-icon">AVG</span>
+                    <strong>Average Calculator</strong>
+                    <span>Calculate the average of numbers.</span>
+                </a>
+
+                <a class="tool-card" href="#simple-interest-calculator"
+                   data-name="simple interest calculator finance">
+                    <span class="tool-icon">SI</span>
+                    <strong>Simple Interest</strong>
+                    <span>Calculate simple interest and total.</span>
+                </a>
+            </div>
+
+            <p id="noResults" class="no-results" hidden>
+                No calculators found. Try another search.
+            </p>
+        </div>
+    </section>
+
+    <section id="main-calculator" class="section section-alt">
+        <div class="container narrow">
+            <span class="eyebrow">FAST CALCULATOR</span>
+            <h2>Quick calculation</h2>
+            <p>Use the calculator above or your keyboard for fast calculations.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading simple-heading">
+                <div>
+                    <span class="eyebrow">WORKING TOOLS</span>
+                    <h2>Calculate online</h2>
+                    <p>All tools below work directly in your browser.</p>
+                </div>
+            </div>
+
+            <div class="real-calculator-grid">
+
+                <article class="real-calculator-card" id="percentage-calculator">
+                    <h3>Percentage Calculator</h3>
+                    <input id="percentagePart" type="number" placeholder="Part">
+                    <input id="percentageWhole" type="number" placeholder="Whole">
+                    <button type="button" data-calculator-action="percentage">Calculate</button>
+                    <div id="percentageResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="discount-calculator">
+                    <h3>Discount Calculator</h3>
+                    <input id="discountPrice" type="number" placeholder="Original price">
+                    <input id="discountPercent" type="number" placeholder="Discount %">
+                    <button type="button" data-calculator-action="discount">Calculate</button>
+                    <div id="discountResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="average-calculator">
+                    <h3>Average Calculator</h3>
+                    <input id="averageNumbers" type="text" placeholder="10, 20, 30, 40">
+                    <button type="button" data-calculator-action="average">Calculate</button>
+                    <div id="averageResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="simple-interest-calculator">
+                    <h3>Simple Interest</h3>
+                    <input id="interestPrincipal" type="number" placeholder="Principal">
+                    <input id="interestRate" type="number" placeholder="Annual rate %">
+                    <input id="interestYears" type="number" placeholder="Years">
+                    <button type="button" data-calculator-action="simpleInterest">Calculate</button>
+                    <div id="simpleInterestResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="compound-interest-calculator">
+                    <h3>Compound Interest</h3>
+                    <input id="compoundPrincipal" type="number" placeholder="Principal">
+                    <input id="compoundRate" type="number" placeholder="Annual rate %">
+                    <input id="compoundYears" type="number" placeholder="Years">
+                    <input id="compoundFrequency" type="number" value="12" placeholder="Times per year">
+                    <button type="button" data-calculator-action="compoundInterest">Calculate</button>
+                    <div id="compoundResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="loan-calculator">
+                    <h3>Loan / EMI Calculator</h3>
+                    <input id="loanAmount" type="number" placeholder="Loan amount">
+                    <input id="loanRate" type="number" placeholder="Annual interest %">
+                    <input id="loanYears" type="number" placeholder="Years">
+                    <button type="button" data-calculator-action="loan">Calculate</button>
+                    <div id="loanResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="tip-calculator">
+                    <h3>Tip Calculator</h3>
+                    <input id="tipBill" type="number" placeholder="Bill amount">
+                    <input id="tipPercent" type="number" placeholder="Tip %">
+                    <button type="button" data-calculator-action="tip">Calculate</button>
+                    <div id="tipResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="profit-calculator">
+                    <h3>Profit Margin</h3>
+                    <input id="profitCost" type="number" placeholder="Cost">
+                    <input id="profitRevenue" type="number" placeholder="Revenue">
+                    <button type="button" data-calculator-action="profitMargin">Calculate</button>
+                    <div id="profitResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="bmi-calculator">
+                    <h3>BMI Calculator</h3>
+                    <input id="bmiWeight" type="number" placeholder="Weight (kg)">
+                    <input id="bmiHeight" type="number" placeholder="Height (cm)">
+                    <button type="button" data-calculator-action="bmi">Calculate</button>
+                    <div id="bmiResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="age-calculator">
+                    <h3>Age Calculator</h3>
+                    <input id="birthDate" type="date">
+                    <button type="button" data-calculator-action="age">Calculate Age</button>
+                    <div id="ageResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="date-calculator">
+                    <h3>Date Difference</h3>
+                    <input id="dateStart" type="date">
+                    <input id="dateEnd" type="date">
+                    <button type="button" data-calculator-action="dateDifference">Calculate</button>
+                    <div id="dateDifferenceResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="length-calculator">
+                    <h3>Length Converter</h3>
+                    <input id="lengthValue" type="number" placeholder="Value">
+                    <select id="lengthFrom">
+                        <option value="meter">Meter</option>
+                        <option value="kilometer">Kilometer</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="mile">Mile</option>
+                        <option value="foot">Foot</option>
+                        <option value="inch">Inch</option>
+                    </select>
+                    <select id="lengthTo">
+                        <option value="meter">Meter</option>
+                        <option value="kilometer">Kilometer</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="mile">Mile</option>
+                        <option value="foot">Foot</option>
+                        <option value="inch">Inch</option>
+                    </select>
+                    <button type="button" data-calculator-action="length">Convert</button>
+                    <div id="lengthResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="weight-calculator">
+                    <h3>Weight Converter</h3>
+                    <input id="weightValue" type="number" placeholder="Value">
+                    <select id="weightFrom">
+                        <option value="kilogram">Kilogram</option>
+                        <option value="gram">Gram</option>
+                        <option value="pound">Pound</option>
+                        <option value="ounce">Ounce</option>
+                        <option value="stone">Stone</option>
+                    </select>
+                    <select id="weightTo">
+                        <option value="kilogram">Kilogram</option>
+                        <option value="gram">Gram</option>
+                        <option value="pound">Pound</option>
+                        <option value="ounce">Ounce</option>
+                        <option value="stone">Stone</option>
+                    </select>
+                    <button type="button" data-calculator-action="weight">Convert</button>
+                    <div id="weightResult" class="calc-result">Result will appear here.</div>
+                </article>
+
+                <article class="real-calculator-card" id="temperature-calculator">
+                    <h3>Temperature Converter</h3>
+                    <input id="temperatureValue" type="number" placeholder="Value">
+                    <select id="temperatureFrom">
+                        <option value="c">Celsius</option>
+                        <option value="f">Fahrenheit</option>
+                        <option value="k">Kelvin</option>
+                    </select>
+                    <select id="temperatureTo">
+                        <option value="c">Celsius</option>
+                        <option value="f">Fahrenheit</option>
+                        <option value="k">Kelvin</option>
+                    </select>
+                    <button type="button" data-calculator-action="temperature">Convert</button>
+                    <div id="temperatureResult" class="calc-result">Result will appear here.</div>
+                </article>
+
             </div>
         </div>
+    </section>
 
-        <div class="category-grid">
-            <a href="#calculators" class="category-card"><strong>Math</strong><span>Percentages, fractions, averages and more.</span></a>
-            <a href="#calculators" class="category-card"><strong>Finance</strong><span>Loans, EMI, interest, savings and money tools.</span></a>
-            <a href="#calculators" class="category-card"><strong>Health</strong><span>BMI, BMR, calories and health-related tools.</span></a>
-            <a href="#calculators" class="category-card"><strong>Date &amp; Time</strong><span>Age, date difference, countdowns and time.</span></a>
-            <a href="#calculators" class="category-card"><strong>Converters</strong><span>Length, weight, temperature, area and more.</span></a>
+    <section id="popular" class="section section-alt">
+        <div class="container">
+            <span class="eyebrow">POPULAR</span>
+            <h2>Most useful calculators</h2>
+            <p class="section-intro">
+                Start with percentage, age, BMI, loan and date calculations,
+                then explore the full directory.
+            </p>
         </div>
     </section>
 
-    <section id="main-calculator" class="content-section calculator-area">
-        <div class="section-heading centered">
-            <span class="section-kicker">FAST CALCULATOR</span>
-            <h2>Online Calculator</h2>
-            <p>Use your keyboard or click the buttons below.</p>
-        </div>
-
-        <section class="calculator-section">
-        <div class="calculator">
-
-
-            <!-- DISPLAY -->
-
-            <input
-                id="display"
-                type="text"
-                value="0"
-                readonly
-                aria-label="Calculator display"
-            >
-
-
-            <!-- CALCULATOR BUTTONS -->
-
-            <div class="buttons">
-
-
-                <button
-                    type="button"
-                    data-action="clear"
-                    class="function">
-
-                    C
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-action="delete"
-                    class="function">
-
-                    DEL
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="%"
-                    class="function">
-
-                    %
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="/"
-                    class="operator">
-
-                    ÷
-
-                </button>
-
-
-
-                <button
-                    type="button"
-                    data-value="7">
-
-                    7
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="8">
-
-                    8
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="9">
-
-                    9
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="*"
-                    class="operator">
-
-                    ×
-
-                </button>
-
-
-
-                <button
-                    type="button"
-                    data-value="4">
-
-                    4
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="5">
-
-                    5
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="6">
-
-                    6
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="-"
-                    class="operator">
-
-                    −
-
-                </button>
-
-
-
-                <button
-                    type="button"
-                    data-value="1">
-
-                    1
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="2">
-
-                    2
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="3">
-
-                    3
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value="+"
-                    class="operator">
-
-                    +
-
-                </button>
-
-
-
-                <button
-                    type="button"
-                    data-value="0"
-                    class="zero">
-
-                    0
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-value=".">
-
-                    .
-
-                </button>
-
-
-                <button
-                    type="button"
-                    data-action="calculate"
-                    class="equals">
-
-                    =
-
-                </button>
-
-            </div>
-        </section>
-    </section>
-
-    <section id="articles" class="content-section">
-        <div class="section-heading">
-            <div>
-                <span class="section-kicker">CALCULATOR GUIDES</span>
-                <h2>Helpful Articles</h2>
-                <p>Simple guides explaining common calculations.</p>
+    <section id="articles" class="section">
+        <div class="container">
+            <span class="eyebrow">LEARN</span>
+            <h2>Calculator guides</h2>
+
+            <div class="article-grid">
+                <article class="article-card">
+                    <span>GUIDE</span>
+                    <h3>How to calculate a percentage</h3>
+                    <p>Learn the basic percentage formula with simple examples.</p>
+                </article>
+                <article class="article-card">
+                    <span>GUIDE</span>
+                    <h3>How BMI is calculated</h3>
+                    <p>Understand the BMI formula and what the number represents.</p>
+                </article>
+                <article class="article-card">
+                    <span>GUIDE</span>
+                    <h3>How loan EMI works</h3>
+                    <p>Understand monthly payments, interest and total repayment.</p>
+                </article>
             </div>
         </div>
-
-        <div class="article-grid">
-            <article class="article-card">
-                <span class="article-label">Math Guide</span>
-                <h3>How to Calculate a Percentage</h3>
-                <p>Learn the basic percentage formula with simple examples.</p>
-                <a href="#calculators">Read Guide →</a>
-            </article>
-            <article class="article-card">
-                <span class="article-label">Finance Guide</span>
-                <h3>How Loan Calculators Work</h3>
-                <p>Understand monthly payments, interest and loan terms.</p>
-                <a href="#calculators">Read Guide →</a>
-            </article>
-            <article class="article-card">
-                <span class="article-label">Health Guide</span>
-                <h3>What Is BMI?</h3>
-                <p>Understand BMI and how a BMI calculator produces its result.</p>
-                <a href="#calculators">Read Guide →</a>
-            </article>
-        </div>
     </section>
 
-    <section id="about" class="content-section info-section">
-        <div>
-            <span class="section-kicker">ABOUT FAST CALCULATOR</span>
-            <h2>Useful tools without the complexity</h2>
-            <p>Fast Calculator is being developed as a collection of simple online tools designed to make everyday calculations quick and convenient.</p>
+    <section id="about" class="section section-alt">
+        <div class="container narrow">
+            <span class="eyebrow">ABOUT</span>
+            <h2>Fast Calculator</h2>
+            <p>
+                Fast Calculator is designed to provide simple, useful and
+                mobile-friendly online calculators for everyday calculations.
+            </p>
         </div>
-        <div class="why-list">
-            <div><strong>✓ Free to use</strong><span>Easy access to useful calculation tools.</span></div>
-            <div><strong>✓ Simple interface</strong><span>Clean and mobile-friendly experience.</span></div>
-            <div><strong>✓ More tools coming</strong><span>New calculators and guides can be added over time.</span></div>
-        </div>
-    </section>
-
-    <section class="content-section faq-section">
-        <div class="section-heading centered">
-            <span class="section-kicker">FAQ</span>
-            <h2>Frequently Asked Questions</h2>
-        </div>
-        <details>
-            <summary>Is Fast Calculator free?</summary>
-            <p>Yes. The calculators on Fast Calculator are designed to be free and easy to use.</p>
-        </details>
-        <details>
-            <summary>Can I use the calculator on my phone?</summary>
-            <p>Yes. The website layout is responsive and designed for desktop and mobile screens.</p>
-        </details>
-        <details>
-            <summary>Will more calculators be added?</summary>
-            <p>Yes. The platform can be expanded with math, finance, health, date, time and conversion calculators.</p>
-        </details>
     </section>
 
 </main>
 
 <footer class="site-footer">
-    <h2>Fast Calculator</h2>
-    <p>Free online calculators and useful calculation tools.</p>
-    <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#articles">Articles</a>
-        <a href="#categories">Calculators</a>
-        <a href="#about">Privacy Policy</a>
-        <a href="#about">Terms</a>
-        <a href="#about">Disclaimer</a>
-        <a href="#about">Contact</a>
+    <div class="container footer-wrap">
+        <div>
+            <strong>Fast Calculator</strong>
+            <p>Free online calculators for everyday use.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#calculators">Calculators</a>
+            <a href="#articles">Articles</a>
+            <a href="#about">About</a>
+        </div>
     </div>
-    <p class="copyright">&copy; 2026 Fast Calculator. All Rights Reserved.</p>
+    <div class="container copyright">
+        © 2026 Fast Calculator. All rights reserved.
+    </div>
 </footer>
 
-<!-- AUTH MODAL -->
-<div class="auth-modal" id="authModal" aria-hidden="true">
-    <div class="auth-box">
-        <button type="button" class="close-auth" id="closeAuth" aria-label="Close">×</button>
-        <h2>Welcome to Fast Calculator</h2>
-        <p>Use Google to sign in securely.</p>
-        <button type="button" class="auth-submit" id="googleSignInModal">Continue with Google</button>
-        <p id="authMessage"></p>
+<!-- Auth Modal -->
+<div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button id="closeAuth" class="modal-close" type="button" aria-label="Close">×</button>
+        <span class="eyebrow">ACCOUNT</span>
+        <h2 id="authTitle">Sign in to Fast Calculator</h2>
+        <p>Use your Google account to sign in.</p>
+        <button id="googleSignInModal" class="google-btn" type="button">
+            Continue with Google
+        </button>
+        <p id="authMessage" class="auth-message"></p>
     </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="script.js?v=23"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const search = document.getElementById("calculatorSearch");
-    const grid = document.getElementById("calculatorGrid");
-    const noResults = document.getElementById("noResults");
-    const cards = Array.from(grid.querySelectorAll(".tool-card"));
-
-    function filterCalculators() {
-        const query = search.value.trim().toLowerCase();
-        let visible = 0;
-
-        cards.forEach(card => {
-            const match = !query || card.dataset.name.includes(query) || card.textContent.toLowerCase().includes(query);
-            card.hidden = !match;
-            if (match) visible++;
-        });
-
-        noResults.hidden = visible !== 0;
-    }
-
-    search.addEventListener("input", filterCalculators);
-    document.getElementById("searchCalculatorBtn").addEventListener("click", filterCalculators);
-
-    search.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") filterCalculators();
-    });
-
-    const modal = document.getElementById("authModal");
-    const close = document.getElementById("closeAuth");
-    const signIn = document.getElementById("signInBtn");
-    const googleModal = document.getElementById("googleSignInModal");
-
-    signIn.addEventListener("click", function () {
-        if (typeof firebase !== "undefined" && firebase.auth) {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            provider.setCustomParameters({ prompt: "select_account" });
-            firebase.auth().signInWithPopup(provider).catch(err => {
-                document.getElementById("authMessage").textContent = err.message;
-            });
-        } else {
-            modal.style.display = "flex";
-            modal.setAttribute("aria-hidden", "false");
-        }
-    });
-
-    document.getElementById("signUpBtn").addEventListener("click", function () {
-        modal.style.display = "flex";
-        modal.setAttribute("aria-hidden", "false");
-    });
-
-    googleModal.addEventListener("click", function () {
-        signIn.click();
-    });
-
-    close.addEventListener("click", function () {
-        modal.style.display = "none";
-        modal.setAttribute("aria-hidden", "true");
-    });
-
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) close.click();
-    });
-});
-</script>
-
+<script src="script.js?v=30"></script>
 </body>
 </html>
