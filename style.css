@@ -1,3 +1,212 @@
+
+/* =========================================================
+   FAST CALCULATOR - MODERN SEO PLATFORM
+   ========================================================= */
+
+html { scroll-behavior: smooth; }
+body { background: linear-gradient(135deg, #eaf4ff 0%, #f8fbff 55%, #eef6ff 100%); }
+
+.site-header {
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.brand { max-width: none; text-decoration: none; color: white; flex: 0 0 auto; }
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: auto;
+}
+
+.main-nav a {
+    color: #dbeafe;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+.main-nav a:hover { color: white; }
+
+.auth-buttons { flex: 0 0 auto; }
+.login-btn, .signup-btn { border-radius: 9px; }
+.signup-btn { background: #2563eb !important; color: white !important; border: 1px solid #60a5fa !important; }
+.login-btn { background: rgba(255,255,255,.1) !important; color: white !important; border: 1px solid rgba(255,255,255,.35) !important; }
+
+.hero {
+    padding: 76px 20px 64px;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(59,130,246,.22), transparent 30%),
+        linear-gradient(135deg, #061638, #0b2b68 55%, #12439a);
+    color: white;
+}
+.hero-content { max-width: 920px; margin: 0 auto; text-align: center; }
+.eyebrow, .section-kicker {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #60a5fa;
+}
+.hero .eyebrow { color: #bfdbfe; }
+.hero h2 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; margin: 13px 0 18px; }
+.hero p { max-width: 680px; margin: 0 auto; color: #dbeafe; font-size: 18px; line-height: 1.7; }
+
+.calculator-search {
+    max-width: 680px;
+    margin: 32px auto 0;
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+.calculator-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: white;
+    border-radius: 11px;
+    padding: 15px 17px;
+    font-size: 16px;
+}
+.calculator-search button {
+    height: auto;
+    min-width: 110px;
+    background: #2563eb;
+    color: white;
+    border-radius: 11px;
+}
+
+.main-content {
+    display: block;
+    padding: 0 20px 70px;
+}
+.content-section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 0;
+}
+.section-heading { margin-bottom: 30px; }
+.section-heading h2 { color: #0f244b; font-size: clamp(28px, 4vw, 40px); margin: 8px 0; }
+.section-heading p { color: #64748b; line-height: 1.7; }
+.centered { text-align: center; }
+
+.calculator-grid, .category-grid, .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.tool-card, .category-card, .article-card {
+    text-decoration: none;
+    background: rgba(255,255,255,.9);
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 10px 28px rgba(15,23,42,.06);
+    transition: .2s ease;
+}
+.tool-card:hover, .category-card:hover, .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(37,99,235,.13);
+    border-color: #93c5fd;
+}
+.tool-icon {
+    width: 46px; height: 46px; display: grid; place-items: center;
+    border-radius: 12px; background: #dbeafe; color: #1d4ed8;
+    font-weight: 800; font-size: 20px; margin-bottom: 18px;
+}
+.tool-card h3, .article-card h3 { color: #102a56; margin-bottom: 8px; font-size: 20px; }
+.tool-card p, .article-card p, .category-card span { color: #64748b; line-height: 1.6; }
+.tool-link, .article-card a { display: inline-block; margin-top: 16px; color: #2563eb; font-weight: 700; }
+.category-card { display: flex; flex-direction: column; gap: 9px; }
+.category-card strong { color: #102a56; font-size: 19px; }
+.article-label { color: #2563eb; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+.calculator-area {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.calculator-section { margin-top: 24px; }
+
+.info-section {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 40px;
+    background: white;
+    padding: 48px;
+    border-radius: 24px;
+    border: 1px solid #dbeafe;
+}
+.info-section h2 { color: #102a56; font-size: 32px; margin: 8px 0 14px; }
+.info-section p { color: #64748b; line-height: 1.8; }
+.why-list { display: grid; gap: 13px; }
+.why-list div { padding: 18px; border-radius: 14px; background: #eff6ff; }
+.why-list strong { display: block; color: #1d4ed8; margin-bottom: 5px; }
+.why-list span { color: #64748b; font-size: 14px; }
+
+.faq-section { max-width: 900px; }
+.faq-section details {
+    background: white; border: 1px solid #dbeafe; border-radius: 13px;
+    padding: 18px 20px; margin: 12px 0;
+}
+.faq-section summary { cursor: pointer; color: #102a56; font-weight: 700; }
+.faq-section details p { color: #64748b; line-height: 1.7; margin-top: 12px; }
+
+.no-results { text-align: center; color: #64748b; padding: 25px; }
+
+.site-footer { margin-top: 0; }
+.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin: 18px 0; }
+.footer-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; }
+.footer-links a:hover { color: white; }
+
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.auth-modal { display: none; }
+
+@media (max-width: 900px) {
+    .nav-wrap { flex-wrap: wrap; }
+    .main-nav { order: 3; width: 100%; justify-content: center; margin-left: 0; }
+    .calculator-grid, .category-grid, .article-grid { grid-template-columns: repeat(2, 1fr); }
+    .info-section { grid-template-columns: 1fr; padding: 32px; }
+}
+@media (max-width: 600px) {
+    .site-header { position: relative; }
+    .nav-wrap { gap: 14px; }
+    .main-nav { gap: 13px; overflow-x: auto; justify-content: flex-start; padding-bottom: 4px; }
+    .main-nav a { font-size: 13px; white-space: nowrap; }
+    .auth-buttons { width: 100%; justify-content: center; }
+    .auth-buttons button { min-width: 90px; }
+    .hero { padding: 55px 15px 45px; }
+    .hero h2 { font-size: 38px; }
+    .hero p { font-size: 16px; }
+    .calculator-search { flex-direction: column; }
+    .calculator-search button { width: 100%; }
+    .main-content { padding-left: 12px; padding-right: 12px; }
+    .content-section { padding: 52px 0; }
+    .calculator-grid, .category-grid, .article-grid { grid-template-columns: 1fr; }
+    .info-section { padding: 26px; }
+}
+
+
+/* Existing calculator/auth styles preserved below */
 * {
     box-sizing: border-box;
     margin: 0;
