@@ -1,5 +1,6 @@
 /* =====================================================
-   FAST CALCULATOR
+   FAST CALCULATOR - MODERN WEBSITE SCRIPT
+   Calculator + Keyboard + Firebase Google Sign-In
    ===================================================== */
 
 "use strict";
@@ -60,14 +61,17 @@ function calculateCalculator() {
 
         let calculation = expression;
 
-        // Convert 50% to (50/100)
+
+        /* Convert percentage */
+
         calculation = calculation.replace(
             /(\d+(?:\.\d+)?)%/g,
             "($1/100)"
         );
 
 
-        // Allow calculator characters only
+        /* Allow calculator characters only */
+
         if (!/^[0-9+\-*/().%\s]+$/.test(calculation)) {
             throw new Error("Invalid calculation");
         }
@@ -89,15 +93,29 @@ function calculateCalculator() {
             Number(result.toFixed(12))
         );
 
+
         updateDisplay();
 
 
     } catch (error) {
 
+        console.error(
+            "Calculator Error:",
+            error
+        );
+
         expression = "";
 
         if (display) {
+
             display.value = "Error";
+
+            setTimeout(function () {
+
+                updateDisplay();
+
+            }, 900);
+
         }
 
     }
@@ -110,60 +128,77 @@ function calculateCalculator() {
    ===================================================== */
 
 const calculatorButtons =
-    document.querySelectorAll(".buttons button");
-
-
-calculatorButtons.forEach(function (button) {
-
-    button.addEventListener(
-        "click",
-        function () {
-
-            const value =
-                button.getAttribute("data-value");
-
-            const action =
-                button.getAttribute("data-action");
-
-
-            if (value !== null) {
-
-                addToCalculator(value);
-
-                return;
-            }
-
-
-            if (action === "clear") {
-
-                clearCalculator();
-
-                return;
-            }
-
-
-            if (action === "delete") {
-
-                deleteLast();
-
-                return;
-            }
-
-
-            if (action === "calculate") {
-
-                calculateCalculator();
-
-            }
-
-        }
+    document.querySelectorAll(
+        ".buttons button"
     );
 
-});
+
+calculatorButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                const value =
+                    button.getAttribute(
+                        "data-value"
+                    );
+
+                const action =
+                    button.getAttribute(
+                        "data-action"
+                    );
+
+
+                /* Number / operator */
+
+                if (value !== null) {
+
+                    addToCalculator(value);
+
+                    return;
+                }
+
+
+                /* Clear */
+
+                if (action === "clear") {
+
+                    clearCalculator();
+
+                    return;
+                }
+
+
+                /* Delete */
+
+                if (action === "delete") {
+
+                    deleteLast();
+
+                    return;
+                }
+
+
+                /* Equals */
+
+                if (action === "calculate") {
+
+                    calculateCalculator();
+
+                    return;
+                }
+
+            }
+        );
+
+    }
+);
 
 
 /* =====================================================
-   KEYBOARD
+   KEYBOARD SUPPORT
    ONLY ONE KEYBOARD HANDLER
    ===================================================== */
 
@@ -172,7 +207,8 @@ document.onkeydown = function (event) {
     const key = event.key;
 
 
-    // Numbers
+    /* Numbers */
+
     if (
         key >= "0" &&
         key <= "9"
@@ -186,7 +222,8 @@ document.onkeydown = function (event) {
     }
 
 
-    // Operators
+    /* Operators */
+
     if (
         key === "+" ||
         key === "-" ||
@@ -204,7 +241,8 @@ document.onkeydown = function (event) {
     }
 
 
-    // Enter
+    /* Enter */
+
     if (
         key === "Enter" ||
         key === "="
@@ -218,7 +256,8 @@ document.onkeydown = function (event) {
     }
 
 
-    // Backspace
+    /* Backspace */
+
     if (key === "Backspace") {
 
         event.preventDefault();
@@ -229,13 +268,15 @@ document.onkeydown = function (event) {
     }
 
 
-    // Escape
+    /* Escape */
+
     if (key === "Escape") {
 
         event.preventDefault();
 
         clearCalculator();
 
+        return;
     }
 
 };
@@ -246,7 +287,6 @@ document.onkeydown = function (event) {
    ===================================================== */
 
 updateDisplay();
-
 
 
 /* =====================================================
@@ -275,172 +315,256 @@ const firebaseConfig = {
 
     measurementId:
         "G-SVB7RJJPN5"
+
 };
 
 
 /* =====================================================
-   INITIALIZE FIREBASE
+   FIREBASE INITIALIZATION
    ===================================================== */
-
-if (
-    typeof firebase !== "undefined" &&
-    !firebase.apps.length
-) {
-
-    firebase.initializeApp(firebaseConfig);
-
-}
-
 
 let firebaseAuth = null;
 
 
-if (typeof firebase !== "undefined") {
+if (
+    typeof firebase !== "undefined" &&
+    firebase.apps &&
+    !firebase.apps.length
+) {
 
-    firebaseAuth = firebase.auth();
+    firebase.initializeApp(
+        firebaseConfig
+    );
 
 }
 
 
+if (
+    typeof firebase !== "undefined" &&
+    firebase.auth
+) {
+
+    firebaseAuth =
+        firebase.auth();
+
+}
+
 
 /* =====================================================
-   AUTH BUTTONS
+   AUTH ELEMENTS
    ===================================================== */
 
 const signInBtn =
-    document.getElementById("signInBtn");
+    document.getElementById(
+        "signInBtn"
+    );
+
 
 const signUpBtn =
-    document.getElementById("signUpBtn");
+    document.getElementById(
+        "signUpBtn"
+    );
+
+
+const authModal =
+    document.getElementById(
+        "authModal"
+    );
+
+
+const closeAuth =
+    document.getElementById(
+        "closeAuth"
+    );
+
+
+const googleSignInModal =
+    document.getElementById(
+        "googleSignInModal"
+    );
+
+
+const authMessage =
+    document.getElementById(
+        "authMessage"
+    );
 
 
 /* =====================================================
-   GOOGLE SIGN IN WITH FIREBASE
+   OPEN AUTH MODAL
+   ===================================================== */
+
+function openAuthModal() {
+
+    if (!authModal) {
+        return;
+    }
+
+
+    authModal.style.display = "flex";
+
+    authModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    if (authMessage) {
+
+        authMessage.textContent = "";
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE AUTH MODAL
+   ===================================================== */
+
+function closeAuthModal() {
+
+    if (!authModal) {
+        return;
+    }
+
+
+    authModal.style.display = "none";
+
+    authModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+/* =====================================================
+   GOOGLE SIGN IN
+   ===================================================== */
+
+async function signInWithGoogle() {
+
+    if (!firebaseAuth) {
+
+        if (authMessage) {
+
+            authMessage.textContent =
+                "Firebase Authentication is not available.";
+
+        }
+
+        return;
+    }
+
+
+    try {
+
+        const provider =
+            new firebase.auth.GoogleAuthProvider();
+
+
+        provider.setCustomParameters({
+
+            prompt: "select_account"
+
+        });
+
+
+        const result =
+            await firebaseAuth.signInWithPopup(
+                provider
+            );
+
+
+        const user =
+            result.user;
+
+
+        console.log(
+            "Google login successful:",
+            user
+        );
+
+
+        if (authMessage) {
+
+            authMessage.textContent =
+                "Signed in successfully.";
+
+        }
+
+
+        closeAuthModal();
+
+
+    } catch (error) {
+
+        console.error(
+            "Google Sign In Error:",
+            error
+        );
+
+
+        if (
+            error.code ===
+            "auth/popup-closed-by-user"
+        ) {
+
+            return;
+        }
+
+
+        if (
+            error.code ===
+            "auth/popup-blocked"
+        ) {
+
+            alert(
+                "Google Sign-In popup was blocked. Please allow popups for this website."
+            );
+
+            return;
+        }
+
+
+        if (
+            error.code ===
+            "auth/operation-not-allowed"
+        ) {
+
+            alert(
+                "Google Sign-In is not enabled in Firebase yet."
+            );
+
+            return;
+        }
+
+
+        if (authMessage) {
+
+            authMessage.textContent =
+                "Google Sign-In failed: " +
+                error.message;
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   SIGN IN BUTTON
    ===================================================== */
 
 if (signInBtn) {
 
     signInBtn.addEventListener(
         "click",
-        async function () {
+        function () {
 
-            console.log(
-                "Sign In clicked"
-            );
-
-
-            if (!firebaseAuth) {
-
-                alert(
-                    "Firebase Authentication is not available."
-                );
-
-                return;
-            }
-
-
-            try {
-
-                const provider =
-                    new firebase.auth.GoogleAuthProvider();
-
-
-                provider.setCustomParameters({
-                    prompt: "select_account"
-                });
-
-
-                const result =
-                    await firebaseAuth.signInWithPopup(
-                        provider
-                    );
-
-
-                const user =
-                    result.user;
-
-
-                console.log(
-                    "Google login successful:",
-                    user
-                );
-
-
-                // Update button
-                signInBtn.textContent =
-                    user.displayName || "Signed In";
-
-
-                // Optional user data
-                console.log(
-                    "Name:",
-                    user.displayName
-                );
-
-                console.log(
-                    "Email:",
-                    user.email
-                );
-
-                console.log(
-                    "Photo:",
-                    user.photoURL
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Google Sign In Error:",
-                    error
-                );
-
-
-                if (
-                    error.code ===
-                    "auth/popup-closed-by-user"
-                ) {
-
-                    console.log(
-                        "Google login popup was closed."
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    error.code ===
-                    "auth/popup-blocked"
-                ) {
-
-                    alert(
-                        "Google login popup was blocked by your browser. Please allow popups for this website."
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    error.code ===
-                    "auth/operation-not-allowed"
-                ) {
-
-                    alert(
-                        "Google Sign-In is not enabled in Firebase yet."
-                    );
-
-                    return;
-                }
-
-
-                alert(
-                    "Google Sign In failed: " +
-                    error.message
-                );
-
-            }
+            signInWithGoogle();
 
         }
     );
@@ -458,15 +582,95 @@ if (signUpBtn) {
         "click",
         function () {
 
-            alert(
-                "Sign Up will be connected next."
-            );
+            openAuthModal();
 
         }
     );
 
 }
 
+
+/* =====================================================
+   GOOGLE BUTTON INSIDE MODAL
+   ===================================================== */
+
+if (googleSignInModal) {
+
+    googleSignInModal.addEventListener(
+        "click",
+        function () {
+
+            signInWithGoogle();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE AUTH BUTTON
+   ===================================================== */
+
+if (closeAuth) {
+
+    closeAuth.addEventListener(
+        "click",
+        function () {
+
+            closeAuthModal();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+   ===================================================== */
+
+if (authModal) {
+
+    authModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                authModal
+            ) {
+
+                closeAuthModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE CLOSES AUTH MODAL
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape" &&
+            authModal &&
+            authModal.style.display === "flex"
+        ) {
+
+            closeAuthModal();
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -514,3 +718,138 @@ if (firebaseAuth) {
     );
 
 }
+
+
+/* =====================================================
+   CALCULATOR SEARCH
+   ===================================================== */
+
+const calculatorSearch =
+    document.getElementById(
+        "calculatorSearch"
+    );
+
+
+const calculatorGrid =
+    document.getElementById(
+        "calculatorGrid"
+    );
+
+
+const noResults =
+    document.getElementById(
+        "noResults"
+    );
+
+
+const searchCalculatorBtn =
+    document.getElementById(
+        "searchCalculatorBtn"
+    );
+
+
+function filterCalculators() {
+
+    if (
+        !calculatorSearch ||
+        !calculatorGrid
+    ) {
+
+        return;
+    }
+
+
+    const query =
+        calculatorSearch.value
+            .trim()
+            .toLowerCase();
+
+
+    const cards =
+        calculatorGrid.querySelectorAll(
+            ".tool-card"
+        );
+
+
+    let visibleCount = 0;
+
+
+    cards.forEach(
+        function (card) {
+
+            const searchText =
+                (
+                    (card.dataset.name || "") +
+                    " " +
+                    card.textContent
+                ).toLowerCase();
+
+
+            const matches =
+                !query ||
+                searchText.includes(query);
+
+
+            card.hidden =
+                !matches;
+
+
+            if (matches) {
+
+                visibleCount++;
+
+            }
+
+        }
+    );
+
+
+    if (noResults) {
+
+        noResults.hidden =
+            visibleCount !== 0;
+
+    }
+
+}
+
+
+if (calculatorSearch) {
+
+    calculatorSearch.addEventListener(
+        "input",
+        filterCalculators
+    );
+
+
+    calculatorSearch.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                filterCalculators();
+
+            }
+
+        }
+    );
+
+}
+
+
+if (searchCalculatorBtn) {
+
+    searchCalculatorBtn.addEventListener(
+        "click",
+        filterCalculators
+    );
+
+}
+
+
+/* =====================================================
+   FINISHED
+   ===================================================== */
