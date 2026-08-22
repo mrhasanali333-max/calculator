@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f63b5"/>
+      <stop offset="1" stop-color="#071c43"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cbd8e8"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="260" cy="432" rx="122" ry="20" fill="#0b1f43" opacity=".18"/>
+  <g transform="rotate(24 256 256)">
+    <rect x="130" y="54" width="252" height="404" rx="42" fill="#061b42" stroke="#0b2d64" stroke-width="12"/>
+    <rect x="151" y="76" width="210" height="126" rx="20" fill="url(#screen)" stroke="#a9bad0" stroke-width="7"/>
+    <text x="328" y="174" fill="#203452" font-family="Arial,sans-serif" font-size="62" text-anchor="middle">0</text>
+    <g fill="#1164bc" stroke="#0a3978" stroke-width="6">
+      <rect x="157" y="222" width="54" height="48" rx="11"/><rect x="226" y="222" width="54" height="48" rx="11"/><rect x="295" y="222" width="54" height="48" rx="11"/>
+      <rect x="157" y="284" width="54" height="48" rx="11"/><rect x="226" y="284" width="54" height="48" rx="11"/><rect x="295" y="284" width="54" height="48" rx="11"/>
+      <rect x="157" y="346" width="54" height="48" rx="11"/><rect x="226" y="346" width="54" height="48" rx="11"/><rect x="295" y="346" width="54" height="48" rx="11"/>
+    </g>
+    <rect x="157" y="407" width="54" height="48" rx="11" fill="#ff7614"/>
+    <text x="184" y="441" fill="white" font-family="Arial,sans-serif" font-size="34" text-anchor="middle">=</text>
+  </g>
+  <path d="M54 315 C115 407 328 439 454 298 C493 254 493 194 458 151" fill="none" stroke="#08cfee" stroke-width="25" stroke-linecap="round"/>
+  <path d="M75 391 C185 482 384 413 451 285 C474 242 477 199 464 164" fill="none" stroke="#f3263a" stroke-width="15" stroke-linecap="round"/>
+</svg>
