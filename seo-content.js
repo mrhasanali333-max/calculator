@@ -117,6 +117,69 @@ const pageData = {
         uses: "Estimate straightforward interest on savings, loans, and short-term financial agreements.",
         faqs: ["What is the simple interest formula?", "What does principal mean?", "Should the rate be entered as a percentage?", "How is total repayment calculated?"],
         related: [["compound-interest-calculator.html", "Compound Interest Calculator"], ["emi-calculator.html", "Loan / EMI Calculator"], ["percentage-calculator.html", "Percentage Calculator"]]
+    },
+    "zakat-calculator.html": {
+        name: "Zakat Calculator",
+        description: "Estimate annual Zakat on eligible wealth using the standard 2.5% rate.",
+        formula: "Zakat = (Eligible assets - Short-term liabilities) x 2.5%",
+        example: "Add eligible cash, gold, and other assets, subtract short-term liabilities, then calculate 2.5%.",
+        uses: "Plan charitable giving and review an estimate of annual Zakat in your chosen currency.",
+        faqs: ["What rate is used for Zakat?", "Can I enter gold value?", "Which liabilities can be deducted?"],
+        related: [["gold-calculator.html", "Gold Calculator"], ["investment-calculator.html", "Investment Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "salary-calculator.html": {
+        name: "Salary Calculator",
+        description: "Convert annual salary to monthly, weekly, daily, and hourly pay estimates.",
+        formula: "Hourly pay = Annual salary / (52 x Hours per week)",
+        example: "Enter an annual salary and weekly hours to see equivalent pay periods.",
+        uses: "Compare job offers, plan budgets, and understand gross pay by period.",
+        faqs: ["Is this salary before tax?", "How are weekly pay amounts calculated?", "Can I change weekly hours?"],
+        related: [["investment-calculator.html", "Investment Calculator"], ["emi-calculator.html", "Loan / EMI Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "gold-calculator.html": {
+        name: "Gold Calculator",
+        description: "Estimate gold value from weight, purity, and current price per gram.",
+        formula: "Gold value = Weight x Price per gram x Purity / 100",
+        example: "Enter grams, purity percentage, and the current pure gold price per gram.",
+        uses: "Estimate the value of gold holdings or jewellery before fees and taxes.",
+        faqs: ["How does purity affect value?", "Can I use any currency?", "Are jewellery charges included?"],
+        related: [["zakat-calculator.html", "Zakat Calculator"], ["investment-calculator.html", "Investment Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "investment-calculator.html": {
+        name: "Investment Calculator",
+        description: "Project investment growth with an initial deposit, monthly contributions, return rate, and time.",
+        formula: "Future value = Initial investment growth + Monthly contribution growth",
+        example: "Enter a starting amount, monthly contribution, estimated annual return, and years invested.",
+        uses: "Compare saving scenarios and understand the effect of regular contributions and compounding.",
+        faqs: ["Does this guarantee returns?", "How often is growth compounded?", "Are contributions monthly?"],
+        related: [["compound-interest-calculator.html", "Compound Interest Calculator"], ["salary-calculator.html", "Salary Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "body-fat-calculator.html": {
+        name: "Body Fat Calculator",
+        description: "Estimate body fat percentage using the US Navy circumference method.",
+        formula: "Body fat is estimated from height and waist, neck, and hip measurements.",
+        example: "Measure your body consistently in centimeters and select the matching sex calculation.",
+        uses: "Track an approximate body composition trend alongside other health measures.",
+        faqs: ["Which measurements are needed?", "Is this a medical diagnosis?", "Why are hip measurements needed for women?"],
+        related: [["bmi-calculator.html", "BMI Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "electricity-bill-calculator.html": {
+        name: "Electricity Bill Calculator",
+        description: "Estimate electricity charges from usage, rate per kWh, and fixed charges.",
+        formula: "Bill = Usage x Rate per kWh + Fixed charges",
+        example: "Enter monthly kWh usage and your provider's rate to estimate the energy bill.",
+        uses: "Plan household energy costs and compare the impact of usage or tariffs.",
+        faqs: ["What is a kWh?", "Are taxes included?", "Can I enter any currency?"],
+        related: [["calculators.html", "All Calculators"], ["popular.html", "Popular Calculators"]]
+    },
+    "car-loan-calculator.html": {
+        name: "Car Loan Calculator",
+        description: "Estimate monthly car loan payments, total repayment, and interest after a down payment.",
+        formula: "Payment = Principal x Monthly rate x (1 + rate)^months / ((1 + rate)^months - 1)",
+        example: "Enter the vehicle price, down payment, interest rate, and loan term in months.",
+        uses: "Compare vehicle financing options and plan an estimated monthly budget.",
+        faqs: ["Does this include taxes and fees?", "What does the down payment change?", "Can I use a zero interest rate?"],
+        related: [["emi-calculator.html", "Loan / EMI Calculator"], ["salary-calculator.html", "Salary Calculator"], ["calculators.html", "All Calculators"]]
     }
 };
 
