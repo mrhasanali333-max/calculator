@@ -512,6 +512,12 @@ h2{
     align-items:center;
 }
 
+.footer-owner{
+    color:#a8bddc;
+    font-size:14px;
+    align-self:center;
+}
+
 .footer-links a{
     color:#c7d7ee;
     font-size:14px;
@@ -606,6 +612,7 @@ h2{
     .real-calculator-grid{grid-template-columns:1fr}
     .article-grid{grid-template-columns:1fr}
     .footer-wrap{display:block}
+    .footer-owner{margin-top:18px}
     .footer-links{margin-top:18px}
 }
 
