@@ -244,6 +244,26 @@ h2{
     gap:9px;
 }
 
+.scientific-hero-buttons{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
+}
+
+.scientific-hero-buttons button{
+    min-height:42px;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    background:#fff;
+    color:var(--text);
+    font-weight:750;
+    font-size:14px;
+}
+
+.scientific-hero-buttons button:hover{background:#f8fafc}
+.scientific-hero-buttons button:nth-child(-n+5){background:var(--blue-soft);color:var(--blue)}
+.scientific-hero-buttons button:last-child{background:var(--blue);color:#fff}
+
 .key{
     min-height:56px;
     border:1px solid #e2e8f0;

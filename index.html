@@ -73,40 +73,41 @@
                 </div>
             </div>
 
-            <div class="hero-card">
+            <div class="hero-card scientific-hero-card">
                 <div class="hero-card-top">
-                    <span>Quick Calculator</span>
+                    <span>Scientific Calculator</span>
                     <span class="status-dot">● Online</span>
                 </div>
 
-                <input id="display" class="main-display" type="text"
-                       value="0" readonly aria-label="Calculator display">
+                <input id="heroScientificDisplay" class="main-display" type="text"
+                       value="0" aria-label="Scientific calculator display">
 
-                <div class="buttons">
-                    <button type="button" data-action="clear" class="key key-danger">C</button>
-                    <button type="button" data-value="(" class="key">(</button>
-                    <button type="button" data-value=")" class="key">)</button>
-                    <button type="button" data-action="delete" class="key">DEL</button>
-
-                    <button type="button" data-value="7" class="key">7</button>
-                    <button type="button" data-value="8" class="key">8</button>
-                    <button type="button" data-value="9" class="key">9</button>
-                    <button type="button" data-value="/" class="key key-operator">÷</button>
-
-                    <button type="button" data-value="4" class="key">4</button>
-                    <button type="button" data-value="5" class="key">5</button>
-                    <button type="button" data-value="6" class="key">6</button>
-                    <button type="button" data-value="*" class="key key-operator">×</button>
-
-                    <button type="button" data-value="1" class="key">1</button>
-                    <button type="button" data-value="2" class="key">2</button>
-                    <button type="button" data-value="3" class="key">3</button>
-                    <button type="button" data-value="-" class="key key-operator">−</button>
-
-                    <button type="button" data-value="0" class="key key-zero">0</button>
-                    <button type="button" data-value="." class="key">.</button>
-                    <button type="button" data-value="+" class="key key-operator">+</button>
-                    <button type="button" data-action="calculate" class="key key-equals">=</button>
+                <div class="scientific-hero-buttons">
+                    <button type="button" data-hero-value="sin(">sin</button>
+                    <button type="button" data-hero-value="cos(">cos</button>
+                    <button type="button" data-hero-value="tan(">tan</button>
+                    <button type="button" data-hero-value="sqrt(">sqrt</button>
+                    <button type="button" data-hero-value="log(">log</button>
+                    <button type="button" data-hero-value="7">7</button>
+                    <button type="button" data-hero-value="8">8</button>
+                    <button type="button" data-hero-value="9">9</button>
+                    <button type="button" data-hero-value="/">÷</button>
+                    <button type="button" data-hero-value="^">xʸ</button>
+                    <button type="button" data-hero-value="4">4</button>
+                    <button type="button" data-hero-value="5">5</button>
+                    <button type="button" data-hero-value="6">6</button>
+                    <button type="button" data-hero-value="*">×</button>
+                    <button type="button" data-hero-value="(">(</button>
+                    <button type="button" data-hero-value="1">1</button>
+                    <button type="button" data-hero-value="2">2</button>
+                    <button type="button" data-hero-value="3">3</button>
+                    <button type="button" data-hero-value="-">−</button>
+                    <button type="button" data-hero-value=")">)</button>
+                    <button type="button" data-hero-value="0">0</button>
+                    <button type="button" data-hero-value=".">.</button>
+                    <button type="button" data-hero-value="+">+</button>
+                    <button type="button" data-hero-action="clear">C</button>
+                    <button type="button" data-hero-action="calculate">=</button>
                 </div>
             </div>
         </div>
@@ -236,7 +237,6 @@
                 <a class="tool-card" href="body-fat-calculator.html" data-name="body fat calculator health fitness"><span class="tool-icon">BF</span><strong>Body Fat Calculator</strong><span>Estimate body fat from measurements.</span></a>
                 <a class="tool-card" href="electricity-bill-calculator.html" data-name="electricity bill calculator energy kwh"><span class="tool-icon">KWH</span><strong>Electricity Bill</strong><span>Estimate energy charges and total bill.</span></a>
                 <a class="tool-card" href="car-loan-calculator.html" data-name="car auto loan calculator vehicle finance"><span class="tool-icon">CAR</span><strong>Car Loan Calculator</strong><span>Estimate monthly vehicle payments.</span></a>
-                <a class="tool-card" href="scientific-calculator.html" data-name="scientific calculator trigonometry logarithm math"><span class="tool-icon">SCI</span><strong>Scientific Calculator</strong><span>Calculate powers, roots, logs, and trigonometry.</span></a>
             </div>
 
             <p id="noResults" class="no-results" hidden>
@@ -265,6 +265,46 @@
         © 2026 Fast Calculator. All rights reserved.
     </div>
 </footer>
+
+    <script>
+    (function () {
+        const heroDisplay = document.getElementById("heroScientificDisplay");
+        const heroButtons = document.querySelectorAll("[data-hero-value]");
+
+        function heroAppend(value) {
+            if (heroDisplay.value === "0") heroDisplay.value = "";
+            heroDisplay.value += value;
+        }
+
+        function heroCalculate() {
+            try {
+                const source = heroDisplay.value
+                    .replace(/\^/g, "**")
+                    .replace(/sqrt\(/g, "Math.sqrt(")
+                    .replace(/log\(/g, "Math.log10(")
+                    .replace(/sin\(/g, "sin(")
+                    .replace(/cos\(/g, "cos(")
+                    .replace(/tan\(/g, "tan(");
+                if (!/^[0-9+\-*/().%\sA-Za-z*]+$/.test(source)) throw new Error("Invalid expression");
+                const answer = Function("sin", "cos", "tan", "return (" + source + ")")(
+                    value => Math.sin(value * Math.PI / 180),
+                    value => Math.cos(value * Math.PI / 180),
+                    value => Math.tan(value * Math.PI / 180)
+                );
+                if (!Number.isFinite(answer)) throw new Error("Invalid result");
+                heroDisplay.value = String(Number(answer.toFixed(12)));
+            } catch (error) {
+                heroDisplay.value = "Error";
+                setTimeout(() => { heroDisplay.value = "0"; }, 900);
+            }
+        }
+
+        heroButtons.forEach(button => button.addEventListener("click", () => heroAppend(button.dataset.heroValue)));
+        document.querySelector('[data-hero-action="clear"]').addEventListener("click", () => { heroDisplay.value = "0"; });
+        document.querySelector('[data-hero-action="calculate"]').addEventListener("click", heroCalculate);
+        heroDisplay.addEventListener("keydown", event => { if (event.key === "Enter") heroCalculate(); });
+    }());
+    </script>
 
 <!-- Auth Modal -->
 <div id="authModal" class="modal" aria-hidden="true">
