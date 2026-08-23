@@ -180,6 +180,15 @@ const pageData = {
         uses: "Compare vehicle financing options and plan an estimated monthly budget.",
         faqs: ["Does this include taxes and fees?", "What does the down payment change?", "Can I use a zero interest rate?"],
         related: [["emi-calculator.html", "Loan / EMI Calculator"], ["salary-calculator.html", "Salary Calculator"], ["calculators.html", "All Calculators"]]
+    },
+    "scientific-calculator.html": {
+        name: "Scientific Calculator",
+        description: "Calculate trigonometry, powers, roots, logarithms, constants, and more in degrees.",
+        formula: "Scientific functions include sin, cos, tan, sqrt, log, ln, powers, and factorials.",
+        example: "Enter sin(30), sqrt(25), 2^8, or another supported expression and select equals.",
+        uses: "Useful for schoolwork, engineering, science, finance, and advanced everyday calculations.",
+        faqs: ["Are trigonometric functions in degrees?", "Which logarithms are supported?", "Can I use pi and e?"],
+        related: [["percentage-calculator.html", "Percentage Calculator"], ["compound-interest-calculator.html", "Compound Interest Calculator"], ["calculators.html", "All Calculators"]]
     }
 };
 
