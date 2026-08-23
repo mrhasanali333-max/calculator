@@ -264,6 +264,23 @@ h2{
 .scientific-hero-buttons button:nth-child(-n+5){background:var(--blue-soft);color:var(--blue)}
 .scientific-hero-buttons button:last-child{background:var(--blue);color:#fff}
 
+.scientific-hero-mode{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+    margin:-5px 0 10px;
+}
+
+.scientific-hero-mode button{
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-size:13px;
+    padding:2px 4px;
+}
+
+.scientific-hero-mode button.active{color:var(--blue);font-weight:800}
+
 .key{
     min-height:56px;
     border:1px solid #e2e8f0;

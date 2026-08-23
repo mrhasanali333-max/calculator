@@ -74,40 +74,19 @@
             </div>
 
             <div class="hero-card scientific-hero-card">
-                <div class="hero-card-top">
-                    <span>Scientific Calculator</span>
-                    <span class="status-dot">● Online</span>
-                </div>
-
-                <input id="heroScientificDisplay" class="main-display" type="text"
-                       value="0" aria-label="Scientific calculator display">
-
+                <div class="hero-card-top"><span>Scientific Calculator</span><span class="status-dot">● Online</span></div>
+                <input id="heroScientificDisplay" class="main-display" type="text" value="0" aria-label="Scientific calculator display">
+                <div class="scientific-hero-mode"><button type="button" class="hero-mode active" data-hero-mode="deg">◉ Deg</button><button type="button" class="hero-mode" data-hero-mode="rad">○ Rad</button></div>
                 <div class="scientific-hero-buttons">
-                    <button type="button" data-hero-value="sin(">sin</button>
-                    <button type="button" data-hero-value="cos(">cos</button>
-                    <button type="button" data-hero-value="tan(">tan</button>
-                    <button type="button" data-hero-value="sqrt(">sqrt</button>
-                    <button type="button" data-hero-value="log(">log</button>
-                    <button type="button" data-hero-value="7">7</button>
-                    <button type="button" data-hero-value="8">8</button>
-                    <button type="button" data-hero-value="9">9</button>
-                    <button type="button" data-hero-value="/">÷</button>
-                    <button type="button" data-hero-value="^">xʸ</button>
-                    <button type="button" data-hero-value="4">4</button>
-                    <button type="button" data-hero-value="5">5</button>
-                    <button type="button" data-hero-value="6">6</button>
-                    <button type="button" data-hero-value="*">×</button>
-                    <button type="button" data-hero-value="(">(</button>
-                    <button type="button" data-hero-value="1">1</button>
-                    <button type="button" data-hero-value="2">2</button>
-                    <button type="button" data-hero-value="3">3</button>
-                    <button type="button" data-hero-value="-">−</button>
-                    <button type="button" data-hero-value=")">)</button>
-                    <button type="button" data-hero-value="0">0</button>
-                    <button type="button" data-hero-value=".">.</button>
-                    <button type="button" data-hero-value="+">+</button>
-                    <button type="button" data-hero-action="clear">C</button>
-                    <button type="button" data-hero-action="calculate">=</button>
+                    <button type="button" data-hero-value="asin(">sin<sup>-1</sup></button><button type="button" data-hero-value="acos(">cos<sup>-1</sup></button><button type="button" data-hero-value="atan(">tan<sup>-1</sup></button><button type="button" data-hero-value="PI">π</button><button type="button" data-hero-value="E">e</button>
+                    <button type="button" data-hero-value="^">x<sup>y</sup></button><button type="button" data-hero-value="^3">x<sup>3</sup></button><button type="button" data-hero-value="^2">x<sup>2</sup></button><button type="button" data-hero-value="exp(">e<sup>x</sup></button><button type="button" data-hero-value="10^">10<sup>x</sup></button>
+                    <button type="button" data-hero-value="cbrt(">y√x</button><button type="button" data-hero-value="cbrt(">³√x</button><button type="button" data-hero-value="sqrt(">√x</button><button type="button" data-hero-value="ln(">ln</button><button type="button" data-hero-value="log(">log</button>
+                    <button type="button" data-hero-value="(">(</button><button type="button" data-hero-value=")">)</button><button type="button" data-hero-value="1/">1/x</button><button type="button" data-hero-value="%">%</button><button type="button" data-hero-value="!">n!</button>
+                    <button type="button" data-hero-value="7">7</button><button type="button" data-hero-value="8">8</button><button type="button" data-hero-value="9">9</button><button type="button" data-hero-value="+">+</button><button type="button" data-hero-action="back">Back</button>
+                    <button type="button" data-hero-value="4">4</button><button type="button" data-hero-value="5">5</button><button type="button" data-hero-value="6">6</button><button type="button" data-hero-value="-">−</button><button type="button" data-hero-action="answer">Ans</button>
+                    <button type="button" data-hero-value="1">1</button><button type="button" data-hero-value="2">2</button><button type="button" data-hero-value="3">3</button><button type="button" data-hero-value="*">×</button><button type="button" data-hero-action="memory-add">M+</button>
+                    <button type="button" data-hero-value="0">0</button><button type="button" data-hero-value=".">.</button><button type="button" data-hero-value="*10^">EXP</button><button type="button" data-hero-value="/">÷</button><button type="button" data-hero-action="memory-subtract">M-</button>
+                    <button type="button" data-hero-value="-">±</button><button type="button" data-hero-action="round">RND</button><button type="button" data-hero-action="clear">AC</button><button type="button" data-hero-action="calculate">=</button><button type="button" data-hero-action="memory-recall">MR</button>
                 </div>
             </div>
         </div>
@@ -269,39 +248,44 @@
     <script>
     (function () {
         const heroDisplay = document.getElementById("heroScientificDisplay");
-        const heroButtons = document.querySelectorAll("[data-hero-value]");
+        let heroMode = "deg";
+        let heroMemory = 0;
+        let heroAnswer = 0;
 
         function heroAppend(value) {
-            if (heroDisplay.value === "0") heroDisplay.value = "";
+            if (heroDisplay.value === "0" || heroDisplay.value === "Error") heroDisplay.value = "";
             heroDisplay.value += value;
+        }
+
+        function heroFactorial(value) {
+            if (value < 0 || value % 1 !== 0 || value > 170) throw new Error("Invalid factorial");
+            let total = 1;
+            for (let index = 2; index <= value; index += 1) total *= index;
+            return total;
         }
 
         function heroCalculate() {
             try {
-                const source = heroDisplay.value
-                    .replace(/\^/g, "**")
-                    .replace(/sqrt\(/g, "Math.sqrt(")
-                    .replace(/log\(/g, "Math.log10(")
-                    .replace(/sin\(/g, "sin(")
-                    .replace(/cos\(/g, "cos(")
-                    .replace(/tan\(/g, "tan(");
+                const angle = value => heroMode === "deg" ? value * Math.PI / 180 : value;
+                const source = heroDisplay.value.replace(/\^/g, "**").replace(/10\*\*/g, "10**").replace(/sqrt\(/g, "Math.sqrt(").replace(/cbrt\(/g, "Math.cbrt(").replace(/log\(/g, "Math.log10(").replace(/ln\(/g, "Math.log(").replace(/exp\(/g, "Math.exp(").replace(/asin\(/g, "asin(").replace(/acos\(/g, "acos(").replace(/atan\(/g, "atan(").replace(/sin\(/g, "sin(").replace(/cos\(/g, "cos(").replace(/tan\(/g, "tan(").replace(/(\d+(?:\.\d+)?)!/g, "factorial($1)");
                 if (!/^[0-9+\-*/().%\sA-Za-z*]+$/.test(source)) throw new Error("Invalid expression");
-                const answer = Function("sin", "cos", "tan", "return (" + source + ")")(
-                    value => Math.sin(value * Math.PI / 180),
-                    value => Math.cos(value * Math.PI / 180),
-                    value => Math.tan(value * Math.PI / 180)
-                );
+                const answer = Function("sin", "cos", "tan", "asin", "acos", "atan", "factorial", "return (" + source + ")")(value => Math.sin(angle(value)), value => Math.cos(angle(value)), value => Math.tan(angle(value)), value => heroMode === "deg" ? Math.asin(value) * 180 / Math.PI : Math.asin(value), value => heroMode === "deg" ? Math.acos(value) * 180 / Math.PI : Math.acos(value), value => heroMode === "deg" ? Math.atan(value) * 180 / Math.PI : Math.atan(value), heroFactorial);
                 if (!Number.isFinite(answer)) throw new Error("Invalid result");
-                heroDisplay.value = String(Number(answer.toFixed(12)));
-            } catch (error) {
-                heroDisplay.value = "Error";
-                setTimeout(() => { heroDisplay.value = "0"; }, 900);
-            }
+                heroAnswer = Number(answer.toFixed(12));
+                heroDisplay.value = String(heroAnswer);
+            } catch (error) { heroDisplay.value = "Error"; setTimeout(() => { heroDisplay.value = "0"; }, 900); }
         }
 
-        heroButtons.forEach(button => button.addEventListener("click", () => heroAppend(button.dataset.heroValue)));
+        document.querySelectorAll("[data-hero-value]").forEach(button => button.addEventListener("click", () => heroAppend(button.dataset.heroValue)));
         document.querySelector('[data-hero-action="clear"]').addEventListener("click", () => { heroDisplay.value = "0"; });
+        document.querySelector('[data-hero-action="back"]').addEventListener("click", () => { heroDisplay.value = heroDisplay.value.length > 1 ? heroDisplay.value.slice(0, -1) : "0"; });
         document.querySelector('[data-hero-action="calculate"]').addEventListener("click", heroCalculate);
+        document.querySelector('[data-hero-action="answer"]').addEventListener("click", () => heroAppend(String(heroAnswer)));
+        document.querySelector('[data-hero-action="memory-add"]').addEventListener("click", () => { heroCalculate(); heroMemory += heroAnswer; });
+        document.querySelector('[data-hero-action="memory-subtract"]').addEventListener("click", () => { heroCalculate(); heroMemory -= heroAnswer; });
+        document.querySelector('[data-hero-action="memory-recall"]').addEventListener("click", () => heroAppend(String(heroMemory)));
+        document.querySelector('[data-hero-action="round"]').addEventListener("click", () => { heroDisplay.value = String(Math.round(Number(heroDisplay.value))); });
+        document.querySelectorAll("[data-hero-mode]").forEach(button => button.addEventListener("click", () => { heroMode = button.dataset.heroMode; document.querySelectorAll("[data-hero-mode]").forEach(modeButton => modeButton.classList.toggle("active", modeButton === button)); }));
         heroDisplay.addEventListener("keydown", event => { if (event.key === "Enter") heroCalculate(); });
     }());
     </script>
