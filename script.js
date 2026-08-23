@@ -129,6 +129,10 @@ document.addEventListener("click", function (event) {
 
 document.addEventListener("keydown", function (event) {
 
+    if (event.target.matches("input, select, textarea")) {
+        return;
+    }
+
     // Numbers
     if (
         event.key >= "0" &&

@@ -287,7 +287,12 @@
         document.querySelector('[data-hero-action="memory-recall"]').addEventListener("click", () => heroAppend(String(heroMemory)));
         document.querySelector('[data-hero-action="round"]').addEventListener("click", () => { heroDisplay.value = String(Math.round(Number(heroDisplay.value))); });
         document.querySelectorAll("[data-hero-mode]").forEach(button => button.addEventListener("click", () => { heroMode = button.dataset.heroMode; document.querySelectorAll("[data-hero-mode]").forEach(modeButton => modeButton.classList.toggle("active", modeButton === button)); }));
-        heroDisplay.addEventListener("keydown", event => { if (event.key === "Enter") heroCalculate(); });
+        heroDisplay.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === "=") { event.preventDefault(); heroCalculate(); return; }
+            if (event.key === "Backspace") { event.preventDefault(); heroDisplay.value = heroDisplay.value.length > 1 ? heroDisplay.value.slice(0, -1) : "0"; return; }
+            if (event.key === "Escape") { event.preventDefault(); heroDisplay.value = "0"; return; }
+            if ("0123456789.+-*/%^()".includes(event.key)) { event.preventDefault(); heroAppend(event.key); }
+        });
     }());
     </script>
 
