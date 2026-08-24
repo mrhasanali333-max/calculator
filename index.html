@@ -6,17 +6,34 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
     <link rel="apple-touch-icon" href="/favicon.svg">
 
-    <title>Fast Calculator - Free Online Calculators</title>
-    <meta name="description" content="Fast Calculator offers free online calculators including percentage, age, BMI, loan, interest, discount, tip, date and unit conversion calculators.">
+    <title>FastCalculator | Smart Calculators for Everyday Life</title>
+    <meta name="description" content="FastCalculator is a free online calculator hub with fast, accurate finance, health, math, date, conversion, and everyday calculators.">
     <meta name="keywords" content="calculator, online calculator, percentage calculator, age calculator, BMI calculator, loan calculator, EMI calculator, discount calculator, unit converter">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fastcalculator.website/">
 
-    <meta property="og:title" content="Fast Calculator - Free Online Calculators">
-    <meta property="og:description" content="Fast, simple and free online calculators.">
+    <meta property="og:title" content="FastCalculator | Smart Calculators for Everyday Life">
+    <meta property="og:description" content="Fast, accurate and free online calculators for everyday needs.">
     <meta property="og:url" content="https://fastcalculator.website/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://fastcalculator.website/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is FastCalculator?", "acceptedAnswer": {"@type": "Answer", "text": "FastCalculator is a free online hub for quick, practical calculations across finance, health, math, dates, conversions and everyday tasks."}},
+            {"@type": "Question", "name": "Are FastCalculator calculators free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every calculator is free to use, with no paid plan required."}},
+            {"@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You can use the calculators without registering or signing in."}},
+            {"@type": "Question", "name": "Can I use FastCalculator on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The site is responsive and designed for phones, tablets and desktop screens."}},
+            {"@type": "Question", "name": "How accurate are the calculators?", "acceptedAnswer": {"@type": "Answer", "text": "Calculators use established formulas and show results immediately. For important decisions, use results as estimates and consult a qualified professional."}}
+        ]
+    }
+    </script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
@@ -45,10 +62,12 @@
         <nav class="main-nav" aria-label="Main navigation">
             <a href="calculators.html">Calculators</a>
             <a href="popular.html">Popular</a>
+            <a href="calculators.html#finance">Categories</a>
             <a href="articles.html">Articles</a>
             <a href="about.html">About</a>
         </nav>
 
+        <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
         <div class="auth-actions">
             <button id="signInBtn" class="btn btn-outline" type="button">Sign In</button>
             <button id="signUpBtn" class="btn btn-primary" type="button">Sign Up</button>
@@ -61,18 +80,22 @@
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <span class="eyebrow">FREE • FAST • SIMPLE</span>
-                <h1>Smart calculators<br><em>for everyday life.</em></h1>
+                <span class="eyebrow">100% FREE <i aria-hidden="true">•</i> NO SIGN UP REQUIRED</span>
+                <h1>Smart Calculators<br><em>for Everyday Life</em></h1>
                 <p class="hero-text">
-                    Calculate percentages, age, BMI, loans, interest, discounts,
-                    tips, dates and unit conversions — quickly and accurately.
+                    All-in-one free calculator hub. Fast, accurate and easy to use for every calculation you need.
                 </p>
 
                 <div class="hero-actions">
                     <form class="hero-search" action="calculators.html">
-                        <input type="search" name="q" placeholder="Search calculators, converters..." aria-label="Search calculators and converters">
-                        <button class="btn btn-primary" type="submit">Search</button>
+                        <input type="search" name="q" placeholder="Search calculators..." aria-label="Search calculators and converters">
+                        <button class="btn btn-primary" type="submit">Find a tool</button>
                     </form>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-large" href="calculators.html">Explore Calculators <span aria-hidden="true">&#8594;</span></a>
+                    <a class="btn btn-light btn-large" href="#calculators">Popular Calculators</a>
                 </div>
 
                 <div class="hero-points">
@@ -114,7 +137,7 @@
 
     <section class="stats-band">
         <div class="container stats-grid">
-            <div><b>200+</b><span>Calculators</span></div><div><b>1M+</b><span>Monthly Users</span></div><div><b>100%</b><span>Free Forever</span></div><div><b>Fast &amp;</b><span>Accurate</span></div><div><b>Mobile</b><span>Friendly</span></div><div><b>Secure &amp;</b><span>Reliable</span></div>
+            <div><b>50+</b><span>Calculators</span></div><div><b>100%</b><span>Free to Use</span></div><div><b>Instant</b><span>Results</span></div><div><b>Mobile</b><span>Friendly</span></div>
         </div>
     </section>
 
@@ -262,12 +285,58 @@
         <div class="container">
             <div class="section-heading compact-heading"><div><span class="eyebrow">FIND YOUR TOOL</span><h2>Browse by category</h2></div><a class="section-link" href="calculators.html">Explore all <span>&rarr;</span></a></div>
             <div class="image-category-grid">
-                <a class="image-category finance-image" href="calculators.html#finance"><strong>Finance Calculators</strong><small>40+ Calculators</small><span>Explore &rarr;</span></a>
-                <a class="image-category math-image" href="calculators.html#student"><strong>Math Calculators</strong><small>30+ Calculators</small><span>Explore &rarr;</span></a>
-                <a class="image-category health-image" href="calculators.html#health"><strong>Health Calculators</strong><small>15+ Calculators</small><span>Explore &rarr;</span></a>
-                <a class="image-category time-image" href="calculators.html#converters"><strong>Time &amp; Date</strong><small>20+ Calculators</small><span>Explore &rarr;</span></a>
-                <a class="image-category world-image" href="calculators.html"><strong>Converters</strong><small>25+ Converters</small><span>Explore &rarr;</span></a>
-                <a class="image-category tools-image" href="calculators.html"><strong>Other Tools</strong><small>20+ Tools</small><span>Explore &rarr;</span></a>
+                <a class="image-category finance-image" href="calculators.html#finance"><strong>Finance</strong><small>Loans, EMI, interest and investments</small><span>Explore &rarr;</span></a>
+                <a class="image-category math-image" href="calculators.html#student"><strong>Math</strong><small>Algebra, percentage and trigonometry</small><span>Explore &rarr;</span></a>
+                <a class="image-category health-image" href="calculators.html#health"><strong>Health</strong><small>BMI, BMR, calories and fitness</small><span>Explore &rarr;</span></a>
+                <a class="image-category time-image" href="calculators.html#converters"><strong>Date &amp; Time</strong><small>Date math, age and day planning</small><span>Explore &rarr;</span></a>
+                <a class="image-category world-image" href="calculators.html"><strong>Converters</strong><small>Unit, currency, length and weight</small><span>Explore &rarr;</span></a>
+                <a class="image-category tools-image" href="calculators.html"><strong>Everyday Tools</strong><small>Discount, tip, VAT and more</small><span>Explore &rarr;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section suite-section">
+        <div class="container suite-grid">
+            <div>
+                <span class="eyebrow">ONE PLACE FOR EVERY ANSWER</span>
+                <h2>All-in-One Calculator Suite</h2>
+                <p>Everything you need in one place. Fast, accurate and always free.</p>
+                <a class="btn btn-primary btn-large" href="calculators.html">Explore All Calculators <span aria-hidden="true">&#8594;</span></a>
+            </div>
+            <div class="suite-visual" aria-hidden="true"><span class="suite-orbit"></span><div class="suite-screen"><b>YOUR NUMBERS</b><strong>1,248.60</strong><small>Ready when you are</small></div><span class="suite-chip">%</span><span class="suite-chip chip-two">&#8730;</span></div>
+        </div>
+    </section>
+
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-heading compact-heading"><div><span class="eyebrow">BUILT FOR REAL LIFE</span><h2>Why Choose FastCalculator?</h2></div></div>
+            <div class="benefits-grid">
+                <article><span class="benefit-icon">&#9889;</span><h3>Fast &amp; Accurate</h3><p>Get instant, precise results every time.</p></article>
+                <article><span class="benefit-icon">&#9633;</span><h3>Mobile Friendly</h3><p>Fully responsive design for every device.</p></article>
+                <article><span class="benefit-icon">&#128274;</span><h3>No Registration</h3><p>Use every calculator without signing up.</p></article>
+                <article><span class="benefit-icon">&#10003;</span><h3>100% Free</h3><p>All tools are completely free to use.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section seo-home-section">
+        <div class="container narrow seo-home-copy">
+            <span class="eyebrow">CALCULATE WITH CONFIDENCE</span>
+            <h2>Free Online Calculators for Every Need</h2>
+            <p>FastCalculator brings practical online calculators together in one simple, reliable place. Whether you are checking a percentage, planning a purchase, comparing loan payments, or working through a school problem, you can get a clear answer in seconds. Our free calculators are designed to be easy to use on any screen and require no account.</p>
+            <p>Explore finance calculators for interest, investments, EMI and discounts, or use health calculators for BMI and everyday fitness estimates. Math calculators help with percentages and averages, while date calculators make it easier to plan schedules and compare dates. You can also convert length, weight, temperature and other units with our conversion calculators. From splitting a restaurant bill to estimating a household cost, FastCalculator gives you useful everyday calculators without clutter or unnecessary steps.</p>
+        </div>
+    </section>
+
+    <section class="section faq-section">
+        <div class="container narrow">
+            <div class="section-heading compact-heading"><div><span class="eyebrow">NEED TO KNOW</span><h2>Frequently Asked Questions</h2></div></div>
+            <div class="faq-list">
+                <details><summary>What is FastCalculator?</summary><p>FastCalculator is a free online hub for quick, practical calculations across finance, health, math, dates, conversions and everyday tasks.</p></details>
+                <details><summary>Are FastCalculator calculators free?</summary><p>Yes. Every calculator is free to use, with no paid plan required.</p></details>
+                <details><summary>Do I need to create an account?</summary><p>No. You can use the calculators without registering or signing in.</p></details>
+                <details><summary>Can I use FastCalculator on mobile?</summary><p>Yes. The site is responsive and designed for phones, tablets and desktop screens.</p></details>
+                <details><summary>How accurate are the calculators?</summary><p>Calculators use established formulas and show results immediately. For financial, health or legal decisions, use results as estimates and consult a qualified professional.</p></details>
             </div>
         </div>
     </section>
@@ -308,14 +377,16 @@
 <footer class="site-footer">
     <div class="container footer-wrap">
         <div>
-            <strong>Fast Calculator</strong>
-            <p>Free online calculators for everyday use.</p>
+            <strong>FastCalculator</strong>
+            <p>Fast, accurate and free online calculators for everyday needs.</p>
         </div>
         <div class="footer-owner">Managed and owned by <strong>Hafiz Tahir Mahmood</strong></div>
         <div class="footer-links">
-            <a href="calculators.html">Calculators</a>
+            <a href="calculators.html">All Calculators</a>
+            <a href="popular.html">Popular</a>
             <a href="articles.html">Articles</a>
             <a href="about.html">About</a>
+            <a href="SECURITY.md">Privacy &amp; Security</a>
         </div>
     </div>
     <div class="container copyright">
@@ -325,7 +396,7 @@
 
     <script>
     document.querySelectorAll("#calculatorGrid .tool-card").forEach(function (card) {
-        const popular = ["universal-calculator.html?type=currency", "emi-calculator.html", "age-calculator.html", "bmi-calculator.html", "percentage-calculator.html", "discount-calculator.html", "car-loan-calculator.html", "date-calculator.html", "compound-interest-calculator.html", "tip-calculator.html"];
+        const popular = ["percentage-calculator.html", "age-calculator.html", "bmi-calculator.html", "emi-calculator.html", "discount-calculator.html", "date-calculator.html", "compound-interest-calculator.html", "tip-calculator.html"];
         if (!popular.includes(card.getAttribute("href"))) card.hidden = true;
     });
 
@@ -376,6 +447,16 @@
             if (event.key === "Escape") { event.preventDefault(); heroDisplay.value = "0"; return; }
             if ("0123456789.+-*/%^()".includes(event.key)) { event.preventDefault(); heroAppend(event.key); }
         });
+
+        const mobileMenuButton = document.getElementById("mobileMenuBtn");
+        const siteHeader = document.querySelector(".site-header");
+        if (mobileMenuButton && siteHeader) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isOpen = siteHeader.classList.toggle("menu-open");
+                mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+                mobileMenuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+            });
+        }
     }());
     </script>
 
