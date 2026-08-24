@@ -11,7 +11,8 @@ const toolGroups = {
         pressure: { name: "Pressure Converter", description: "Convert pressure for weather, engineering, and science.", units: { pascal: 1, kilopascal: 1000, bar: 100000, psi: 6894.757293, atmosphere: 101325, mmhg: 133.322368 } },
         power: { name: "Power Converter", description: "Convert power ratings between common units.", units: { watt: 1, kilowatt: 1000, megawatt: 1000000, horsepower: 745.699872, btuPerHour: 293.07107 } },
         frequency: { name: "Frequency Converter", description: "Convert cycles and frequency units.", units: { hertz: 1, kilohertz: 1000, megahertz: 1000000, gigahertz: 1000000000, rpm: 1 / 60 } },
-        angle: { name: "Angle Converter", description: "Convert degrees, radians, and common angle units.", units: { degree: 1, radian: 57.295779513, gradian: 0.9, arcminute: 1 / 60, arcsecond: 1 / 3600 } }
+        angle: { name: "Angle Converter", description: "Convert degrees, radians, and common angle units.", units: { degree: 1, radian: 57.295779513, gradian: 0.9, arcminute: 1 / 60, arcsecond: 1 / 3600 } },
+        currency: { name: "Currency Converter", description: "Convert common currencies using indicative reference rates.", units: { USD: 1, EUR: 1 / 0.92, GBP: 1 / 0.79, INR: 1 / 83.5, PKR: 1 / 278, AED: 1 / 3.6725, SAR: 1 / 3.75, CAD: 1 / 1.36, AUD: 1 / 1.52, JPY: 1 / 150, CNY: 1 / 7.24 } }
     },
     student: {
         gpa: { name: "GPA Calculator", description: "Calculate GPA from course grades and credit hours.", fields: ["gradePoints", "credits"], calculate(values) { return values.gradePoints * values.credits / values.credits; }, help: "Enter your average grade points and total credits." },
