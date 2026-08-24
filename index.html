@@ -122,9 +122,9 @@
         <div class="container">
             <div class="section-heading">
                 <div>
-                    <span class="eyebrow">CALCULATOR DIRECTORY</span>
-                    <h2>All calculators</h2>
-                    <p>Choose a calculator or search for exactly what you need.</p>
+                    <span class="eyebrow">MOST USED TOOLS</span>
+                    <h2>Popular calculators</h2>
+                    <p>Quick answers for the calculations people use most often.</p>
                 </div>
 
                 <div class="search-box">
@@ -254,6 +254,7 @@
             <p id="noResults" class="no-results" hidden>
                 No calculators found. Try another search.
             </p>
+            <div class="ad-placeholder" aria-label="Advertisement space">ADVERTISEMENT SPACE<strong>728 x 90</strong></div>
         </div>
     </section>
 
@@ -284,6 +285,21 @@
         </div>
     </section>
 
+    <section class="section converter-section">
+        <div class="container">
+            <div class="section-heading compact-heading"><div><span class="eyebrow">QUICK CONVERSIONS</span><h2>Popular converters</h2></div><a class="section-link" href="calculators.html#converters">View all converters <span>&rarr;</span></a></div>
+            <div class="converter-grid">
+                <a href="length-calculator.html"><span class="converter-icon length">&#8596;</span><strong>Length Converter</strong><small>Convert between units of length</small></a>
+                <a href="weight-calculator.html"><span class="converter-icon weight">KG</span><strong>Weight Converter</strong><small>Convert between units of weight</small></a>
+                <a href="temperature-calculator.html"><span class="converter-icon temperature">&#176;</span><strong>Temperature Converter</strong><small>Convert between &#176;C, &#176;F, K</small></a>
+                <a href="universal-calculator.html?type=area"><span class="converter-icon area">&#9633;</span><strong>Area Converter</strong><small>Convert between units of area</small></a>
+                <a href="universal-calculator.html?type=volume"><span class="converter-icon volume">&#9632;</span><strong>Volume Converter</strong><small>Convert between units of volume</small></a>
+                <a href="universal-calculator.html?type=speed"><span class="converter-icon speed">&#8635;</span><strong>Speed Converter</strong><small>Convert between units of speed</small></a>
+            </div>
+            <div class="ad-placeholder" aria-label="Advertisement space">ADVERTISEMENT SPACE<strong>728 x 90</strong></div>
+        </div>
+    </section>
+
     <section class="newsletter"><div class="container newsletter-wrap"><div><span class="newsletter-icon">&#9993;</span><div><strong>Stay updated!</strong><p>Get useful calculator tips and guides in your inbox.</p></div></div><form><input type="email" placeholder="Enter your email" aria-label="Email address" required><button class="btn btn-primary" type="submit">Subscribe</button></form></div></section>
 
 
@@ -308,6 +324,11 @@
 </footer>
 
     <script>
+    document.querySelectorAll("#calculatorGrid .tool-card").forEach(function (card) {
+        const popular = ["universal-calculator.html?type=currency", "emi-calculator.html", "age-calculator.html", "bmi-calculator.html", "percentage-calculator.html", "discount-calculator.html", "car-loan-calculator.html", "date-calculator.html", "compound-interest-calculator.html", "tip-calculator.html"];
+        if (!popular.includes(card.getAttribute("href"))) card.hidden = true;
+    });
+
     (function () {
         const heroDisplay = document.getElementById("heroScientificDisplay");
         let heroMode = "deg";

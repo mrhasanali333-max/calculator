@@ -414,14 +414,20 @@ h2{
 #calculators{padding-top:54px}
 #calculators .section-heading{align-items:center}
 #calculators .section-heading h2{font-size:28px}
+#calculatorGrid .tool-card{display:none}
+#calculatorGrid .tool-card:not([hidden]){display:flex}
+#calculatorGrid .tool-card:nth-child(1),#calculatorGrid .tool-card:nth-child(2),#calculatorGrid .tool-card:nth-child(3),#calculatorGrid .tool-card:nth-child(4),#calculatorGrid .tool-card:nth-child(5),#calculatorGrid .tool-card:nth-child(6),#calculatorGrid .tool-card:nth-child(7),#calculatorGrid .tool-card:nth-child(11),#calculatorGrid .tool-card:nth-child(12),#calculatorGrid .tool-card[href="car-loan-calculator.html"]{display:flex}
+#calculatorGrid .tool-card:nth-child(11){order:1}#calculatorGrid .tool-card:nth-child(4){order:2}#calculatorGrid .tool-card:nth-child(2){order:3}#calculatorGrid .tool-card:nth-child(3){order:4}#calculatorGrid .tool-card:nth-child(1){order:5}#calculatorGrid .tool-card:nth-child(6){order:6}#calculatorGrid .tool-card[href="car-loan-calculator.html"]{order:7}#calculatorGrid .tool-card:nth-child(5){order:8}#calculatorGrid .tool-card:nth-child(7){order:9}#calculatorGrid .tool-card:nth-child(12){order:10}
 .section-link{color:var(--blue);font-size:12px;font-weight:800;white-space:nowrap}.section-link span{font-size:17px}
 .compact-heading{margin-bottom:20px}.compact-heading h2{font-size:28px;margin-bottom:0}
+.ad-placeholder{height:50px;margin:18px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px dashed #cbd5e1;border-radius:6px;color:#64748b;font-size:10px;line-height:1.2}.ad-placeholder strong{font-size:10px;font-weight:500}
 .image-category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
 .image-category{min-height:145px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;padding:12px;border:1px solid #e2e8f0;border-radius:8px;background-color:#dbeafe;background-position:center;background-size:cover;position:relative;overflow:hidden;color:#fff}
 .image-category:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 22%,rgba(4,25,57,.83))}.image-category>*{position:relative}.image-category strong{font-size:12px}.image-category small{font-size:10px;color:#dbeafe}.image-category span{font-size:10px;color:#fff;font-weight:800;margin-top:4px}
 .finance-image{background-image:url("assets/percentage-guide.svg")}.math-image{background-image:url("assets/interest-guide.svg")}.health-image{background-image:url("assets/bmi-guide.svg")}.time-image{background-image:url("assets/emi-guide.svg")}.world-image{background-image:url("assets/profit-guide.svg")}.tools-image{background-image:url("assets/discount-guide.svg")}
 .articles-section{padding-top:48px}.home-article-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.home-article{display:flex;flex-direction:column;gap:6px;padding-bottom:13px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#fff}.home-article img{width:100%;aspect-ratio:1.7;object-fit:cover}.home-article strong,.home-article small,.article-tag{margin:0 12px}.home-article strong{font-size:12px;line-height:1.35;color:var(--navy)}.home-article small{font-size:10px;color:var(--muted)}.article-tag{align-self:flex-start;margin-top:-25px;padding:4px 6px;border-radius:3px;background:var(--blue);color:#fff;font-size:8px;font-weight:850;letter-spacing:.4px}.health-tag{background:#ef5360}.tips-tag{background:#f08a18}
 .newsletter{background:linear-gradient(100deg,#1682ef,#1560d8);color:#fff}.newsletter-wrap{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:20px 30px}.newsletter-wrap>div{display:flex;align-items:center;gap:12px}.newsletter-icon{font-size:30px}.newsletter-wrap strong{font-size:15px}.newsletter-wrap p{margin:2px 0 0;color:#dbeafe;font-size:11px}.newsletter form{display:flex;min-width:min(390px,100%);background:#fff;padding:4px;border-radius:5px}.newsletter input{min-width:0;flex:1;border:0;outline:0;padding:9px;font-size:11px}.newsletter button{padding:9px 15px;border-radius:4px;font-size:11px}
+.converter-section{padding-top:42px;padding-bottom:45px;background:#fbfdff}.converter-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.converter-grid a{min-height:88px;display:grid;grid-template-columns:35px 1fr;column-gap:8px;align-content:center;padding:12px;background:#f5f9ff;border:1px solid #e3ebf6;border-radius:8px}.converter-grid a strong{font-size:11px;color:var(--navy);align-self:end}.converter-grid a small{font-size:9px;line-height:1.3;color:var(--muted);grid-column:2}.converter-icon{grid-row:span 2;width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:#e3efff;color:#2563eb;font-weight:850;font-size:16px}.converter-icon.weight{background:#e4faf7;color:#0d9d98}.converter-icon.temperature{background:#ffe8eb;color:#ed5261}.converter-icon.area{background:#fff0dc;color:#f08a18}.converter-icon.volume{background:#f1eaff;color:#7850df}.converter-icon.speed{background:#e9f8f3;color:#16a05d}
 
 .tool-card{
     display:flex;
@@ -681,6 +687,7 @@ h2{
     .category-grid,.stats-grid{grid-template-columns:repeat(3,1fr)}
     .image-category-grid{grid-template-columns:repeat(3,1fr)}
     .home-article-grid{grid-template-columns:repeat(3,1fr)}
+    .converter-grid{grid-template-columns:repeat(3,1fr)}
 }
 
 @media(max-width:760px){
@@ -711,6 +718,7 @@ h2{
     .key{min-height:51px}
     .utility-wrap{gap:8px;font-size:9px}.utility-wrap span:nth-child(3),.utility-wrap span:nth-child(4),.utility-spacer,.utility-wrap>span:last-child{display:none}
     .category-grid,.image-category-grid,.home-article-grid{grid-template-columns:repeat(2,1fr)}
+    .converter-grid{grid-template-columns:repeat(2,1fr)}
     .stats-grid{grid-template-columns:repeat(2,1fr)}.stats-grid>div{min-height:52px}.stats-grid>div:nth-child(3){border-right:0}
     .hero-search{max-width:none}.hero-search button{padding-left:13px;padding-right:13px}
 }
