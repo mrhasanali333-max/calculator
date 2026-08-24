@@ -28,6 +28,13 @@
 
 <body>
 
+<div class="utility-bar">
+    <div class="container utility-wrap">
+        <span>100% Free</span><span>No Sign Up</span><span>Fast &amp; Accurate</span><span>Mobile Friendly</span>
+        <span class="utility-spacer"></span><span>Dark Mode <span class="toggle" aria-hidden="true"></span></span><span>English &#9662;</span>
+    </div>
+</div>
+
 <header class="site-header">
     <div class="container nav-wrap">
         <a class="logo" href="#top" aria-label="Fast Calculator home">
@@ -55,15 +62,17 @@
         <div class="container hero-grid">
             <div>
                 <span class="eyebrow">FREE • FAST • SIMPLE</span>
-                <h1>Smart calculators for everyday life.</h1>
+                <h1>Smart calculators<br><em>for everyday life.</em></h1>
                 <p class="hero-text">
                     Calculate percentages, age, BMI, loans, interest, discounts,
                     tips, dates and unit conversions — quickly and accurately.
                 </p>
 
                 <div class="hero-actions">
-                    <a href="calculators.html" class="btn btn-primary btn-large">Explore Calculators</a>
-                    <a href="calculators.html" class="btn btn-light btn-large">Open Calculator</a>
+                    <form class="hero-search" action="calculators.html">
+                        <input type="search" name="q" placeholder="Search calculators, converters..." aria-label="Search calculators and converters">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
                 </div>
 
                 <div class="hero-points">
@@ -89,6 +98,23 @@
                     <button type="button" data-hero-value="-">±</button><button type="button" data-hero-action="round">RND</button><button type="button" data-hero-action="clear">AC</button><button type="button" data-hero-action="calculate">=</button><button type="button" data-hero-action="memory-recall">MR</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="category-strip" aria-label="Calculator categories">
+        <div class="container category-grid">
+            <a class="category-tile finance" href="calculators.html#finance"><span class="category-symbol">$</span><strong>Finance</strong><small>40+ Calculators</small></a>
+            <a class="category-tile math" href="calculators.html#student"><span class="category-symbol">&#8721;</span><strong>Math</strong><small>30+ Calculators</small></a>
+            <a class="category-tile health" href="calculators.html#health"><span class="category-symbol">&#9829;</span><strong>Health</strong><small>15+ Calculators</small></a>
+            <a class="category-tile time" href="calculators.html#converters"><span class="category-symbol">&#128336;</span><strong>Time &amp; Date</strong><small>20+ Calculators</small></a>
+            <a class="category-tile convert" href="calculators.html#converters"><span class="category-symbol">&#8644;</span><strong>Converters</strong><small>25+ Converters</small></a>
+            <a class="category-tile tools" href="calculators.html"><span class="category-symbol">&#9638;</span><strong>Other Tools</strong><small>20+ Tools</small></a>
+        </div>
+    </section>
+
+    <section class="stats-band">
+        <div class="container stats-grid">
+            <div><b>200+</b><span>Calculators</span></div><div><b>1M+</b><span>Monthly Users</span></div><div><b>100%</b><span>Free Forever</span></div><div><b>Fast &amp;</b><span>Accurate</span></div><div><b>Mobile</b><span>Friendly</span></div><div><b>Secure &amp;</b><span>Reliable</span></div>
         </div>
     </section>
 
@@ -230,6 +256,35 @@
             </p>
         </div>
     </section>
+
+    <section class="section section-alt browse-section">
+        <div class="container">
+            <div class="section-heading compact-heading"><div><span class="eyebrow">FIND YOUR TOOL</span><h2>Browse by category</h2></div><a class="section-link" href="calculators.html">Explore all <span>&rarr;</span></a></div>
+            <div class="image-category-grid">
+                <a class="image-category finance-image" href="calculators.html#finance"><strong>Finance Calculators</strong><small>40+ Calculators</small><span>Explore &rarr;</span></a>
+                <a class="image-category math-image" href="calculators.html#student"><strong>Math Calculators</strong><small>30+ Calculators</small><span>Explore &rarr;</span></a>
+                <a class="image-category health-image" href="calculators.html#health"><strong>Health Calculators</strong><small>15+ Calculators</small><span>Explore &rarr;</span></a>
+                <a class="image-category time-image" href="calculators.html#converters"><strong>Time &amp; Date</strong><small>20+ Calculators</small><span>Explore &rarr;</span></a>
+                <a class="image-category world-image" href="calculators.html"><strong>Converters</strong><small>25+ Converters</small><span>Explore &rarr;</span></a>
+                <a class="image-category tools-image" href="calculators.html"><strong>Other Tools</strong><small>20+ Tools</small><span>Explore &rarr;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section articles-section">
+        <div class="container">
+            <div class="section-heading compact-heading"><div><span class="eyebrow">LEARN SOMETHING USEFUL</span><h2>Latest calculator guides</h2></div><a class="section-link" href="articles.html">View all articles <span>&rarr;</span></a></div>
+            <div class="home-article-grid">
+                <a class="home-article" href="articles.html"><img src="assets/emi-guide.svg" alt="EMI calculator guide"><span class="article-tag">GUIDE</span><strong>How to calculate EMI step by step</strong><small>5 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/bmi-guide.svg" alt="BMI calculator guide"><span class="article-tag health-tag">HEALTH</span><strong>What is BMI and how to improve it?</strong><small>5 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/percentage-guide.svg" alt="Percentage calculation guide"><span class="article-tag tips-tag">TIPS</span><strong>Percentage increase vs decrease explained</strong><small>6 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/interest-guide.svg" alt="Interest calculator guide"><span class="article-tag">GUIDE</span><strong>Simple and compound interest</strong><small>4 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/discount-guide.svg" alt="Discount calculator guide"><span class="article-tag health-tag">SHOPPING</span><strong>How to find the final sale price</strong><small>4 min read</small></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter"><div class="container newsletter-wrap"><div><span class="newsletter-icon">&#9993;</span><div><strong>Stay updated!</strong><p>Get useful calculator tips and guides in your inbox.</p></div></div><form><input type="email" placeholder="Enter your email" aria-label="Email address" required><button class="btn btn-primary" type="submit">Subscribe</button></form></div></section>
 
 
 </main>
