@@ -2,6 +2,7 @@
 /* Dedicated-page additions; existing Fast Calculator styles remain untouched. */
 .page-main{padding:52px 0 80px;min-height:65vh}
 .page-hero{max-width:850px;margin:0 auto 34px;text-align:center}
+.directory-section{margin-top:42px}.directory-section>h2{font-size:28px;margin-bottom:18px}
 .page-hero h1{margin:0 0 12px;color:#12356f;font-size:40px}
 .page-hero p{margin:0;color:#64748b;line-height:1.7;font-size:17px}
 .page-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
