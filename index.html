@@ -45,29 +45,32 @@
 
 <body>
 
+<div class="utility-bar">
+    <div class="container utility-wrap">
+        <span>100% Free</span><span>No Sign Up</span><span>Fast &amp; Accurate</span><span>Mobile Friendly</span>
+        <span class="utility-spacer"></span><span>Dark Mode <span class="toggle" aria-hidden="true"></span></span><span>English &#9662;</span>
+    </div>
+</div>
+
 <header class="site-header">
     <div class="container nav-wrap">
         <a class="logo" href="#top" aria-label="Fast Calculator home">
-            <span class="logo-mark" aria-hidden="true">=</span>
-            <span>Fast<span class="logo-accent">Calculator</span></span>
+            <span class="logo-mark">FC</span>
+            <span>Fast Calculator</span>
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
             <a href="calculators.html">Calculators</a>
-            <a href="calculators.html#converters">Converters</a>
-            <a href="calculators.html">Working Tools</a>
             <a href="popular.html">Popular</a>
+            <a href="calculators.html#finance">Categories</a>
             <a href="articles.html">Articles</a>
             <a href="about.html">About</a>
         </nav>
 
         <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
-        <div class="header-tools">
-            <button class="header-search-button" type="button" aria-label="Jump to calculator search" onclick="document.getElementById('calculatorSearch').focus()">&#9906;</button>
-            <div class="auth-actions">
-                <button id="signInBtn" class="btn btn-outline" type="button">Sign In</button>
-                <button id="signUpBtn" class="btn btn-primary" type="button">Sign Up</button>
-            </div>
+        <div class="auth-actions">
+            <button id="signInBtn" class="btn btn-outline" type="button">Sign In</button>
+            <button id="signUpBtn" class="btn btn-primary" type="button">Sign Up</button>
         </div>
     </div>
 </header>
@@ -77,23 +80,28 @@
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <span class="eyebrow hero-badge">&#10024; 100% Free <i aria-hidden="true">•</i> No Sign Up Required</span>
-                <h1>All-in-One<br><em>Calculator &amp; Tools</em></h1>
+                <span class="eyebrow">100% FREE <i aria-hidden="true">•</i> NO SIGN UP REQUIRED</span>
+                <h1>Smart Calculators<br><em>for Everyday Life</em></h1>
                 <p class="hero-text">
-                    Fast, free and easy-to-use calculators for everyday calculations.
+                    All-in-one free calculator hub. Fast, accurate and easy to use for every calculation you need.
                 </p>
 
                 <div class="hero-actions">
-                    <form class="hero-search" action="#calculators">
-                        <span aria-hidden="true">&#9906;</span>
-                        <input type="search" name="q" placeholder="Search calculators, converters, tools..." aria-label="Search calculators and converters" oninput="document.getElementById('calculatorSearch').value=this.value; document.getElementById('calculatorSearch').dispatchEvent(new Event('input'))">
-                        <button class="btn btn-primary" type="submit">Search</button>
+                    <form class="hero-search" action="calculators.html">
+                        <input type="search" name="q" placeholder="Search calculators..." aria-label="Search calculators and converters">
+                        <button class="btn btn-primary" type="submit">Find a tool</button>
                     </form>
                 </div>
 
-                <div class="popular-tags" aria-label="Popular searches">
-                    <strong>Popular:</strong>
-                    <a href="percentage-calculator.html">Percentage</a><a href="age-calculator.html">Age</a><a href="bmi-calculator.html">BMI</a><a href="emi-calculator.html">EMI</a><a href="scientific-calculator.html">Scientific</a>
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-large" href="calculators.html">Explore Calculators <span aria-hidden="true">&#8594;</span></a>
+                    <a class="btn btn-light btn-large" href="#calculators">Popular Calculators</a>
+                </div>
+
+                <div class="hero-points">
+                    <span>✓ Free to use</span>
+                    <span>✓ Mobile friendly</span>
+                    <span>✓ No registration required</span>
                 </div>
             </div>
 
@@ -116,14 +124,6 @@
         </div>
     </section>
 
-    <section class="hero-benefits" aria-label="FastCalculator benefits">
-        <div class="container hero-benefits-grid">
-            <article><span class="benefit-icon">&#9889;</span><div><strong>Fast &amp; Accurate</strong><small>Instant results</small></div></article>
-            <article><span class="benefit-icon green">&#10003;</span><div><strong>100% Free</strong><small>Forever free to use</small></div></article>
-            <article><span class="benefit-icon violet">&#128274;</span><div><strong>Privacy Focused</strong><small>Your data is safe with us</small></div></article>
-        </div>
-    </section>
-
     <section class="category-strip" aria-label="Calculator categories">
         <div class="container category-grid">
             <a class="category-tile finance" href="calculators.html#finance"><span class="category-symbol">$</span><strong>Finance</strong><small>40+ Calculators</small></a>
@@ -137,7 +137,7 @@
 
     <section class="stats-band">
         <div class="container stats-grid">
-            <div><b>10M+</b><span>Calculations Done</span></div><div><b>50+</b><span>Calculators &amp; Tools</span></div><div><b>Global</b><span>Access</span></div><div><b>100%</b><span>Free</span></div>
+            <div><b>50+</b><span>Calculators</span></div><div><b>100%</b><span>Free to Use</span></div><div><b>Instant</b><span>Results</span></div><div><b>Mobile</b><span>Friendly</span></div>
         </div>
     </section>
 
@@ -146,7 +146,7 @@
             <div class="section-heading">
                 <div>
                     <span class="eyebrow">MOST USED TOOLS</span>
-                    <h2>Popular Calculators</h2>
+                    <h2>Popular calculators</h2>
                     <p>Quick answers for the calculations people use most often.</p>
                 </div>
 
@@ -281,20 +281,6 @@
         </div>
     </section>
 
-    <section class="section working-tools-section">
-        <div class="container">
-            <div class="section-heading compact-heading"><div><span class="eyebrow">MORE WAYS TO WORK SMARTER</span><h2>Working Tools</h2></div><a class="section-link" href="calculators.html">View all tools <span>&rarr;</span></a></div>
-            <div class="working-tools-grid">
-                <a href="calculators.html"><span>&#8644;</span><strong>Unit Converter</strong><small>Convert everyday units</small></a>
-                <a href="calculators.html"><span>&#9638;</span><strong>QR Code</strong><small>Generate and scan codes</small></a>
-                <a href="calculators.html"><span>&#9633;</span><strong>Image to Text</strong><small>Extract text from images</small></a>
-                <a href="calculators.html"><span>&#9776;</span><strong>Word Counter</strong><small>Count words and characters</small></a>
-                <a href="calculators.html"><span>&#9670;</span><strong>Random Generator</strong><small>Generate useful numbers</small></a>
-                <a href="calculators.html"><span>&#128274;</span><strong>Password Generator</strong><small>Create strong passwords</small></a>
-            </div>
-        </div>
-    </section>
-
     <section class="section section-alt browse-section">
         <div class="container">
             <div class="section-heading compact-heading"><div><span class="eyebrow">FIND YOUR TOOL</span><h2>Browse by category</h2></div><a class="section-link" href="calculators.html">Explore all <span>&rarr;</span></a></div>
@@ -357,11 +343,11 @@
 
     <section class="section articles-section">
         <div class="container">
-            <div class="section-heading compact-heading"><div><span class="eyebrow">LEARN SOMETHING USEFUL</span><h2>Latest Articles</h2></div><a class="section-link" href="articles.html">View all articles <span>&rarr;</span></a></div>
+            <div class="section-heading compact-heading"><div><span class="eyebrow">LEARN SOMETHING USEFUL</span><h2>Latest calculator guides</h2></div><a class="section-link" href="articles.html">View all articles <span>&rarr;</span></a></div>
             <div class="home-article-grid">
-                <a class="home-article" href="articles.html"><img src="assets/emi-guide.svg" alt="EMI calculator guide"><span class="article-tag">GUIDE</span><strong>How to calculate EMI step by step</strong><small>May 20, 2026 &middot; 5 min read</small></a>
-                <a class="home-article" href="articles.html"><img src="assets/bmi-guide.svg" alt="BMI calculator guide"><span class="article-tag health-tag">HEALTH</span><strong>What is BMI and how to improve it?</strong><small>May 18, 2026 &middot; 5 min read</small></a>
-                <a class="home-article" href="articles.html"><img src="assets/percentage-guide.svg" alt="Percentage calculation guide"><span class="article-tag tips-tag">TIPS</span><strong>Percentage increase vs decrease explained</strong><small>May 15, 2026 &middot; 6 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/emi-guide.svg" alt="EMI calculator guide"><span class="article-tag">GUIDE</span><strong>How to calculate EMI step by step</strong><small>5 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/bmi-guide.svg" alt="BMI calculator guide"><span class="article-tag health-tag">HEALTH</span><strong>What is BMI and how to improve it?</strong><small>5 min read</small></a>
+                <a class="home-article" href="articles.html"><img src="assets/percentage-guide.svg" alt="Percentage calculation guide"><span class="article-tag tips-tag">TIPS</span><strong>Percentage increase vs decrease explained</strong><small>6 min read</small></a>
                 <a class="home-article" href="articles.html"><img src="assets/interest-guide.svg" alt="Interest calculator guide"><span class="article-tag">GUIDE</span><strong>Simple and compound interest</strong><small>4 min read</small></a>
                 <a class="home-article" href="articles.html"><img src="assets/discount-guide.svg" alt="Discount calculator guide"><span class="article-tag health-tag">SHOPPING</span><strong>How to find the final sale price</strong><small>4 min read</small></a>
             </div>
