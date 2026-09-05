@@ -1,87 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://fastcalculator.website/</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/calculators.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/popular.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/percentage-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/age-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/bmi-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/emi-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/discount-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/compound-interest-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/simple-interest-calculator.html</loc>
-  </url>
-
-  <url><loc>https://fastcalculator.website/zakat-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/salary-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/gold-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/investment-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/body-fat-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/electricity-bill-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/car-loan-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/scientific-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/profit-margin-calculator.html</loc></url>
-  <url><loc>https://fastcalculator.website/universal-calculator.html</loc></url>
-
-  <url>
-    <loc>https://fastcalculator.website/tip-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/date-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/length-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/weight-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/temperature-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/average-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/articles.html</loc>
-  </url>
-
-  <url>
-    <loc>https://fastcalculator.website/about.html</loc>
-  </url>
-
+  <url><loc>https://fastcalculator.website/</loc></url>
+  <url><loc>https://fastcalculator.website/about/</loc></url>
+  <url><loc>https://fastcalculator.website/age-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/articles/</loc></url>
+  <url><loc>https://fastcalculator.website/average-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/bmi-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/body-fat-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/calculators/</loc></url>
+  <url><loc>https://fastcalculator.website/car-loan-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/compound-interest-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/date-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/discount-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/electricity-bill-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/emi-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/gold-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/investment-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/length-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/percentage-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/popular/</loc></url>
+  <url><loc>https://fastcalculator.website/profit-margin-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/salary-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/scientific-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/simple-interest-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/temperature-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/tip-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/universal-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/weight-calculator/</loc></url>
+  <url><loc>https://fastcalculator.website/zakat-calculator/</loc></url>
 </urlset>

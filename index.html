@@ -35,8 +35,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/pages.css">
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -60,11 +60,11 @@
         </a>
 
         <nav class="main-nav" aria-label="Main navigation">
-            <a href="calculators.html">Calculators</a>
-            <a href="popular.html">Popular</a>
-            <a href="calculators.html#finance">Categories</a>
-            <a href="articles.html">Articles</a>
-            <a href="about.html">About</a>
+            <a href="/calculators/">Calculators</a>
+            <a href="/popular/">Popular</a>
+            <a href="/calculators/#finance">Categories</a>
+            <a href="/articles/">Articles</a>
+            <a href="/about/">About</a>
         </nav>
 
         <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
@@ -80,45 +80,45 @@
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <span class="eyebrow">100% FREE <i aria-hidden="true">•</i> NO SIGN UP REQUIRED</span>
+                <span class="eyebrow">100% FREE <i aria-hidden="true">Ã¢â‚¬Â¢</i> NO SIGN UP REQUIRED</span>
                 <h1>Smart Calculators<br><em>for Everyday Life</em></h1>
                 <p class="hero-text">
                     All-in-one free calculator hub. Fast, accurate and easy to use for every calculation you need.
                 </p>
 
                 <div class="hero-actions">
-                    <form class="hero-search" action="calculators.html">
+                    <form class="hero-search" action="/calculators/">
                         <input type="search" name="q" placeholder="Search calculators..." aria-label="Search calculators and converters">
                         <button class="btn btn-primary" type="submit">Find a tool</button>
                     </form>
                 </div>
 
                 <div class="hero-actions">
-                    <a class="btn btn-primary btn-large" href="calculators.html">Explore Calculators <span aria-hidden="true">&#8594;</span></a>
+                    <a class="btn btn-primary btn-large" href="/calculators/">Explore Calculators <span aria-hidden="true">&#8594;</span></a>
                     <a class="btn btn-light btn-large" href="#calculators">Popular Calculators</a>
                 </div>
 
                 <div class="hero-points">
-                    <span>✓ Free to use</span>
-                    <span>✓ Mobile friendly</span>
-                    <span>✓ No registration required</span>
+                    <span>Ã¢Å“â€œ Free to use</span>
+                    <span>Ã¢Å“â€œ Mobile friendly</span>
+                    <span>Ã¢Å“â€œ No registration required</span>
                 </div>
             </div>
 
             <div class="hero-card scientific-hero-card">
-                <div class="hero-card-top"><span>Scientific Calculator</span><span class="status-dot">● Online</span></div>
+                <div class="hero-card-top"><span>Scientific Calculator</span><span class="status-dot">Ã¢â€”Â Online</span></div>
                 <input id="heroScientificDisplay" class="main-display" type="text" value="0" aria-label="Scientific calculator display">
-                <div class="scientific-hero-mode"><button type="button" class="hero-mode active" data-hero-mode="deg">◉ Deg</button><button type="button" class="hero-mode" data-hero-mode="rad">○ Rad</button></div>
+                <div class="scientific-hero-mode"><button type="button" class="hero-mode active" data-hero-mode="deg">Ã¢â€”â€° Deg</button><button type="button" class="hero-mode" data-hero-mode="rad">Ã¢â€”â€¹ Rad</button></div>
                 <div class="scientific-hero-buttons">
-                    <button type="button" data-hero-value="asin(">sin<sup>-1</sup></button><button type="button" data-hero-value="acos(">cos<sup>-1</sup></button><button type="button" data-hero-value="atan(">tan<sup>-1</sup></button><button type="button" data-hero-value="PI">π</button><button type="button" data-hero-value="E">e</button>
+                    <button type="button" data-hero-value="asin(">sin<sup>-1</sup></button><button type="button" data-hero-value="acos(">cos<sup>-1</sup></button><button type="button" data-hero-value="atan(">tan<sup>-1</sup></button><button type="button" data-hero-value="PI">Ãâ‚¬</button><button type="button" data-hero-value="E">e</button>
                     <button type="button" data-hero-value="^">x<sup>y</sup></button><button type="button" data-hero-value="^3">x<sup>3</sup></button><button type="button" data-hero-value="^2">x<sup>2</sup></button><button type="button" data-hero-value="exp(">e<sup>x</sup></button><button type="button" data-hero-value="10^">10<sup>x</sup></button>
-                    <button type="button" data-hero-value="cbrt(">y√x</button><button type="button" data-hero-value="cbrt(">³√x</button><button type="button" data-hero-value="sqrt(">√x</button><button type="button" data-hero-value="ln(">ln</button><button type="button" data-hero-value="log(">log</button>
+                    <button type="button" data-hero-value="cbrt(">yÃ¢Ë†Å¡x</button><button type="button" data-hero-value="cbrt(">Ã‚Â³Ã¢Ë†Å¡x</button><button type="button" data-hero-value="sqrt(">Ã¢Ë†Å¡x</button><button type="button" data-hero-value="ln(">ln</button><button type="button" data-hero-value="log(">log</button>
                     <button type="button" data-hero-value="(">(</button><button type="button" data-hero-value=")">)</button><button type="button" data-hero-value="1/">1/x</button><button type="button" data-hero-value="%">%</button><button type="button" data-hero-value="!">n!</button>
                     <button type="button" data-hero-value="7">7</button><button type="button" data-hero-value="8">8</button><button type="button" data-hero-value="9">9</button><button type="button" data-hero-value="+">+</button><button type="button" data-hero-action="back">Back</button>
-                    <button type="button" data-hero-value="4">4</button><button type="button" data-hero-value="5">5</button><button type="button" data-hero-value="6">6</button><button type="button" data-hero-value="-">−</button><button type="button" data-hero-action="answer">Ans</button>
-                    <button type="button" data-hero-value="1">1</button><button type="button" data-hero-value="2">2</button><button type="button" data-hero-value="3">3</button><button type="button" data-hero-value="*">×</button><button type="button" data-hero-action="memory-add">M+</button>
-                    <button type="button" data-hero-value="0">0</button><button type="button" data-hero-value=".">.</button><button type="button" data-hero-value="*10^">EXP</button><button type="button" data-hero-value="/">÷</button><button type="button" data-hero-action="memory-subtract">M-</button>
-                    <button type="button" data-hero-value="-">±</button><button type="button" data-hero-action="round">RND</button><button type="button" data-hero-action="clear">AC</button><button type="button" data-hero-action="calculate">=</button><button type="button" data-hero-action="memory-recall">MR</button>
+                    <button type="button" data-hero-value="4">4</button><button type="button" data-hero-value="5">5</button><button type="button" data-hero-value="6">6</button><button type="button" data-hero-value="-">Ã¢Ë†â€™</button><button type="button" data-hero-action="answer">Ans</button>
+                    <button type="button" data-hero-value="1">1</button><button type="button" data-hero-value="2">2</button><button type="button" data-hero-value="3">3</button><button type="button" data-hero-value="*">Ãƒâ€”</button><button type="button" data-hero-action="memory-add">M+</button>
+                    <button type="button" data-hero-value="0">0</button><button type="button" data-hero-value=".">.</button><button type="button" data-hero-value="*10^">EXP</button><button type="button" data-hero-value="/">ÃƒÂ·</button><button type="button" data-hero-action="memory-subtract">M-</button>
+                    <button type="button" data-hero-value="-">Ã‚Â±</button><button type="button" data-hero-action="round">RND</button><button type="button" data-hero-action="clear">AC</button><button type="button" data-hero-action="calculate">=</button><button type="button" data-hero-action="memory-recall">MR</button>
                 </div>
             </div>
         </div>
@@ -126,12 +126,12 @@
 
     <section class="category-strip" aria-label="Calculator categories">
         <div class="container category-grid">
-            <a class="category-tile finance" href="calculators.html#finance"><span class="category-symbol">$</span><strong>Finance</strong><small>40+ Calculators</small></a>
-            <a class="category-tile math" href="calculators.html#student"><span class="category-symbol">&#8721;</span><strong>Math</strong><small>30+ Calculators</small></a>
-            <a class="category-tile health" href="calculators.html#health"><span class="category-symbol">&#9829;</span><strong>Health</strong><small>15+ Calculators</small></a>
-            <a class="category-tile time" href="calculators.html#converters"><span class="category-symbol">&#128336;</span><strong>Time &amp; Date</strong><small>20+ Calculators</small></a>
-            <a class="category-tile convert" href="calculators.html#converters"><span class="category-symbol">&#8644;</span><strong>Converters</strong><small>25+ Converters</small></a>
-            <a class="category-tile tools" href="calculators.html"><span class="category-symbol">&#9638;</span><strong>Other Tools</strong><small>20+ Tools</small></a>
+            <a class="category-tile finance" href="/calculators/#finance"><span class="category-symbol">$</span><strong>Finance</strong><small>40+ Calculators</small></a>
+            <a class="category-tile math" href="/calculators/#student"><span class="category-symbol">&#8721;</span><strong>Math</strong><small>30+ Calculators</small></a>
+            <a class="category-tile health" href="/calculators/#health"><span class="category-symbol">&#9829;</span><strong>Health</strong><small>15+ Calculators</small></a>
+            <a class="category-tile time" href="/calculators/#converters"><span class="category-symbol">&#128336;</span><strong>Time &amp; Date</strong><small>20+ Calculators</small></a>
+            <a class="category-tile convert" href="/calculators/#converters"><span class="category-symbol">&#8644;</span><strong>Converters</strong><small>25+ Converters</small></a>
+            <a class="category-tile tools" href="/calculators/"><span class="category-symbol">&#9638;</span><strong>Other Tools</strong><small>20+ Tools</small></a>
         </div>
     </section>
 
@@ -160,118 +160,118 @@
 
             <div id="calculatorGrid" class="tool-grid">
 
-                <a class="tool-card" href="percentage-calculator.html"
+                <a class="tool-card" href="/percentage-calculator/"
                    data-name="percentage calculator percent">
                     <span class="tool-icon">%</span>
                     <strong>Percentage Calculator</strong>
                     <span>Calculate percentages quickly.</span>
                 </a>
 
-                <a class="tool-card" href="age-calculator.html"
+                <a class="tool-card" href="/age-calculator/"
                    data-name="age calculator birthday">
                     <span class="tool-icon">AGE</span>
                     <strong>Age Calculator</strong>
                     <span>Find exact age from date of birth.</span>
                 </a>
 
-                <a class="tool-card" href="bmi-calculator.html"
+                <a class="tool-card" href="/bmi-calculator/"
                    data-name="bmi calculator health">
                     <span class="tool-icon">BMI</span>
                     <strong>BMI Calculator</strong>
                     <span>Calculate BMI from height and weight.</span>
                 </a>
 
-                <a class="tool-card" href="emi-calculator.html"
+                <a class="tool-card" href="/emi-calculator/"
                    data-name="loan calculator finance emi">
                     <span class="tool-icon">EMI</span>
                     <strong>Loan / EMI Calculator</strong>
                     <span>Estimate monthly loan payments.</span>
                 </a>
 
-                <a class="tool-card" href="date-calculator.html"
+                <a class="tool-card" href="/date-calculator/"
                    data-name="date calculator date difference days">
                     <span class="tool-icon">DATE</span>
                     <strong>Date Calculator</strong>
                     <span>Calculate the difference between dates.</span>
                 </a>
 
-                <a class="tool-card" href="discount-calculator.html"
+                <a class="tool-card" href="/discount-calculator/"
                    data-name="discount calculator sale price">
                     <span class="tool-icon">%</span>
                     <strong>Discount Calculator</strong>
                     <span>Find savings and final price.</span>
                 </a>
 
-                <a class="tool-card" href="compound-interest-calculator.html"
+                <a class="tool-card" href="/compound-interest-calculator/"
                    data-name="compound interest calculator investment">
                     <span class="tool-icon">CI</span>
                     <strong>Compound Interest</strong>
                     <span>Calculate compound growth.</span>
                 </a>
 
-                <a class="tool-card" href="length-calculator.html"
+                <a class="tool-card" href="/length-calculator/"
                    data-name="length converter unit conversion">
-                    <span class="tool-icon">↔</span>
+                    <span class="tool-icon">Ã¢â€ â€</span>
                     <strong>Length Converter</strong>
                     <span>Convert common length units.</span>
                 </a>
 
-                <a class="tool-card" href="weight-calculator.html"
+                <a class="tool-card" href="/weight-calculator/"
                    data-name="weight converter mass conversion">
                     <span class="tool-icon">KG</span>
                     <strong>Weight Converter</strong>
                     <span>Convert weight and mass units.</span>
                 </a>
 
-                <a class="tool-card" href="temperature-calculator.html"
+                <a class="tool-card" href="/temperature-calculator/"
                    data-name="temperature converter celsius fahrenheit kelvin">
-                    <span class="tool-icon">°</span>
+                    <span class="tool-icon">Ã‚Â°</span>
                     <strong>Temperature Converter</strong>
                     <span>Convert Celsius, Fahrenheit and Kelvin.</span>
                 </a>
 
-                <a class="tool-card" href="universal-calculator.html?type=currency"
+                <a class="tool-card" href="/universal-calculator/?type=currency"
                    data-name="currency converter exchange rates money">
                     <span class="tool-icon">FX</span>
                     <strong>Currency Converter</strong>
                     <span>Convert common currencies with indicative rates.</span>
                 </a>
 
-                <a class="tool-card" href="tip-calculator.html"
+                <a class="tool-card" href="/tip-calculator/"
                    data-name="tip calculator gratuity">
                     <span class="tool-icon">$</span>
                     <strong>Tip Calculator</strong>
                     <span>Calculate tip and total bill.</span>
                 </a>
 
-                <a class="tool-card" href="profit-margin-calculator.html"
+                <a class="tool-card" href="/profit-margin-calculator/"
                    data-name="profit margin calculator business">
-                    <span class="tool-icon">↗</span>
+                    <span class="tool-icon">Ã¢â€ â€”</span>
                     <strong>Profit Margin</strong>
                     <span>Calculate profit and margin.</span>
                 </a>
 
-                <a class="tool-card" href="average-calculator.html"
+                <a class="tool-card" href="/average-calculator/"
                    data-name="average calculator mean">
                     <span class="tool-icon">AVG</span>
                     <strong>Average Calculator</strong>
                     <span>Calculate the average of numbers.</span>
                 </a>
 
-                <a class="tool-card" href="simple-interest-calculator.html"
+                <a class="tool-card" href="/simple-interest-calculator/"
                    data-name="simple interest calculator finance">
                     <span class="tool-icon">SI</span>
                     <strong>Simple Interest</strong>
                     <span>Calculate simple interest and total.</span>
                 </a>
 
-                <a class="tool-card" href="zakat-calculator.html" data-name="zakat calculator charity islamic finance"><span class="tool-icon">Z</span><strong>Zakat Calculator</strong><span>Estimate annual Zakat on eligible wealth.</span></a>
-                <a class="tool-card" href="salary-calculator.html" data-name="salary calculator pay income"><span class="tool-icon">PAY</span><strong>Salary Calculator</strong><span>Convert annual salary to pay periods.</span></a>
-                <a class="tool-card" href="gold-calculator.html" data-name="gold calculator price purity"><span class="tool-icon">AU</span><strong>Gold Calculator</strong><span>Estimate gold value by weight and purity.</span></a>
-                <a class="tool-card" href="investment-calculator.html" data-name="investment calculator returns growth savings"><span class="tool-icon">INV</span><strong>Investment Calculator</strong><span>Project growth with regular contributions.</span></a>
-                <a class="tool-card" href="body-fat-calculator.html" data-name="body fat calculator health fitness"><span class="tool-icon">BF</span><strong>Body Fat Calculator</strong><span>Estimate body fat from measurements.</span></a>
-                <a class="tool-card" href="electricity-bill-calculator.html" data-name="electricity bill calculator energy kwh"><span class="tool-icon">KWH</span><strong>Electricity Bill</strong><span>Estimate energy charges and total bill.</span></a>
-                <a class="tool-card" href="car-loan-calculator.html" data-name="car auto loan calculator vehicle finance"><span class="tool-icon">CAR</span><strong>Car Loan Calculator</strong><span>Estimate monthly vehicle payments.</span></a>
+                <a class="tool-card" href="/zakat-calculator/" data-name="zakat calculator charity islamic finance"><span class="tool-icon">Z</span><strong>Zakat Calculator</strong><span>Estimate annual Zakat on eligible wealth.</span></a>
+                <a class="tool-card" href="/salary-calculator/" data-name="salary calculator pay income"><span class="tool-icon">PAY</span><strong>Salary Calculator</strong><span>Convert annual salary to pay periods.</span></a>
+                <a class="tool-card" href="/gold-calculator/" data-name="gold calculator price purity"><span class="tool-icon">AU</span><strong>Gold Calculator</strong><span>Estimate gold value by weight and purity.</span></a>
+                <a class="tool-card" href="/investment-calculator/" data-name="investment calculator returns growth savings"><span class="tool-icon">INV</span><strong>Investment Calculator</strong><span>Project growth with regular contributions.</span></a>
+                <a class="tool-card" href="/body-fat-calculator/" data-name="body fat calculator health fitness"><span class="tool-icon">BF</span><strong>Body Fat Calculator</strong><span>Estimate body fat from measurements.</span></a>
+                <a class="tool-card" href="/electricity-bill-calculator/" data-name="electricity bill calculator energy kwh"><span class="tool-icon">KWH</span><strong>Electricity Bill</strong><span>Estimate energy charges and total bill.</span></a>
+                <a class="tool-card" href="/car-loan-calculator/" data-name="car auto loan calculator vehicle finance"><span class="tool-icon">CAR</span><strong>Car Loan Calculator</strong><span>Estimate monthly vehicle payments.</span></a>
             </div>
 
             <p id="noResults" class="no-results" hidden>
@@ -283,14 +283,14 @@
 
     <section class="section section-alt browse-section">
         <div class="container">
-            <div class="section-heading compact-heading"><div><span class="eyebrow">FIND YOUR TOOL</span><h2>Browse by category</h2></div><a class="section-link" href="calculators.html">Explore all <span>&rarr;</span></a></div>
+            <div class="section-heading compact-heading"><div><span class="eyebrow">FIND YOUR TOOL</span><h2>Browse by category</h2></div><a class="section-link" href="/calculators/">Explore all <span>&rarr;</span></a></div>
             <div class="image-category-grid">
-                <a class="image-category finance-image" href="calculators.html#finance"><strong>Finance</strong><small>Loans, EMI, interest and investments</small><span>Explore &rarr;</span></a>
-                <a class="image-category math-image" href="calculators.html#student"><strong>Math</strong><small>Algebra, percentage and trigonometry</small><span>Explore &rarr;</span></a>
-                <a class="image-category health-image" href="calculators.html#health"><strong>Health</strong><small>BMI, BMR, calories and fitness</small><span>Explore &rarr;</span></a>
-                <a class="image-category time-image" href="calculators.html#converters"><strong>Date &amp; Time</strong><small>Date math, age and day planning</small><span>Explore &rarr;</span></a>
-                <a class="image-category world-image" href="calculators.html"><strong>Converters</strong><small>Unit, currency, length and weight</small><span>Explore &rarr;</span></a>
-                <a class="image-category tools-image" href="calculators.html"><strong>Everyday Tools</strong><small>Discount, tip, VAT and more</small><span>Explore &rarr;</span></a>
+                <a class="image-category finance-image" href="/calculators/#finance"><strong>Finance</strong><small>Loans, EMI, interest and investments</small><span>Explore &rarr;</span></a>
+                <a class="image-category math-image" href="/calculators/#student"><strong>Math</strong><small>Algebra, percentage and trigonometry</small><span>Explore &rarr;</span></a>
+                <a class="image-category health-image" href="/calculators/#health"><strong>Health</strong><small>BMI, BMR, calories and fitness</small><span>Explore &rarr;</span></a>
+                <a class="image-category time-image" href="/calculators/#converters"><strong>Date &amp; Time</strong><small>Date math, age and day planning</small><span>Explore &rarr;</span></a>
+                <a class="image-category world-image" href="/calculators/"><strong>Converters</strong><small>Unit, currency, length and weight</small><span>Explore &rarr;</span></a>
+                <a class="image-category tools-image" href="/calculators/"><strong>Everyday Tools</strong><small>Discount, tip, VAT and more</small><span>Explore &rarr;</span></a>
             </div>
         </div>
     </section>
@@ -322,14 +322,14 @@
 
     <section class="section converter-section">
         <div class="container">
-            <div class="section-heading compact-heading"><div><span class="eyebrow">QUICK CONVERSIONS</span><h2>Popular converters</h2></div><a class="section-link" href="calculators.html#converters">View all converters <span>&rarr;</span></a></div>
+            <div class="section-heading compact-heading"><div><span class="eyebrow">QUICK CONVERSIONS</span><h2>Popular converters</h2></div><a class="section-link" href="/calculators/#converters">View all converters <span>&rarr;</span></a></div>
             <div class="converter-grid">
-                <a href="length-calculator.html"><span class="converter-icon length">&#8596;</span><strong>Length Converter</strong><small>Convert between units of length</small></a>
-                <a href="weight-calculator.html"><span class="converter-icon weight">KG</span><strong>Weight Converter</strong><small>Convert between units of weight</small></a>
-                <a href="temperature-calculator.html"><span class="converter-icon temperature">&#176;</span><strong>Temperature Converter</strong><small>Convert between &#176;C, &#176;F, K</small></a>
-                <a href="universal-calculator.html?type=area"><span class="converter-icon area">&#9633;</span><strong>Area Converter</strong><small>Convert between units of area</small></a>
-                <a href="universal-calculator.html?type=volume"><span class="converter-icon volume">&#9632;</span><strong>Volume Converter</strong><small>Convert between units of volume</small></a>
-                <a href="universal-calculator.html?type=speed"><span class="converter-icon speed">&#8635;</span><strong>Speed Converter</strong><small>Convert between units of speed</small></a>
+                <a href="/length-calculator/"><span class="converter-icon length">&#8596;</span><strong>Length Converter</strong><small>Convert between units of length</small></a>
+                <a href="/weight-calculator/"><span class="converter-icon weight">KG</span><strong>Weight Converter</strong><small>Convert between units of weight</small></a>
+                <a href="/temperature-calculator/"><span class="converter-icon temperature">&#176;</span><strong>Temperature Converter</strong><small>Convert between &#176;C, &#176;F, K</small></a>
+                <a href="/universal-calculator/?type=area"><span class="converter-icon area">&#9633;</span><strong>Area Converter</strong><small>Convert between units of area</small></a>
+                <a href="/universal-calculator/?type=volume"><span class="converter-icon volume">&#9632;</span><strong>Volume Converter</strong><small>Convert between units of volume</small></a>
+                <a href="/universal-calculator/?type=speed"><span class="converter-icon speed">&#8635;</span><strong>Speed Converter</strong><small>Convert between units of speed</small></a>
             </div>
             <div class="ad-placeholder" aria-label="Advertisement space">ADVERTISEMENT SPACE<strong>728 x 90</strong></div>
         </div>
@@ -345,21 +345,21 @@
         </div>
         <div class="footer-owner">Managed and owned by <strong>Hafiz Tahir Mahmood</strong></div>
         <div class="footer-links">
-            <a href="calculators.html">All Calculators</a>
-            <a href="popular.html">Popular</a>
-            <a href="articles.html">Articles</a>
-            <a href="about.html">About</a>
+            <a href="/calculators/">All Calculators</a>
+            <a href="/popular/">Popular</a>
+            <a href="/articles/">Articles</a>
+            <a href="/about/">About</a>
             <a href="SECURITY.md">Privacy &amp; Security</a>
         </div>
     </div>
     <div class="container copyright">
-        © 2026 Fast Calculator. All rights reserved.
+        Ã‚Â© 2026 Fast Calculator. All rights reserved.
     </div>
 </footer>
 
     <script>
     document.querySelectorAll("#calculatorGrid .tool-card").forEach(function (card) {
-        const popular = ["percentage-calculator.html", "age-calculator.html", "bmi-calculator.html", "emi-calculator.html", "discount-calculator.html", "date-calculator.html", "compound-interest-calculator.html", "tip-calculator.html"];
+        const popular = ["/percentage-calculator/", "/age-calculator/", "/bmi-calculator/", "/emi-calculator/", "/discount-calculator/", "/date-calculator/", "/compound-interest-calculator/", "/tip-calculator/"];
         if (!popular.includes(card.getAttribute("href"))) card.hidden = true;
     });
 
@@ -426,7 +426,7 @@
 <!-- Auth Modal -->
 <div id="authModal" class="modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-        <button id="closeAuth" class="modal-close" type="button" aria-label="Close">×</button>
+        <button id="closeAuth" class="modal-close" type="button" aria-label="Close">Ãƒâ€”</button>
         <span class="eyebrow">ACCOUNT</span>
         <h2 id="authTitle">Sign in to Fast Calculator</h2>
         <p>Use your Google account to sign in.</p>
