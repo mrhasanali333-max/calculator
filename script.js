@@ -217,7 +217,7 @@ function showResult(id, message) {
 function formatNumber(number, decimals = 2) {
 
     if (!Number.isFinite(number)) {
-        return "â€”";
+        return String.fromCharCode(8212);
     }
 
     return Number(
@@ -624,7 +624,7 @@ function bmi() {
         "bmiResult",
         "BMI: " +
         formatNumber(bmiValue) +
-        " â€” " +
+        String.fromCharCode(32, 8212, 32) +
         category
     );
 
@@ -941,7 +941,7 @@ function temperatureConverter() {
     showResult(
         "temperatureResult",
         formatNumber(result, 4) +
-        " Â°" +
+        String.fromCharCode(32, 176) +
         to.value.toUpperCase()
     );
 
