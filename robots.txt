@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /google157873b13e91c5a7.html
-Disallow: /*.html$
 
 Sitemap: https://fastcalculator.website/sitemap.xml
